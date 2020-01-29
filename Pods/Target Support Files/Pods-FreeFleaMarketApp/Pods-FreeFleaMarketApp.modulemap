@@ -1,0 +1,6 @@
+framework module Pods_FreeFleaMarketApp {
+  umbrella header "Pods-FreeFleaMarketApp-umbrella.h"
+
+  export *
+  module * { export * }
+}

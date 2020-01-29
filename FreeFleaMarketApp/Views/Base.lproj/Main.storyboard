@@ -157,6 +157,36 @@
             </objects>
             <point key="canvasLocation" x="2747.826086956522" y="91.741071428571431"/>
         </scene>
+        <!--New EventVC-->
+        <scene sceneID="7uA-Dn-TZU">
+            <objects>
+                <viewController id="QM9-KH-ohc" customClass="NewEventVC" customModule="FreeFleaMarketApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="nBL-ek-d97">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Pick a date" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="13t-ts-Nqh">
+                                <rect key="frame" x="24" y="213" width="370" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="Kwu-Hn-eTH" firstAttribute="trailing" secondItem="13t-ts-Nqh" secondAttribute="trailing" constant="20" id="IsP-h3-hXI"/>
+                            <constraint firstItem="13t-ts-Nqh" firstAttribute="leading" secondItem="Kwu-Hn-eTH" secondAttribute="leading" constant="24" id="NNf-iE-90L"/>
+                            <constraint firstItem="13t-ts-Nqh" firstAttribute="top" secondItem="Kwu-Hn-eTH" secondAttribute="top" constant="169" id="ZWO-ft-BOu"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Kwu-Hn-eTH"/>
+                    </view>
+                    <connections>
+                        <outlet property="datePicker" destination="13t-ts-Nqh" id="wuM-At-dQG"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wh2-4h-Pbq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3613.04347826087" y="91.741071428571431"/>
+        </scene>
         <!--RegisterVC-->
         <scene sceneID="EMf-28-dvF">
             <objects>
