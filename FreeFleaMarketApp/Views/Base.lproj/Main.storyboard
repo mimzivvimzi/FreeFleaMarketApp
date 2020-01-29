@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="zc1-NQ-z8d">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15509"/>
@@ -23,9 +23,6 @@
                                 <state key="normal" title="Register">
                                     <color key="titleColor" red="0.24306506" green="0.08917416903" blue="0.4301633883" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </state>
-                                <connections>
-                                    <segue destination="oBX-Oz-ngn" kind="show" id="NoI-3Z-2bP"/>
-                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ldF-mq-b85">
                                 <rect key="frame" x="0.0" y="781" width="414" height="60"/>
@@ -36,7 +33,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <segue destination="IYb-yd-ckX" kind="show" id="4dO-35-I8U"/>
+                                    <action selector="loginPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="WQc-UV-2YL"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Free Flea Market App" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FKF-hf-m4O">
@@ -51,6 +48,9 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="4Yq-uF-IUH"/>
+                    <connections>
+                        <segue destination="krs-mn-mpb" kind="show" identifier="goToEventList" id="cWx-kl-hdg"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -67,20 +67,17 @@
                         <viewLayoutGuide key="safeArea" id="1rh-sH-PO9"/>
                     </view>
                     <navigationItem key="navigationItem" id="UdG-NV-r5X"/>
-                    <connections>
-                        <segue destination="krs-mn-mpb" kind="show" id="k5G-y5-47l"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nt3-PC-plI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1876.8115942028987" y="447.99107142857139"/>
+            <point key="canvasLocation" x="1933" y="950"/>
         </scene>
         <!--Event ListUI TableVC-->
         <scene sceneID="0GY-Xi-65k">
             <objects>
                 <viewController id="krs-mn-mpb" customClass="EventListUITableVC" customModule="FreeFleaMarketApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="kWh-aI-xCN">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Nay-CK-bFe">
@@ -155,7 +152,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="p7b-8T-XEv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2747.826086956522" y="91.741071428571431"/>
+            <point key="canvasLocation" x="2690" y="115"/>
         </scene>
         <!--New EventVC-->
         <scene sceneID="7uA-Dn-TZU">
@@ -185,7 +182,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wh2-4h-Pbq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3613.04347826087" y="91.741071428571431"/>
+            <point key="canvasLocation" x="3543" y="115"/>
         </scene>
         <!--RegisterVC-->
         <scene sceneID="EMf-28-dvF">
@@ -198,13 +195,10 @@
                         <viewLayoutGuide key="safeArea" id="tU1-mJ-28W"/>
                     </view>
                     <navigationItem key="navigationItem" id="eg0-cP-g3y"/>
-                    <connections>
-                        <segue destination="krs-mn-mpb" kind="show" id="NRY-yZ-tda"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="e26-gt-KCn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1876.8115942028987" y="-261.16071428571428"/>
+            <point key="canvasLocation" x="1984" y="-681"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="ABT-2Z-0YA">
@@ -216,16 +210,10 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="Jka-Vi-LAg"/>
-                    </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UR9-6f-CV9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="137.68115942028987" y="114.50892857142857"/>
+            <point key="canvasLocation" x="180" y="115"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="NRY-yZ-tda"/>
-    </inferredMetricsTieBreakers>
 </document>

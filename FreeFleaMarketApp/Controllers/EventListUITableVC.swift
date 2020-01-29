@@ -7,6 +7,9 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseUI
+
 
 class EventListUITableVC: UITableViewController {
 
