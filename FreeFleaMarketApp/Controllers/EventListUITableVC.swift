@@ -36,7 +36,7 @@ class EventListUITableVC: UITableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return 0
-        // AMOUNT OF EVENTS IN THE FIREBASE DB 
+        // AMOUNT OF EVENTS IN THE FIREBASE DB
     }
 
     /*

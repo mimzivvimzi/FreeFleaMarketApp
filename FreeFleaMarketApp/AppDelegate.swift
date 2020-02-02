@@ -12,12 +12,17 @@ import Firebase
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
+    
+    
+    //var window: UIWindow?
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         FirebaseApp.configure()
+        
+        // IS THE CODE BELOW ONLY USED FOR BUILDING A LOGIN/REGISTRATION VIEW CONTROLLER FROM SCRATCH?
+        
 //        let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
 //                if let user = User.currentUser() {
 //                   let viewController = mainStoryboard.instantiateViewControllerWithIdentifier("main") as! UITabBarController
