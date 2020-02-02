@@ -9,6 +9,7 @@
 import UIKit
 import Firebase
 
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -17,6 +18,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         FirebaseApp.configure()
+//        let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+//                if let user = User.currentUser() {
+//                   let viewController = mainStoryboard.instantiateViewControllerWithIdentifier("main") as! UITabBarController
+//                    self.window!.rootViewController = viewController;
+//                    print("Logged in as \(user)")
+//                }
+//                else{
+//                    let viewController = mainStoryboard.instantiateViewControllerWithIdentifier("loginScreen") as! LoginViewController
+//                    self.window!.rootViewController = viewController;
+//        }
         return true
     }
 

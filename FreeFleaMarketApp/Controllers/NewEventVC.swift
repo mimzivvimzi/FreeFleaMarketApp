@@ -16,6 +16,16 @@ class NewEventVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+//        let date = Date()
+//        let calendar = Calendar.current
+//        let hour = calendar.component(.hour, from: date)
+//        let minute = calendar.component(.minute, from: date)
+//        print("hours = \(hour):\(minute))")
+        
+        
+        
 
         datePicker = UIDatePicker()
         datePicker?.datePickerMode = .date

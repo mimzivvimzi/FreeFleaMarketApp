@@ -18,16 +18,22 @@ class WelcomeVC: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        handle = Auth.auth().addStateDidChangeListener { (auth, user) in
-          // ...
-        }
-    }
+//    override func viewWillAppear(_ animated: Bool) {
+//        handle = Auth.auth().addStateDidChangeListener { (auth, user) in
+//          // ...
+//        }
+//    }
+//
+//    override func viewWillDisappear(_ animated: Bool) {
+//        Auth.auth().removeStateDidChangeListener(handle!)
+//
+//    }
     
-    override func viewWillDisappear(_ animated: Bool) {
-        Auth.auth().removeStateDidChangeListener(handle!)
-
-    }
+    
+    // NOT SURE HOW TO USE THIS
+//    func authUI(_ authUI: FUIAuth, didSignInWith user: User?, error: Error?) {
+//      // handle user and error as necessary
+//    }
 
 
     @IBAction func loginPressed(_ sender: UIButton) {
@@ -38,7 +44,7 @@ class WelcomeVC: UIViewController {
         guard authUI != nil else {
             // LOG THE ERROR
             return
-        } // HOW DO YOU READ THIS IN PLAIN ENGLISH?  MAKE SURE AUTHUI IS NOT NIL?
+        } // HOW DO YOU READ THIS IN PLAIN ENGLISH?  MAKE SURE authUI IS NOT NIL?
         
         // SET SELF AS THE DELEGATE
         authUI?.delegate = self
