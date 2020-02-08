@@ -11,7 +11,7 @@ import FirebaseAuth
 
 
 class Event {
-    var owner: User
+    var owner: String
     var title: String
     var date:  Date // MAYBE USE DateFormatter() IN A DIFFERENT PART OF THIS PROJECT?
     // NEED TO FIGURE OUT WHAT 'TIME' WILL BE.  JUST USE date FOR THE DATE AND TIME?  SINCE IT CAN HOLD DATE AND TIME INFO?
@@ -19,7 +19,7 @@ class Event {
     var image: UIImage?
     var description: String
 
-    init(owner: User, title: String, date: Date, location: String, image: UIImage?, description: String) {
+    init(owner: String, title: String, date: Date, location: String, image: UIImage?, description: String) {
         self.owner = owner
         self.title = title
         self.date = date

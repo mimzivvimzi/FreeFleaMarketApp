@@ -14,25 +14,28 @@ import Firebase
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
     
-    //var window: UIWindow?
+    var window: UIWindow?
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         FirebaseApp.configure()
+                
         
-        // IS THE CODE BELOW ONLY USED FOR BUILDING A LOGIN/REGISTRATION VIEW CONTROLLER FROM SCRATCH?
         
-//        let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-//                if let user = User.currentUser() {
-//                   let viewController = mainStoryboard.instantiateViewControllerWithIdentifier("main") as! UITabBarController
-//                    self.window!.rootViewController = viewController;
-//                    print("Logged in as \(user)")
-//                }
-//                else{
-//                    let viewController = mainStoryboard.instantiateViewControllerWithIdentifier("loginScreen") as! LoginViewController
-//                    self.window!.rootViewController = viewController;
-//        }
+        let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        self.window = UIWindow.init(frame: UIScreen.main.bounds)
+            if Auth.auth().currentUser != nil {
+              // User is signed in. EVENT LIST IS SHOWN
+                let viewController = mainStoryboard.instantiateViewController(withIdentifier: "eventVC") as! EventListUITableVC
+                self.window!.rootViewController = viewController;
+                //print("Logged in as \(user)")
+            } else {
+              // No user is signed in. LOGIN SCREEN IS SHOWN
+                let viewController = mainStoryboard.instantiateViewController(withIdentifier: "loginVC")
+              self.window!.rootViewController = viewController;
+            }
+        self.window?.makeKeyAndVisible()
         return true
     }
 

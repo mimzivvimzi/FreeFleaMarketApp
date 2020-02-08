@@ -12,8 +12,17 @@ import FirebaseUI
 
 
 class EventListUITableVC: UITableViewController {
-
-     //@IBOutlet weak var eventListUITableVC: UITableView!
+    
+    let authUI = FUIAuth.defaultAuthUI()
+    
+    @IBAction func logoutPressed(_ sender: Any) {
+        
+        //authUI?.signOut()
+    }
+    
+    
+    var eventList : [Event] = [Event(owner: "Someone", title: "Cool Event", date: Date(), location: "super cool place", image: UIImage(named: "waterfall"), description: "woow")]
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,19 +44,32 @@ class EventListUITableVC: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return eventList.count
         // AMOUNT OF EVENTS IN THE FIREBASE DB
     }
 
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! EventListTableCell
+        let currentEvent = eventList[0]
+        
+        let date = Date()
+        let calendar = Calendar.current
+        let day = calendar.component(.day, from: date)
+        let hour = calendar.component(.hour, from: date)
+        let minute = calendar.component(.minute, from: date)
+        
+        cell.eventTitle.text = currentEvent.title
+        cell.date.text = "On the \(day)"
+        cell.time.text = "\(hour):\(minute))"
+        cell.location.text = currentEvent.location
+        cell.eventImage.image = currentEvent.image
+        cell.eventDescriptionLabel.text = currentEvent.description
 
-        // Configure the cell...
 
         return cell
     }
-    */
+    
 
     /*
     // Override to support conditional editing of the table view.
