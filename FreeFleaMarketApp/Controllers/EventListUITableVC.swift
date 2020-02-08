@@ -13,11 +13,15 @@ import FirebaseUI
 
 class EventListUITableVC: UITableViewController {
     
-    let authUI = FUIAuth.defaultAuthUI()
     
     @IBAction func logoutPressed(_ sender: Any) {
-        
-        //authUI?.signOut()
+        let authUI: FUIAuth = FUIAuth.defaultAuthUI()!
+        do {
+            try authUI.signOut()
+        } catch{
+            //handle error
+        }
+        //take to login screen
     }
     
     
