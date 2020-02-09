@@ -20,7 +20,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.91167001230241318" green="0.88842120589510243" blue="0.91537119289340096" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="40"/>
-                                <state key="normal" title="Register">
+                                <state key="normal" title="Login">
                                     <color key="titleColor" red="0.24306506" green="0.08917416903" blue="0.4301633883" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </state>
                             </button>
@@ -29,11 +29,11 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.24306506" green="0.08917416903" blue="0.4301633883" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="40"/>
-                                <state key="normal" title="Login">
+                                <state key="normal" title="Register">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <action selector="loginPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="WQc-UV-2YL"/>
+                                    <action selector="registerPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="WQc-UV-2YL"/>
                                     <segue destination="EoV-Us-wS5" kind="show" identifier="goToEventList" id="39H-ZX-jH9"/>
                                 </connections>
                             </button>
@@ -52,7 +52,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3431.884057971015" y="118.52678571428571"/>
+            <point key="canvasLocation" x="-2159" y="384"/>
         </scene>
         <!--LoginVC-->
         <scene sceneID="3Qe-Nc-v1y">
@@ -68,7 +68,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nt3-PC-plI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1933" y="950"/>
+            <point key="canvasLocation" x="26" y="1277"/>
         </scene>
         <!--New EventVC-->
         <scene sceneID="7uA-Dn-TZU">
@@ -98,7 +98,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wh2-4h-Pbq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6272.4637681159429" y="114.50892857142857"/>
+            <point key="canvasLocation" x="2204" y="384"/>
         </scene>
         <!--RegisterVC-->
         <scene sceneID="EMf-28-dvF">
@@ -114,7 +114,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="e26-gt-KCn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1984" y="-681"/>
+            <point key="canvasLocation" x="117" y="-434"/>
         </scene>
         <!--Event ListUI TableVC-->
         <scene sceneID="XmI-UZ-bLN">
@@ -144,37 +144,37 @@
                                             <rect key="frame" x="20" y="11" width="374" height="213"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="SFj-Ly-Gae">
-                                                    <rect key="frame" x="0.0" y="0.0" width="217" height="100"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="217.5" height="100"/>
                                                 </imageView>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="GIR-Rq-Y46">
-                                                    <rect key="frame" x="227" y="0.0" width="147" height="134.5"/>
+                                                    <rect key="frame" x="227.5" y="0.0" width="146.5" height="134.5"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title of Event Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A98-VA-atA">
-                                                            <rect key="frame" x="0.0" y="0.0" width="147" height="20.5"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="146.5" height="20.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6e6-Pu-fnb">
-                                                            <rect key="frame" x="0.0" y="28.5" width="147" height="20.5"/>
+                                                            <rect key="frame" x="0.0" y="28.5" width="146.5" height="20.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V5w-FD-3jP">
-                                                            <rect key="frame" x="0.0" y="57" width="147" height="20.5"/>
+                                                            <rect key="frame" x="0.0" y="57" width="146.5" height="20.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jHn-Z0-jk3">
-                                                            <rect key="frame" x="0.0" y="85.5" width="147" height="20.5"/>
+                                                            <rect key="frame" x="0.0" y="85.5" width="146.5" height="20.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u3h-zw-zqa">
-                                                            <rect key="frame" x="0.0" y="114" width="147" height="20.5"/>
+                                                            <rect key="frame" x="0.0" y="114" width="146.5" height="20.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -221,7 +221,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bUt-BS-2yU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5371.0144927536239" y="118.52678571428571"/>
+            <point key="canvasLocation" x="891" y="384"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="J5H-Tz-aCw">
@@ -240,7 +240,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kzf-w5-CjT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4460.8695652173919" y="118.52678571428571"/>
+            <point key="canvasLocation" x="-580" y="384"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="jkJ-oN-3UZ">
@@ -255,7 +255,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dHv-5f-ogK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2521.739130434783" y="118.52678571428571"/>
+            <point key="canvasLocation" x="-4219" y="384"/>
         </scene>
     </scenes>
 </document>

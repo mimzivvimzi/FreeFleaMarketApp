@@ -11,7 +11,7 @@ import FirebaseAuth
 
 
 class Event {
-    var owner: String
+    var owner: String  // NEEDS TO BE TYPE "USER" WHICH IS ALREADY BUILT IN IN FIREBASEUI
     var title: String
     var date:  Date // MAYBE USE DateFormatter() IN A DIFFERENT PART OF THIS PROJECT?
     // NEED TO FIGURE OUT WHAT 'TIME' WILL BE.  JUST USE date FOR THE DATE AND TIME?  SINCE IT CAN HOLD DATE AND TIME INFO?

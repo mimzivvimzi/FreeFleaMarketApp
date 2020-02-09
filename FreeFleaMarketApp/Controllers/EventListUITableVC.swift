@@ -20,16 +20,31 @@ class EventListUITableVC: UITableViewController {
             try authUI.signOut()
         } catch{
             //handle error
+            print(error)
         }
         //take to login screen
+        if let storyboard = self.storyboard {
+            let vc = storyboard.instantiateViewController(withIdentifier: "loginVC")
+            // WHY IS IT self.present?  NOT IN A CLOSURE, BUT...
+            self.present(vc, animated: true, completion: nil)
+            }
+        
+//        let loginVC = self.storyboard?.instantiateViewController(identifier: "loginVC")
+//
+//        let appDel: AppDelegate = UIApplication.shared.delegate as! AppDelegate
+//
+//        appDel.window?.rootViewController = loginVC
+        
     }
     
-    
+    // THIS IS CREATING AN ARRAY OF TYPE "EVENT" AND HARD CODING AN INSTANCE OF A TEST EVENT IN THAT ARRAY.
     var eventList : [Event] = [Event(owner: "Someone", title: "Cool Event", date: Date(), location: "super cool place", image: UIImage(named: "waterfall"), description: "woow")]
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // THIS VC THAT WE'RE IN RIGHT NOW WILL TAKE ON THE TASK OF RECEIVING THE TABLEVIEW 
         self.tableView.delegate = self
         
         // Uncomment the following line to preserve selection between presentations
@@ -48,28 +63,36 @@ class EventListUITableVC: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
+        // CURRENTLY THE NUMBER OF ITEMS IN THE ARRAY
         return eventList.count
-        // AMOUNT OF EVENTS IN THE FIREBASE DB
+        // TO DO: AMOUNT OF EVENTS IN THE FIREBASE DB
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        // CREATING A REUSABLE CELL CALLED "CELL"
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! EventListTableCell
+        // TAKING THE 0TH EVENT
         let currentEvent = eventList[0]
         
+        // TAKING THE CURRENT DATE/TIME AS A TIMESTAMP
         let date = Date()
+        // USING THE GREGORIAN CALENDAR
         let calendar = Calendar.current
+        // SEPARATE OUT THE DAY FROM THE CALENDAR
         let day = calendar.component(.day, from: date)
+        // SEPARATE OUT THE HOUR
         let hour = calendar.component(.hour, from: date)
+        // SEPARATE OUT THE MINUTES
         let minute = calendar.component(.minute, from: date)
         
+        // SETTING EACH LABEL ON THE CELL TO THE CORRESPONDING EVENT PROPERTY.
         cell.eventTitle.text = currentEvent.title
         cell.date.text = "On the \(day)"
         cell.time.text = "\(hour):\(minute))"
         cell.location.text = currentEvent.location
         cell.eventImage.image = currentEvent.image
         cell.eventDescriptionLabel.text = currentEvent.description
-
 
         return cell
     }

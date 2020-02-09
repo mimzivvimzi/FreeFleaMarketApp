@@ -19,7 +19,7 @@ class WelcomeVC: UIViewController {
     
 
 
-    @IBAction func loginPressed(_ sender: UIButton) {
+    @IBAction func registerPressed(_ sender: UIButton) {
         
         // GET DEFAULT AUTH UI OBJECT
         let authUI = FUIAuth.defaultAuthUI()
@@ -31,10 +31,12 @@ class WelcomeVC: UIViewController {
         
         // SET SELF AS THE DELEGATE
         authUI?.delegate = self
+        // ONLY USING EMAIL/PASSWORD RIGHT NOW
         authUI?.providers = [FUIEmailAuth()]
 
         
         // GET A REFERENCE TO THE AUTH UI VIEW CONTROLLER
+        // THE PRE-BUILT AUTH VC NEEDS TO BE ASSIGNED TO A VARIABLE SO WE CAN USE IT
         let authViewController = authUI!.authViewController()
         
         // SHOW IT
