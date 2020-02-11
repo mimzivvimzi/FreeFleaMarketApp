@@ -15,19 +15,43 @@ class EventListUITableVC: UITableViewController {
     
     
     @IBAction func logoutPressed(_ sender: Any) {
+        
         let authUI: FUIAuth = FUIAuth.defaultAuthUI()!
         do {
             try authUI.signOut()
-        } catch{
-            //handle error
-            print(error)
+            print("logged out")
+            // DISPLAY THE WELCOMEVC
+            //navigationController?.popToRootViewController(animated: true)
+            //self.dismiss(animated: true, completion: nil)
+        } catch let signOutError as NSError {
+          print ("Error signing out: %@", signOutError)
         }
+        // take to login screen
+
+        
+        // OR YOU CAN CHAIN IT LIKE
+//        do {
+//          try Auth.auth().signOut()
+//        } catch let signOutError as NSError {
+//          print ("Error signing out: %@", signOutError)
+//        }
+        
+        
+//        let authUI: FUIAuth = FUIAuth.defaultAuthUI()!
+//        do {
+//            try authUI.signOut()
+//        } catch{
+//            //handle error
+//            print(error)
+//        }
         //take to login screen
-        if let storyboard = self.storyboard {
-            let vc = storyboard.instantiateViewController(withIdentifier: "loginVC")
-            // WHY IS IT self.present?  NOT IN A CLOSURE, BUT...
-            self.present(vc, animated: true, completion: nil)
-            }
+        
+        // THIS KEEPS ADDING VCs ON TOP OF VCs.  NOT THE RIGHT SOLUTION
+//        if let storyboard = self.storyboard {
+//            let vc = storyboard.instantiateViewController(withIdentifier: "loginVC")
+//            // WHY IS IT self.present?  NOT IN A CLOSURE, BUT...
+//            self.present(vc, animated: true, completion: nil)
+//            }
         
 //        let loginVC = self.storyboard?.instantiateViewController(identifier: "loginVC")
 //

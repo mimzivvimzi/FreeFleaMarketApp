@@ -7,8 +7,12 @@
 //
 
 import UIKit
+import Firebase
 
 class NewEventVC: UIViewController {
+    
+    //var ref: DatabaseReference!
+    //ref = Database.database().reference()
 
     @IBOutlet weak var eventDate: UITextField!
     
