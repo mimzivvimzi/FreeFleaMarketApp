@@ -55,6 +55,7 @@ extension WelcomeVC: FUIAuthDelegate {
             return
         }
         
+        // THE SAME AS
 //        if error != nil {
 //            // LOG ERROR
 //            return

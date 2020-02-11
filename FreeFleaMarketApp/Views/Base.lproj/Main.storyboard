@@ -98,7 +98,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wh2-4h-Pbq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2204" y="384"/>
+            <point key="canvasLocation" x="430" y="384"/>
         </scene>
         <!--RegisterVC-->
         <scene sceneID="EMf-28-dvF">
@@ -121,7 +121,7 @@
             <objects>
                 <tableViewController storyboardIdentifier="eventVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="LkA-zb-4bq" customClass="EventListUITableVC" customModule="FreeFleaMarketApp" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="loW-Nb-b3T">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
@@ -209,7 +209,7 @@
                     <navigationItem key="navigationItem" id="bI9-k3-4jA">
                         <barButtonItem key="leftBarButtonItem" style="plain" id="9Dp-Ff-ss4">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="y6Z-ja-Jlq">
-                                <rect key="frame" x="20" y="13" width="92" height="30"/>
+                                <rect key="frame" x="20" y="7" width="92" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Log out"/>
                                 <connections>
@@ -218,10 +218,13 @@
                             </button>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="goToLogin" id="hYQ-Wd-AFs"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bUt-BS-2yU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="891" y="384"/>
+            <point key="canvasLocation" x="-355" y="384"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="J5H-Tz-aCw">
@@ -230,7 +233,7 @@
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="NWe-kr-yEi"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="myn-Xb-8pl">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -240,7 +243,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kzf-w5-CjT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-580" y="384"/>
+            <point key="canvasLocation" x="-1230" y="384"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="jkJ-oN-3UZ">

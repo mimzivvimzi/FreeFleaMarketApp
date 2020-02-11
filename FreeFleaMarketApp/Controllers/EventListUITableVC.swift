@@ -19,9 +19,12 @@ class EventListUITableVC: UITableViewController {
         let authUI: FUIAuth = FUIAuth.defaultAuthUI()!
         do {
             try authUI.signOut()
-            print("logged out")
-            // DISPLAY THE WELCOMEVC
+            performSegue(withIdentifier: "goToLogin", sender: self)
+
+            // DISPLAY THE WELCOMEVC - NOT WORKING
             //navigationController?.popToRootViewController(animated: true)
+            
+            // NOT WORKING
             //self.dismiss(animated: true, completion: nil)
         } catch let signOutError as NSError {
           print ("Error signing out: %@", signOutError)
