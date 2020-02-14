@@ -14,6 +14,31 @@ import FirebaseUI
 class EventListUITableVC: UITableViewController {
     
     
+    @IBAction func testPressed(_ sender: UIButton) {
+        
+        // SEND eventList TO FIREBASE REALTIME DATABASE
+        // A DB INSIDE THE DB
+        let eventListDB = Database.database().reference().child("Events")
+        
+        // CREATE A DICTIONARY WHERE THE USER IS THE KEY AND THE EVENT INSTANCE IS THE VALUE
+        let eventDictionary = ["Test" : "test"]
+        
+        
+        // CREATES A CUSTOM RANDOM KEY
+        eventListDB.childByAutoId().setValue(eventDictionary) {
+            // TRAILING CLOSURE
+            (error, reference) in
+            // IF THERE WAS AN ERROR
+            if error != nil {
+                print(error as Any)
+            } else {
+                print("Event saved successfully")
+            }
+        }
+        
+    }
+    
+    
     @IBAction func logoutPressed(_ sender: Any) {
         
         let authUI: FUIAuth = FUIAuth.defaultAuthUI()!
