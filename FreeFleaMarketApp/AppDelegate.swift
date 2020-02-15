@@ -27,21 +27,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 
         
         
-        let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        self.window = UIWindow.init(frame: UIScreen.main.bounds)
-        self.window?.makeKeyAndVisible()
-//
-            if Auth.auth().currentUser != nil {
-              // User is signed in. EVENT LIST IS SHOWN
-                let viewController: UIViewController = UIStoryboard(name: "Main", bundle:nil).instantiateViewController(withIdentifier: "eventVC") as! EventListUITableVC
-                let navigationVC = UINavigationController(rootViewController: viewController)
-                self.window!.rootViewController = navigationVC;
-                //print("Logged in as \(user)")
-            } else {
-              // No user is signed in. LOGIN SCREEN IS SHOWN
-                let viewController : UIViewController = UIStoryboard(name: "Main", bundle:nil).instantiateViewController(withIdentifier: "loginVC")
-              self.window!.rootViewController = viewController;
-            }
+//        let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+//        self.window = UIWindow.init(frame: UIScreen.main.bounds)
+//        self.window?.makeKeyAndVisible()
+////
+//            if Auth.auth().currentUser != nil {
+//              // User is signed in. EVENT LIST IS SHOWN
+//                let viewController: UIViewController = UIStoryboard(name: "Main", bundle:nil).instantiateViewController(withIdentifier: "eventVC") as! EventListUITableVC
+//                let navigationVC = UINavigationController(rootViewController: viewController)
+//                self.window!.rootViewController = navigationVC;
+//                //print("Logged in as \(user)")
+//            } else {
+//              // No user is signed in. LOGIN SCREEN IS SHOWN
+//                let viewController : UIViewController = UIStoryboard(name: "Main", bundle:nil).instantiateViewController(withIdentifier: "loginVC")
+//              self.window!.rootViewController = viewController;
+//            }
         return true
     }
 

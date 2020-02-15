@@ -40,6 +40,7 @@ class WelcomeVC: UIViewController {
         let authViewController = authUI!.authViewController()
         
         // SHOW IT
+
         present(authViewController, animated: true, completion: nil)
         
     }
@@ -62,8 +63,14 @@ extension WelcomeVC: FUIAuthDelegate {
 //        }
         
         //authDataResult?.user.uid
-        
-        performSegue(withIdentifier: "goToEventList", sender: self)
-        
+        if authUI.auth?.currentUser != nil {
+            performSegue(withIdentifier: "EventList", sender: self)
+//            let viewController = EventListUITableVC(
+//            self.present(viewController, animated: true, completion: nil)
+
+        } else {
+            print("not working")
+        }
+    
     }
 }

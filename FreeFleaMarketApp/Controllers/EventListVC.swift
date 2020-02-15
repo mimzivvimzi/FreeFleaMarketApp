@@ -11,7 +11,7 @@ import Firebase
 import FirebaseUI
 
 
-class EventListUITableVC: UITableViewController {
+class EventListVC: UITableViewController {
     
     
     
@@ -48,13 +48,13 @@ class EventListUITableVC: UITableViewController {
         let authUI: FUIAuth = FUIAuth.defaultAuthUI()!
         do {
             try authUI.signOut()
-            performSegue(withIdentifier: "goToLogin", sender: self)
+            print(authUI.auth?.currentUser)
+//            performSegue(withIdentifier: "goToLogin", sender: self)
 
             // DISPLAY THE WELCOMEVC - NOT WORKING
             //navigationController?.popToRootViewController(animated: true)
             
-            // NOT WORKING
-            //self.dismiss(animated: true, completion: nil)
+            self.presentingViewController?.dismiss(animated: true, completion: nil)
         } catch let signOutError as NSError {
           print ("Error signing out: %@", signOutError)
         }
@@ -127,7 +127,7 @@ class EventListUITableVC: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         // CREATING A REUSABLE CELL CALLED "CELL"
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! EventListTableCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "eventCell", for: indexPath) as! EventListTableCell
         // TAKING THE 0TH EVENT
         let currentEvent = eventList[0]
         
