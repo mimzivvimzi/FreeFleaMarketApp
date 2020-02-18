@@ -94,7 +94,7 @@ class EventListVC: UITableViewController {
     }
     
     // THIS IS CREATING AN ARRAY OF TYPE "EVENT" AND HARD CODING AN INSTANCE OF A TEST EVENT IN THAT ARRAY.
-    var eventList : [Event] = [Event(owner: "Someone", title: "Cool Event", date: Date(), location: "super cool place", image: UIImage(named: "waterfall"), description: "woow")]
+    var eventList : [Event] = [Event(owner: "Someone", title: "Clothing Swap at Cafe 123", date: Date(), location: "Cafe 123", image: UIImage(named: "waterfall"), description: "woow")]
     
     
     override func viewDidLoad() {
@@ -145,7 +145,7 @@ class EventListVC: UITableViewController {
         // SETTING EACH LABEL ON THE CELL TO THE CORRESPONDING EVENT PROPERTY.
         cell.eventTitle.text = currentEvent.title
         cell.date.text = "On the \(day)"
-        cell.time.text = "\(hour):\(minute))"
+        cell.time.text = "\(hour):\(minute)"
         cell.location.text = currentEvent.location
         cell.eventImage.image = currentEvent.image
         cell.eventDescriptionLabel.text = currentEvent.description
