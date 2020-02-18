@@ -11,10 +11,15 @@ import FirebaseUI
 
 class WelcomeVC: UIViewController {
     
-
+    @IBOutlet weak var appTitle: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        appTitle.clipsToBounds = true
+        appTitle.layer.cornerRadius = 20
+        
+        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "background")!)
+
     }
     
 

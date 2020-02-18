@@ -18,29 +18,30 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o3P-gW-ZHP">
                                 <rect key="frame" x="0.0" y="713" width="414" height="60"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.91167001230241318" green="0.88842120589510243" blue="0.91537119289340096" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="backgroundColor" red="0.027450980390000001" green="0.27058823529999998" blue="0.43529411759999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="40"/>
                                 <state key="normal" title="Login">
-                                    <color key="titleColor" red="0.24306506" green="0.08917416903" blue="0.4301633883" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    <color key="titleColor" red="0.80392156859999997" green="1" blue="0.92156862750000001" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ldF-mq-b85">
                                 <rect key="frame" x="0.0" y="781" width="414" height="60"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.24306506" green="0.08917416903" blue="0.4301633883" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="backgroundColor" red="0.058823529409999999" green="0.039215686270000001" blue="0.23529411759999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="40"/>
                                 <state key="normal" title="Register">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="titleColor" red="0.80392156859999997" green="1" blue="0.92156862750000001" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="registerPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="WQc-UV-2YL"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Free Flea Market App" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FKF-hf-m4O">
-                                <rect key="frame" x="20" y="353" width="374" height="66"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Free Flea Market App" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FKF-hf-m4O">
+                                <rect key="frame" x="59" y="249" width="296" height="163"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="35"/>
-                                <nil key="textColor"/>
+                                <color key="backgroundColor" red="0.80392156859999997" green="1" blue="0.92156862750000001" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="45"/>
+                                <color key="textColor" red="0.027450980390000001" green="0.27058823529999998" blue="0.43529411759999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -49,12 +50,13 @@
                     </view>
                     <navigationItem key="navigationItem" id="4Yq-uF-IUH"/>
                     <connections>
+                        <outlet property="appTitle" destination="FKF-hf-m4O" id="cV3-lf-q38"/>
                         <segue destination="EoV-Us-wS5" kind="presentation" identifier="EventList" id="TfO-6P-g7P"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2159" y="384"/>
+            <point key="canvasLocation" x="-2159.4202898550725" y="383.70535714285711"/>
         </scene>
         <!--LoginVC-->
         <scene sceneID="3Qe-Nc-v1y">
