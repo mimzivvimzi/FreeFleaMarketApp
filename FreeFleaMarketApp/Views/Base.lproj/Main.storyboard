@@ -82,27 +82,53 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Pick a date" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="13t-ts-Nqh">
-                                <rect key="frame" x="24" y="213" width="370" height="34"/>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Title" borderStyle="roundedRect" placeholder="Title of Event" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bj5-rb-zvy">
+                                <rect key="frame" x="24" y="161" width="370" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Location" borderStyle="roundedRect" placeholder="Location" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YhP-FU-LIf">
+                                <rect key="frame" x="24" y="390" width="370" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="EZ2-Aa-Gtc">
+                                <rect key="frame" x="0.0" y="203" width="414" height="162"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            </datePicker>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Description" borderStyle="roundedRect" placeholder="Details" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RlS-OZ-TKW">
+                                <rect key="frame" x="24" y="441" width="370" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="COG-xx-aku">
+                                <rect key="frame" x="172" y="562" width="74" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.027450980390000001" green="0.27058823529999998" blue="0.43529411759999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Save">
+                                    <color key="titleColor" red="0.80392156859999997" green="1" blue="0.92156862750000001" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="saveEvent:" destination="QM9-KH-ohc" eventType="touchUpInside" id="579-Ml-i7I"/>
+                                </connections>
+                            </button>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <constraints>
-                            <constraint firstItem="Kwu-Hn-eTH" firstAttribute="trailing" secondItem="13t-ts-Nqh" secondAttribute="trailing" constant="20" id="IsP-h3-hXI"/>
-                            <constraint firstItem="13t-ts-Nqh" firstAttribute="leading" secondItem="Kwu-Hn-eTH" secondAttribute="leading" constant="24" id="NNf-iE-90L"/>
-                            <constraint firstItem="13t-ts-Nqh" firstAttribute="top" secondItem="Kwu-Hn-eTH" secondAttribute="top" constant="169" id="ZWO-ft-BOu"/>
-                        </constraints>
+                        <color key="backgroundColor" red="0.80392156859999997" green="1" blue="0.92156862750000001" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                         <viewLayoutGuide key="safeArea" id="Kwu-Hn-eTH"/>
                     </view>
                     <connections>
-                        <outlet property="datePicker" destination="13t-ts-Nqh" id="wuM-At-dQG"/>
+                        <outlet property="dateField" destination="EZ2-Aa-Gtc" id="kyG-NJ-dLY"/>
+                        <outlet property="descriptionField" destination="RlS-OZ-TKW" id="Oiv-cM-rCM"/>
+                        <outlet property="locationField" destination="YhP-FU-LIf" id="rid-J1-RXz"/>
+                        <outlet property="titleField" destination="bj5-rb-zvy" id="B9B-gQ-n6G"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wh2-4h-Pbq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="430" y="384"/>
+            <point key="canvasLocation" x="428.98550724637687" y="383.70535714285711"/>
         </scene>
         <!--RegisterVC-->
         <scene sceneID="EMf-28-dvF">

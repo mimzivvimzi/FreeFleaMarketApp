@@ -11,12 +11,19 @@ import Firebase
 
 class NewEventVC: UIViewController {
     
+    
+    @IBOutlet weak var titleField: UITextField!
+    @IBOutlet weak var dateField: UIDatePicker!
+    @IBOutlet weak var locationField: UITextField!
+    @IBOutlet weak var descriptionField: UITextField!
+    
+    
     //var ref: DatabaseReference!
     //ref = Database.database().reference()
 
-    @IBOutlet weak var eventDate: UITextField!
+//    @IBOutlet weak var eventDate: UITextField!
     
-    private var datePicker: UIDatePicker?  // COME BACK TO THIS LATER.  TRYING TO USE A DATEPICKER FOR CREATING A NEW EVENT
+//    private var datePicker: UIDatePicker?  // COME BACK TO THIS LATER.  TRYING TO USE A DATEPICKER FOR CREATING A NEW EVENT
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,31 +38,40 @@ class NewEventVC: UIViewController {
         
         
 
-        datePicker = UIDatePicker()
-        datePicker?.datePickerMode = .date
-        datePicker?.addTarget(self, action: #selector(NewEventVC.dateChanged(datePicker:)), for: .valueChanged)
-        
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(NewEventVC.viewTapped(gestureRecognizer:)))
-        
-        view.addGestureRecognizer(tapGesture)
-        
-        eventDate.inputView = datePicker
+//        datePicker = UIDatePicker()
+//        datePicker?.datePickerMode = .date
+//        datePicker?.addTarget(self, action: #selector(NewEventVC.dateChanged(datePicker:)), for: .valueChanged)
+//
+//        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(NewEventVC.viewTapped(gestureRecognizer:)))
+//
+//        view.addGestureRecognizer(tapGesture)
+//
+//        eventDate.inputView = datePicker
     }
     
-    @objc func viewTapped(gestureRecognizer: UITapGestureRecognizer) {
-        // EDGE CASE.  IF NO SELECTION IS MADE
-        view.endEditing(true) // DISMISSES THE KEYBOARD
-
+    
+    @IBAction func saveEvent(_ sender: UIButton) {
+        
+        
     }
     
-    @objc func dateChanged(datePicker: UIDatePicker) {
-        
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "MM/dd/yyy"
-        eventDate.text = dateFormatter.string(from: datePicker.date)
-        view.endEditing(true) // DISMISSES THE KEYBOARD
-        
-    }
+    
+    
+    
+//    @objc func viewTapped(gestureRecognizer: UITapGestureRecognizer) {
+//        // EDGE CASE.  IF NO SELECTION IS MADE
+//        view.endEditing(true) // DISMISSES THE KEYBOARD
+//
+//    }
+//
+//    @objc func dateChanged(datePicker: UIDatePicker) {
+//
+//        let dateFormatter = DateFormatter()
+//        dateFormatter.dateFormat = "MM/dd/yyy"
+//        eventDate.text = dateFormatter.string(from: datePicker.date)
+//        view.endEditing(true) // DISMISSES THE KEYBOARD
+//
+//    }
     
 
     /*
