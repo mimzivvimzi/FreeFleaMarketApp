@@ -16,10 +16,14 @@ class NewEventVC: UIViewController {
     @IBOutlet weak var dateField: UIDatePicker!
     @IBOutlet weak var locationField: UITextField!
     @IBOutlet weak var descriptionField: UITextField!
+    let db = Firestore.firestore()
+    let userID = Auth.auth().currentUser!.uid
+
     
+
     
-    //var ref: DatabaseReference!
-    //ref = Database.database().reference()
+    var ref: DatabaseReference!
+    
 
 //    @IBOutlet weak var eventDate: UITextField!
     
@@ -51,8 +55,17 @@ class NewEventVC: UIViewController {
     
     
     @IBAction func saveEvent(_ sender: UIButton) {
-        
-        
+        ref = Database.database().reference()
+        let newEvent = Event(user: userID, title: titleField.text ?? "", date: dateField.date, location: locationField.text ?? "", image: nil, description: descriptionField.text ?? "")
+        let eventPost = ["userID": newEvent.user,
+                         "title" : newEvent.title,
+                         "date" : newEvent.date,
+                         "startTime": newEvent.date,
+                         "endTime" : "",
+                         "location" : newEvent.location,
+                         "description": newEvent.description] as [String : Any]
+
+
     }
     
     
