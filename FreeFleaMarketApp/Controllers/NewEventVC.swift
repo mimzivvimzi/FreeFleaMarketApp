@@ -17,7 +17,6 @@ class NewEventVC: UIViewController {
     @IBOutlet weak var locationField: UITextField!
     @IBOutlet weak var descriptionField: UITextField!
     let db = Firestore.firestore()
-    let userID = Auth.auth().currentUser!.uid
 
     
 
@@ -56,15 +55,19 @@ class NewEventVC: UIViewController {
     
     @IBAction func saveEvent(_ sender: UIButton) {
         ref = Database.database().reference()
-        let newEvent = Event(user: userID, title: titleField.text ?? "", date: dateField.date, location: locationField.text ?? "", image: nil, description: descriptionField.text ?? "")
-        let eventPost = ["userID": newEvent.user,
-                         "title" : newEvent.title,
-                         "date" : newEvent.date,
-                         "startTime": newEvent.date,
-                         "endTime" : "",
-                         "location" : newEvent.location,
-                         "description": newEvent.description] as [String : Any]
-
+        if Auth.auth().currentUser != nil {
+            let userID = Auth.auth().currentUser!.uid
+            let newEvent = Event(user: userID, title: titleField.text ?? "", date: dateField.date, location: locationField.text ?? "", image: nil, description: descriptionField.text ?? "")
+            let eventPost = ["userID": newEvent.user,
+                             "title" : newEvent.title,
+                             "date" : newEvent.date,
+                             "startTime": newEvent.date,
+                             "endTime" : "",
+                             "location" : newEvent.location,
+                             "description": newEvent.description] as [String : Any]
+        } else {
+          print("No one is signed in")
+        }
 
     }
     
