@@ -23,7 +23,8 @@ class WelcomeVC: UIViewController {
     }
     
 
-
+    // 1/3 NEED TO CONNECT THE LOGIN BUTTON.  THIS IS THE SAME AS THE REGISTER BUTTON, RIGHT?
+    
     @IBAction func registerPressed(_ sender: UIButton) {
         
         // GET DEFAULT AUTH UI OBJECT

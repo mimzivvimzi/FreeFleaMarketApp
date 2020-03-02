@@ -39,7 +39,7 @@ class NewEventVC: UIViewController {
 //        print("hours = \(hour):\(minute))")
 //
         
-        
+        // 3/3 I'M MOST LIKELY GOING TO START FROM SCRATCH REGARDING THE DATE PICKER.  I DON'T REMEMBER WHERE I LEFT OFF WITH THIS.  TRIED TO FOLLOW A YOUTUBE TUTORIAL. DO YOU HAVE ANY RESOURCES FOR THIS? 
 
 //        datePicker = UIDatePicker()
 //        datePicker?.datePickerMode = .date
@@ -65,6 +65,8 @@ class NewEventVC: UIViewController {
                              "endTime" : "",
                              "location" : newEvent.location,
                              "description": newEvent.description] as [String : Any]
+            ref.child("posts").child(userID).childByAutoId()
+            ref.updateChildValues(eventPost)
         } else {
           print("No one is signed in")
         }
