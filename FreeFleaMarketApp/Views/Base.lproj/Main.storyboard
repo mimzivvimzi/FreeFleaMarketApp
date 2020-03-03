@@ -23,6 +23,9 @@
                                 <state key="normal" title="Login">
                                     <color key="titleColor" red="0.80392156859999997" green="1" blue="0.92156862750000001" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="loginPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="U0j-Vg-6O2"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ldF-mq-b85">
                                 <rect key="frame" x="0.0" y="781" width="414" height="60"/>
@@ -79,12 +82,11 @@
             <objects>
                 <viewController id="QM9-KH-ohc" customClass="NewEventVC" customModule="FreeFleaMarketApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="nBL-ek-d97">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="COG-xx-aku">
-                                <rect key="frame" x="172" y="562" width="74" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="COG-xx-aku">
+                                <rect key="frame" x="170" y="687" width="74" height="30"/>
                                 <color key="backgroundColor" red="0.027450980390000001" green="0.27058823529999998" blue="0.43529411759999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Save">
                                     <color key="titleColor" red="0.80392156859999997" green="1" blue="0.92156862750000001" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
@@ -93,8 +95,8 @@
                                     <action selector="saveEvent:" destination="QM9-KH-ohc" eventType="touchUpInside" id="579-Ml-i7I"/>
                                 </connections>
                             </button>
-                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="4bs-7T-wvO">
-                                <rect key="frame" x="47" y="160" width="320" height="366"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="4bs-7T-wvO">
+                                <rect key="frame" x="47" y="287" width="320" height="366"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Title" borderStyle="roundedRect" placeholder="Title of Event" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bj5-rb-zvy">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="34"/>
@@ -118,8 +120,19 @@
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" red="0.80392156859999997" green="1" blue="0.92156862750000001" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="COG-xx-aku" firstAttribute="top" secondItem="4bs-7T-wvO" secondAttribute="bottom" constant="34" id="3CG-wf-PRX"/>
+                            <constraint firstItem="Kwu-Hn-eTH" firstAttribute="bottom" secondItem="COG-xx-aku" secondAttribute="bottom" constant="42" id="BVo-2x-QMp"/>
+                            <constraint firstItem="4bs-7T-wvO" firstAttribute="leading" secondItem="Kwu-Hn-eTH" secondAttribute="leading" constant="47" id="EBR-uz-1Uh"/>
+                            <constraint firstItem="Kwu-Hn-eTH" firstAttribute="trailing" secondItem="COG-xx-aku" secondAttribute="trailing" constant="170" id="MWr-ss-kxg"/>
+                            <constraint firstItem="Kwu-Hn-eTH" firstAttribute="trailing" secondItem="4bs-7T-wvO" secondAttribute="trailing" constant="47" id="VjO-oe-Fjz"/>
+                            <constraint firstItem="4bs-7T-wvO" firstAttribute="top" secondItem="Kwu-Hn-eTH" secondAttribute="top" constant="231" id="ehB-ap-nCi"/>
+                            <constraint firstItem="COG-xx-aku" firstAttribute="leading" secondItem="Kwu-Hn-eTH" secondAttribute="leading" constant="170" id="nUl-VC-owc"/>
+                            <constraint firstItem="COG-xx-aku" firstAttribute="top" secondItem="4bs-7T-wvO" secondAttribute="bottom" constant="34" id="rcW-fN-PmL"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="Kwu-Hn-eTH"/>
                     </view>
+                    <navigationItem key="navigationItem" id="wh3-px-q5i"/>
                     <connections>
                         <outlet property="dateField" destination="EZ2-Aa-Gtc" id="kyG-NJ-dLY"/>
                         <outlet property="descriptionField" destination="RlS-OZ-TKW" id="Oiv-cM-rCM"/>
@@ -238,7 +251,11 @@
                             <outlet property="delegate" destination="LkA-zb-4bq" id="lc2-G8-17w"/>
                         </connections>
                     </tableView>
+                    <toolbarItems>
+                        <barButtonItem title="Item" id="9DH-aM-Qup"/>
+                    </toolbarItems>
                     <navigationItem key="navigationItem" id="bI9-k3-4jA">
+                        <nil key="title"/>
                         <barButtonItem key="leftBarButtonItem" style="plain" id="9Dp-Ff-ss4">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="y6Z-ja-Jlq">
                                 <rect key="frame" x="20" y="13" width="92" height="30"/>
@@ -249,17 +266,25 @@
                                 </connections>
                             </button>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="sBb-Y3-h3j">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="2Q9-rf-i0T">
-                                <rect key="frame" x="302" y="13" width="92" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Test"/>
+                        <rightBarButtonItems>
+                            <barButtonItem style="plain" id="sBb-Y3-h3j">
+                                <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="2Q9-rf-i0T">
+                                    <rect key="frame" x="302" y="13" width="92" height="30"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <state key="normal" title="Test"/>
+                                    <connections>
+                                        <action selector="testPressed:" destination="LkA-zb-4bq" eventType="touchUpInside" id="Zka-bW-swW"/>
+                                    </connections>
+                                </button>
+                            </barButtonItem>
+                            <barButtonItem systemItem="add" id="X65-3W-Zox">
                                 <connections>
-                                    <action selector="testPressed:" destination="LkA-zb-4bq" eventType="touchUpInside" id="Zka-bW-swW"/>
+                                    <segue destination="QM9-KH-ohc" kind="show" identifier="newEvent" id="0km-UI-B8H"/>
                                 </connections>
-                            </button>
-                        </barButtonItem>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bUt-BS-2yU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

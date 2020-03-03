@@ -25,8 +25,15 @@ class WelcomeVC: UIViewController {
 
     // 1/3 NEED TO CONNECT THE LOGIN BUTTON.  THIS IS THE SAME AS THE REGISTER BUTTON, RIGHT?
     
+    @IBAction func loginPressed(_ sender: UIButton) {
+        goToAuthUI()
+    }
+    
     @IBAction func registerPressed(_ sender: UIButton) {
-        
+        goToAuthUI()
+    }
+    
+    func goToAuthUI() {
         // GET DEFAULT AUTH UI OBJECT
         let authUI = FUIAuth.defaultAuthUI()
         
@@ -48,10 +55,11 @@ class WelcomeVC: UIViewController {
         // SHOW IT
 
         present(authViewController, animated: true, completion: nil)
-        
     }
     
 }
+
+
 
 extension WelcomeVC: FUIAuthDelegate {
     func authUI(_ authUI: FUIAuth, didSignInWith authDataResult: AuthDataResult?, error: Error?) {

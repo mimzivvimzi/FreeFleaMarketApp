@@ -54,10 +54,15 @@ class NewEventVC: UIViewController {
     
     
     @IBAction func saveEvent(_ sender: UIButton) {
-        ref = Database.database().reference()
         if Auth.auth().currentUser != nil {
-            let userID = Auth.auth().currentUser!.uid
-            let newEvent = Event(user: userID, title: titleField.text ?? "", date: dateField.date, location: locationField.text ?? "", image: nil, description: descriptionField.text ?? "")
+            // HAS TO BE INSIDE THE IF STATEMENT
+            ref = Database.database().reference()
+            let userID = Auth.auth().currentUser!.uid //(FUIAuth.defaultAuthUI()?.auth?.currentUser?.uid)! // MIGHT HAVE TO CHANGE THIS TO WIEM'S
+            
+            // DATE WILL BE TODAY'S DATE FOR THE TIME BEING
+            guard let key = ref.child("posts").childByAutoId().key else { return }
+
+            let newEvent = Event(user: userID, title: titleField.text ?? "", date: Date(), location: locationField.text ?? "", image: nil, description: descriptionField.text ?? "")
             let eventPost = ["userID": newEvent.user,
                              "title" : newEvent.title,
                              "date" : newEvent.date,
@@ -65,7 +70,8 @@ class NewEventVC: UIViewController {
                              "endTime" : "",
                              "location" : newEvent.location,
                              "description": newEvent.description] as [String : Any]
-            ref.child("posts").child(userID).childByAutoId()
+            // SAVING TO THE DB
+            ref.child("posts").child(userID).childByAutoId()  // POST IS A KEYWORD (POINT OF ENTRY)
             ref.updateChildValues(eventPost)
         } else {
           print("No one is signed in")
