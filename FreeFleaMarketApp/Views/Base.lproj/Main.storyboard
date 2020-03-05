@@ -85,8 +85,40 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="4bs-7T-wvO">
+                                <rect key="frame" x="47" y="271" width="320" height="432"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Title of Event" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bj5-rb-zvy">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="EZ2-Aa-Gtc">
+                                        <rect key="frame" x="0.0" y="50" width="320" height="216"/>
+                                        <connections>
+                                            <action selector="dateSelected:" destination="QM9-KH-ohc" eventType="valueChanged" id="WON-Cv-jFw"/>
+                                        </connections>
+                                    </datePicker>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qBg-Wz-fN5">
+                                        <rect key="frame" x="0.0" y="282" width="320" height="50"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Location" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YhP-FU-LIf">
+                                        <rect key="frame" x="0.0" y="348" width="320" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Details" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RlS-OZ-TKW">
+                                        <rect key="frame" x="0.0" y="398" width="320" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                </subviews>
+                            </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="COG-xx-aku">
-                                <rect key="frame" x="170" y="687" width="74" height="30"/>
+                                <rect key="frame" x="170" y="711" width="74" height="30"/>
                                 <color key="backgroundColor" red="0.027450980390000001" green="0.27058823529999998" blue="0.43529411759999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Save">
                                     <color key="titleColor" red="0.80392156859999997" green="1" blue="0.92156862750000001" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
@@ -95,46 +127,21 @@
                                     <action selector="saveEvent:" destination="QM9-KH-ohc" eventType="touchUpInside" id="579-Ml-i7I"/>
                                 </connections>
                             </button>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="4bs-7T-wvO">
-                                <rect key="frame" x="47" y="287" width="320" height="366"/>
-                                <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Title" borderStyle="roundedRect" placeholder="Title of Event" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bj5-rb-zvy">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="34"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
-                                    <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="EZ2-Aa-Gtc">
-                                        <rect key="frame" x="0.0" y="50" width="320" height="216"/>
-                                    </datePicker>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Location" borderStyle="roundedRect" placeholder="Location" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YhP-FU-LIf">
-                                        <rect key="frame" x="0.0" y="282" width="320" height="34"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Description" borderStyle="roundedRect" placeholder="Details" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RlS-OZ-TKW">
-                                        <rect key="frame" x="0.0" y="332" width="320" height="34"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
-                                </subviews>
-                            </stackView>
                         </subviews>
-                        <color key="backgroundColor" red="0.80392156859999997" green="1" blue="0.92156862750000001" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="COG-xx-aku" firstAttribute="top" secondItem="4bs-7T-wvO" secondAttribute="bottom" constant="34" id="3CG-wf-PRX"/>
-                            <constraint firstItem="Kwu-Hn-eTH" firstAttribute="bottom" secondItem="COG-xx-aku" secondAttribute="bottom" constant="42" id="BVo-2x-QMp"/>
-                            <constraint firstItem="4bs-7T-wvO" firstAttribute="leading" secondItem="Kwu-Hn-eTH" secondAttribute="leading" constant="47" id="EBR-uz-1Uh"/>
-                            <constraint firstItem="Kwu-Hn-eTH" firstAttribute="trailing" secondItem="COG-xx-aku" secondAttribute="trailing" constant="170" id="MWr-ss-kxg"/>
-                            <constraint firstItem="Kwu-Hn-eTH" firstAttribute="trailing" secondItem="4bs-7T-wvO" secondAttribute="trailing" constant="47" id="VjO-oe-Fjz"/>
-                            <constraint firstItem="4bs-7T-wvO" firstAttribute="top" secondItem="Kwu-Hn-eTH" secondAttribute="top" constant="231" id="ehB-ap-nCi"/>
-                            <constraint firstItem="COG-xx-aku" firstAttribute="leading" secondItem="Kwu-Hn-eTH" secondAttribute="leading" constant="170" id="nUl-VC-owc"/>
-                            <constraint firstItem="COG-xx-aku" firstAttribute="top" secondItem="4bs-7T-wvO" secondAttribute="bottom" constant="34" id="rcW-fN-PmL"/>
+                            <constraint firstItem="COG-xx-aku" firstAttribute="leading" secondItem="Kwu-Hn-eTH" secondAttribute="leading" constant="170" id="4qn-Np-zJC"/>
+                            <constraint firstItem="Kwu-Hn-eTH" firstAttribute="bottom" secondItem="COG-xx-aku" secondAttribute="bottom" constant="18" id="K4B-gQ-NoN"/>
+                            <constraint firstItem="COG-xx-aku" firstAttribute="top" secondItem="4bs-7T-wvO" secondAttribute="bottom" constant="8" id="ZKC-EB-bnc"/>
+                            <constraint firstItem="COG-xx-aku" firstAttribute="centerX" secondItem="4bs-7T-wvO" secondAttribute="centerX" id="a6e-MY-fbD"/>
+                            <constraint firstItem="COG-xx-aku" firstAttribute="centerX" secondItem="nBL-ek-d97" secondAttribute="centerX" id="a9L-SV-edc"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Kwu-Hn-eTH"/>
                     </view>
                     <navigationItem key="navigationItem" id="wh3-px-q5i"/>
                     <connections>
-                        <outlet property="dateField" destination="EZ2-Aa-Gtc" id="kyG-NJ-dLY"/>
+                        <outlet property="dateLabel" destination="qBg-Wz-fN5" id="J6E-sD-wwO"/>
+                        <outlet property="datePicker" destination="EZ2-Aa-Gtc" id="kyG-NJ-dLY"/>
                         <outlet property="descriptionField" destination="RlS-OZ-TKW" id="Oiv-cM-rCM"/>
                         <outlet property="locationField" destination="YhP-FU-LIf" id="rid-J1-RXz"/>
                         <outlet property="titleField" destination="bj5-rb-zvy" id="B9B-gQ-n6G"/>
@@ -228,7 +235,7 @@
                                             </subviews>
                                         </stackView>
                                     </subviews>
-                                    <color key="backgroundColor" red="0.80392156859999997" green="1" blue="0.92156862750000001" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstItem="1XI-wf-tx7" firstAttribute="top" secondItem="Rvi-SU-bSO" secondAttribute="topMargin" id="Xte-sI-oro"/>
                                         <constraint firstItem="1XI-wf-tx7" firstAttribute="leading" secondItem="Rvi-SU-bSO" secondAttribute="leadingMargin" id="iao-jn-MpF"/>

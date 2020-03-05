@@ -13,45 +13,30 @@ class NewEventVC: UIViewController {
     
     
     @IBOutlet weak var titleField: UITextField!
-    @IBOutlet weak var dateField: UIDatePicker!
+    @IBOutlet weak var datePicker: UIDatePicker!
+    @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var locationField: UITextField!
     @IBOutlet weak var descriptionField: UITextField!
     let db = Firestore.firestore()
-
-    
-
-    
     var ref: DatabaseReference!
     
 
 //    @IBOutlet weak var eventDate: UITextField!
     
-//    private var datePicker: UIDatePicker?  // COME BACK TO THIS LATER.  TRYING TO USE A DATEPICKER FOR CREATING A NEW EVENT
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
-//        let date = Date()
-//        let calendar = Calendar.current
-//        let hour = calendar.component(.hour, from: date)
-//        let minute = calendar.component(.minute, from: date)
-//        print("hours = \(hour):\(minute))")
-//
-        
-        // 3/3 I'M MOST LIKELY GOING TO START FROM SCRATCH REGARDING THE DATE PICKER.  I DON'T REMEMBER WHERE I LEFT OFF WITH THIS.  TRIED TO FOLLOW A YOUTUBE TUTORIAL. DO YOU HAVE ANY RESOURCES FOR THIS? 
-
-//        datePicker = UIDatePicker()
-//        datePicker?.datePickerMode = .date
-//        datePicker?.addTarget(self, action: #selector(NewEventVC.dateChanged(datePicker:)), for: .valueChanged)
-//
-//        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(NewEventVC.viewTapped(gestureRecognizer:)))
-//
-//        view.addGestureRecognizer(tapGesture)
-//
-//        eventDate.inputView = datePicker
+       
     }
     
+    @IBAction func dateSelected(_ sender: UIDatePicker) {
+        let dateFormatter = DateFormatter() // CONVERTS BETWEEN DATES AND THEIR TEXTUAL REPRESENTATION
+        dateFormatter.locale = Locale(identifier: "en_US") // jp_JP JAPAN: 2020/03/05
+        dateFormatter.dateStyle = DateFormatter.Style.medium
+        dateFormatter.timeStyle = DateFormatter.Style.short
+        let dateToString = dateFormatter.string(from: datePicker.date)
+        dateLabel.text = dateToString
+    }
     
     @IBAction func saveEvent(_ sender: UIButton) {
         if Auth.auth().currentUser != nil {
@@ -82,20 +67,7 @@ class NewEventVC: UIViewController {
     
     
     
-//    @objc func viewTapped(gestureRecognizer: UITapGestureRecognizer) {
-//        // EDGE CASE.  IF NO SELECTION IS MADE
-//        view.endEditing(true) // DISMISSES THE KEYBOARD
-//
-//    }
-//
-//    @objc func dateChanged(datePicker: UIDatePicker) {
-//
-//        let dateFormatter = DateFormatter()
-//        dateFormatter.dateFormat = "MM/dd/yyy"
-//        eventDate.text = dateFormatter.string(from: datePicker.date)
-//        view.endEditing(true) // DISMISSES THE KEYBOARD
-//
-//    }
+
     
 
     /*
