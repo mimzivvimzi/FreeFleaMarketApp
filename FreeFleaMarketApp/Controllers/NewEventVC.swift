@@ -14,7 +14,7 @@ class NewEventVC: UIViewController {
     
     @IBOutlet weak var titleField: UITextField!
     @IBOutlet weak var datePicker: UIDatePicker!
-    @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var dateField: UITextField!
     @IBOutlet weak var locationField: UITextField!
     @IBOutlet weak var descriptionField: UITextField!
     let db = Firestore.firestore()
@@ -35,7 +35,7 @@ class NewEventVC: UIViewController {
         dateFormatter.dateStyle = DateFormatter.Style.medium
         dateFormatter.timeStyle = DateFormatter.Style.short
         let dateToString = dateFormatter.string(from: datePicker.date)
-        dateLabel.text = dateToString
+        dateField.text = dateToString
     }
     
     @IBAction func saveEvent(_ sender: UIButton) {
@@ -47,7 +47,7 @@ class NewEventVC: UIViewController {
             // DATE WILL BE TODAY'S DATE FOR THE TIME BEING
             guard let key = ref.child("posts").childByAutoId().key else { return }
 
-            let newEvent = Event(user: userID, title: titleField.text ?? "", date: Date(), location: locationField.text ?? "", image: nil, description: descriptionField.text ?? "")
+            let newEvent = Event(user: userID, title: titleField.text ?? "", date: dateField.text ?? "", location: locationField.text ?? "", image: nil, description: descriptionField.text ?? "")
             let eventPost = ["userID": newEvent.user,
                              "title" : newEvent.title,
                              "date" : newEvent.date,

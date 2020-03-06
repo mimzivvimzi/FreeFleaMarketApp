@@ -86,32 +86,31 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="4bs-7T-wvO">
-                                <rect key="frame" x="47" y="271" width="320" height="432"/>
+                                <rect key="frame" x="47" y="287" width="320" height="416"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Title of Event" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bj5-rb-zvy">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Date" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Uj7-js-vTk">
+                                        <rect key="frame" x="0.0" y="50" width="320" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
                                     <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="EZ2-Aa-Gtc">
-                                        <rect key="frame" x="0.0" y="50" width="320" height="216"/>
+                                        <rect key="frame" x="0.0" y="100" width="320" height="216"/>
                                         <connections>
                                             <action selector="dateSelected:" destination="QM9-KH-ohc" eventType="valueChanged" id="WON-Cv-jFw"/>
                                         </connections>
                                     </datePicker>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qBg-Wz-fN5">
-                                        <rect key="frame" x="0.0" y="282" width="320" height="50"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Location" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YhP-FU-LIf">
-                                        <rect key="frame" x="0.0" y="348" width="320" height="34"/>
+                                        <rect key="frame" x="0.0" y="332" width="320" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Details" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RlS-OZ-TKW">
-                                        <rect key="frame" x="0.0" y="398" width="320" height="34"/>
+                                        <rect key="frame" x="0.0" y="382" width="320" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
@@ -140,7 +139,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="wh3-px-q5i"/>
                     <connections>
-                        <outlet property="dateLabel" destination="qBg-Wz-fN5" id="J6E-sD-wwO"/>
+                        <outlet property="dateField" destination="Uj7-js-vTk" id="0bR-iC-RgQ"/>
                         <outlet property="datePicker" destination="EZ2-Aa-Gtc" id="kyG-NJ-dLY"/>
                         <outlet property="descriptionField" destination="RlS-OZ-TKW" id="Oiv-cM-rCM"/>
                         <outlet property="locationField" destination="YhP-FU-LIf" id="rid-J1-RXz"/>

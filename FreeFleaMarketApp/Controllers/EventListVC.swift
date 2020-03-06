@@ -96,7 +96,7 @@ class EventListVC: UITableViewController {
     
     // THIS IS CREATING AN ARRAY OF TYPE "EVENT" AND HARD CODING AN INSTANCE OF A TEST EVENT IN THAT ARRAY.
     
-    var eventList : [Event] = [Event(user: "someone", title: "Clothing Swap at Cafe 123", date: Date(), location: "Cafe 123", image: UIImage(named: "waterfall"), description: "woow")]
+    var eventList : [Event] = [Event(user: "someone", title: "Clothing Swap at Cafe 123", date: "", location: "Cafe 123", image: UIImage(named: "waterfall"), description: "woow")]
     
     
     override func viewDidLoad() {
