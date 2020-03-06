@@ -31,6 +31,6 @@ class EventListTableCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    // 2/3 NEED TO CREATE A + BUTTON TO GO TO NewEventVC.  IS THIS GOING TO BE A SEGUE?  NEED TO DO THIS FIRST SO WE CAN TEST OUT THE saveEvent FUNCTION 
+     
 
 }

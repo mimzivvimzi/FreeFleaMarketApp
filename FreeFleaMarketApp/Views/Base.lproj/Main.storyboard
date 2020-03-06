@@ -86,15 +86,23 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="4bs-7T-wvO">
-                                <rect key="frame" x="47" y="287" width="320" height="416"/>
+                                <rect key="frame" x="47" y="213" width="320" height="416"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Title of Event" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bj5-rb-zvy">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="34"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="320" id="Fnx-NS-bmE"/>
+                                            <constraint firstAttribute="height" constant="34" id="QC5-DF-TvY"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Date" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Uj7-js-vTk">
                                         <rect key="frame" x="0.0" y="50" width="320" height="34"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="34" id="t5F-ir-4ll"/>
+                                            <constraint firstAttribute="width" constant="320" id="uTe-k7-1jp"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
@@ -106,19 +114,31 @@
                                     </datePicker>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Location" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YhP-FU-LIf">
                                         <rect key="frame" x="0.0" y="332" width="320" height="34"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="34" id="SCN-NJ-Uq1"/>
+                                            <constraint firstAttribute="width" constant="320" id="kYT-bv-ZrK"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Details" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RlS-OZ-TKW">
                                         <rect key="frame" x="0.0" y="382" width="320" height="34"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="34" id="5Z0-Q5-vGO"/>
+                                            <constraint firstAttribute="width" constant="320" id="tdp-RH-G6k"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                 </subviews>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="COG-xx-aku">
-                                <rect key="frame" x="170" y="711" width="74" height="30"/>
+                            <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="COG-xx-aku">
+                                <rect key="frame" x="170" y="706" width="74" height="35"/>
                                 <color key="backgroundColor" red="0.027450980390000001" green="0.27058823529999998" blue="0.43529411759999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="74" id="4cy-ve-L1Q"/>
+                                    <constraint firstAttribute="height" constant="35" id="ITy-xn-meS"/>
+                                </constraints>
                                 <state key="normal" title="Save">
                                     <color key="titleColor" red="0.80392156859999997" green="1" blue="0.92156862750000001" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 </state>
@@ -130,10 +150,12 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="COG-xx-aku" firstAttribute="leading" secondItem="Kwu-Hn-eTH" secondAttribute="leading" constant="170" id="4qn-Np-zJC"/>
+                            <constraint firstItem="4bs-7T-wvO" firstAttribute="centerY" secondItem="nBL-ek-d97" secondAttribute="centerY" id="Jpf-hK-Jup"/>
                             <constraint firstItem="Kwu-Hn-eTH" firstAttribute="bottom" secondItem="COG-xx-aku" secondAttribute="bottom" constant="18" id="K4B-gQ-NoN"/>
-                            <constraint firstItem="COG-xx-aku" firstAttribute="top" secondItem="4bs-7T-wvO" secondAttribute="bottom" constant="8" id="ZKC-EB-bnc"/>
+                            <constraint firstItem="COG-xx-aku" firstAttribute="top" secondItem="4bs-7T-wvO" secondAttribute="bottom" constant="77" id="ZKC-EB-bnc"/>
                             <constraint firstItem="COG-xx-aku" firstAttribute="centerX" secondItem="4bs-7T-wvO" secondAttribute="centerX" id="a6e-MY-fbD"/>
                             <constraint firstItem="COG-xx-aku" firstAttribute="centerX" secondItem="nBL-ek-d97" secondAttribute="centerX" id="a9L-SV-edc"/>
+                            <constraint firstItem="4bs-7T-wvO" firstAttribute="centerX" secondItem="nBL-ek-d97" secondAttribute="centerX" id="fy4-Dj-ZLf"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Kwu-Hn-eTH"/>
                     </view>
@@ -257,38 +279,27 @@
                             <outlet property="delegate" destination="LkA-zb-4bq" id="lc2-G8-17w"/>
                         </connections>
                     </tableView>
-                    <toolbarItems>
-                        <barButtonItem title="Item" id="9DH-aM-Qup"/>
-                    </toolbarItems>
+                    <toolbarItems/>
                     <navigationItem key="navigationItem" id="bI9-k3-4jA">
                         <nil key="title"/>
                         <barButtonItem key="leftBarButtonItem" style="plain" id="9Dp-Ff-ss4">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="y6Z-ja-Jlq">
                                 <rect key="frame" x="20" y="13" width="92" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Log out"/>
+                                <state key="normal" title="Log out">
+                                    <color key="titleColor" red="0.058823529409999999" green="0.039215686270000001" blue="0.23529411759999999" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="logoutPressed:" destination="LkA-zb-4bq" eventType="touchUpInside" id="1Yo-gt-eyq"/>
                                 </connections>
                             </button>
                         </barButtonItem>
-                        <rightBarButtonItems>
-                            <barButtonItem style="plain" id="sBb-Y3-h3j">
-                                <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="2Q9-rf-i0T">
-                                    <rect key="frame" x="302" y="13" width="92" height="30"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <state key="normal" title="Test"/>
-                                    <connections>
-                                        <action selector="testPressed:" destination="LkA-zb-4bq" eventType="touchUpInside" id="Zka-bW-swW"/>
-                                    </connections>
-                                </button>
-                            </barButtonItem>
-                            <barButtonItem systemItem="add" id="X65-3W-Zox">
-                                <connections>
-                                    <segue destination="QM9-KH-ohc" kind="show" identifier="newEvent" id="0km-UI-B8H"/>
-                                </connections>
-                            </barButtonItem>
-                        </rightBarButtonItems>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="X65-3W-Zox">
+                            <color key="tintColor" red="0.058823529409999999" green="0.039215686270000001" blue="0.23529411759999999" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <segue destination="QM9-KH-ohc" kind="show" identifier="newEvent" id="0km-UI-B8H"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </tableViewController>
@@ -305,6 +316,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="myn-Xb-8pl">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" red="0.027450980390000001" green="0.27058823529999998" blue="0.43529411759999997" alpha="1" colorSpace="calibratedRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
