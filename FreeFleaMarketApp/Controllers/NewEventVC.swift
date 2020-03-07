@@ -18,8 +18,7 @@ class NewEventVC: UIViewController {
     @IBOutlet weak var locationField: UITextField!
     @IBOutlet weak var descriptionField: UITextField!
     let db = Firestore.firestore()
-    var ref: DatabaseReference!
-    
+
 
 //    @IBOutlet weak var eventDate: UITextField!
     
@@ -41,10 +40,9 @@ class NewEventVC: UIViewController {
     @IBAction func saveEvent(_ sender: UIButton) {
         if Auth.auth().currentUser != nil {
             // HAS TO BE INSIDE THE IF STATEMENT
-            ref = Database.database().reference()
+            var ref = Database.database().reference(withPath: "events")
             let userID = Auth.auth().currentUser!.uid //(FUIAuth.defaultAuthUI()?.auth?.currentUser?.uid)! // MIGHT HAVE TO CHANGE THIS TO WIEM'S
             
-            // DATE WILL BE TODAY'S DATE FOR THE TIME BEING
             guard let key = ref.child("posts").childByAutoId().key else { return }
 
             let newEvent = Event(user: userID, title: titleField.text ?? "", date: dateField.text ?? "", location: locationField.text ?? "", image: nil, description: descriptionField.text ?? "")
@@ -57,8 +55,10 @@ class NewEventVC: UIViewController {
                              "description": newEvent.description] as [String : Any]
             // SAVING TO THE DB
             ref.child("posts").child(userID).childByAutoId()  // POST IS A KEYWORD (POINT OF ENTRY)
+            
             ref.updateChildValues(eventPost)
-            self.dismiss(animated: true, completion: nil)
+            self.navigationController?.popViewController(animated: true)
+//            self.dismiss(animated: true, completion: nil)
         } else {
           print("No one is signed in")
         }

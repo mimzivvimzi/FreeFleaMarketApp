@@ -53,6 +53,9 @@ class WelcomeVC: UIViewController {
         let authViewController = authUI!.authViewController()
         
         // SHOW IT
+    
+
+
 
         present(authViewController, animated: true, completion: nil)
     }

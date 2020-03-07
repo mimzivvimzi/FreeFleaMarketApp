@@ -13,12 +13,13 @@ import FirebaseUI
 
 class EventListVC: UITableViewController {
     
-
-
+    let db = Firestore.firestore()
+    var ref: DatabaseReference!
     
-
     
-
+    // THIS IS CREATING AN ARRAY OF TYPE "EVENT" AND HARD CODING AN INSTANCE OF A TEST EVENT IN THAT ARRAY.
+    
+    var eventList : [Event] = [Event(user: "someone", title: "Clothing Swap at Cafe 123", date: "", location: "Cafe 123", image: UIImage(named: "waterfall"), description: "woow")]
     
     @IBAction func logoutPressed(_ sender: Any) {
         
@@ -70,11 +71,7 @@ class EventListVC: UITableViewController {
         
     }
     
-    // THIS IS CREATING AN ARRAY OF TYPE "EVENT" AND HARD CODING AN INSTANCE OF A TEST EVENT IN THAT ARRAY.
-    
-    var eventList : [Event] = [Event(user: "someone", title: "Clothing Swap at Cafe 123", date: "", location: "Cafe 123", image: UIImage(named: "waterfall"), description: "woow")]
-    
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -86,7 +83,14 @@ class EventListVC: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        fetchEvents()
     }
+    
+    func fetchEvents() {
+        
+    }
+        
+    
 
     // MARK: - Table view data source
 
