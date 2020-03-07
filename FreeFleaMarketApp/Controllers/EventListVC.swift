@@ -14,35 +14,11 @@ import FirebaseUI
 class EventListVC: UITableViewController {
     
 
-    
-    
-    @IBAction func testPressed(_ sender: UIButton) {
-        
-        // SEND eventList TO FIREBASE REALTIME DATABASE
-        // A DB INSIDE THE DB
-        let eventListDB = Database.database().reference().child("Events")
-        
-        // CREATE A DICTIONARY WHERE THE USER IS THE KEY AND THE EVENT INSTANCE IS THE VALUE???
-        // QUESTIONS: DOES THE DICTIONARY HAVE TO BE AN NSDictionary?  How do I get the current user?
-        
 
-        let eventDictionary = ["Test" : "test"]
-
-        
-        // CREATES A CUSTOM RANDOM KEY
-        eventListDB.childByAutoId().setValue(eventDictionary) {
-            // TRAILING CLOSURE
-            (error, reference) in
-            // IF THERE WAS AN ERROR
-            if error != nil {
-                print(error as Any)
-            } else {
-                print("Event saved successfully")
-            }
-        }
-        
-    }
     
+
+    
+
     
     @IBAction func logoutPressed(_ sender: Any) {
         

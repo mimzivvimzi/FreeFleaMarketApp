@@ -58,6 +58,7 @@ class NewEventVC: UIViewController {
             // SAVING TO THE DB
             ref.child("posts").child(userID).childByAutoId()  // POST IS A KEYWORD (POINT OF ENTRY)
             ref.updateChildValues(eventPost)
+            self.dismiss(animated: true, completion: nil)
         } else {
           print("No one is signed in")
         }
