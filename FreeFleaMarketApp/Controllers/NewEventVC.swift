@@ -18,6 +18,7 @@ class NewEventVC: UIViewController {
     @IBOutlet weak var locationField: UITextField!
     @IBOutlet weak var descriptionField: UITextField!
     let db = Firestore.firestore()
+    let postID = UUID().uuidString
 
 
 //    @IBOutlet weak var eventDate: UITextField!
@@ -40,13 +41,12 @@ class NewEventVC: UIViewController {
     @IBAction func saveEvent(_ sender: UIButton) {
         if Auth.auth().currentUser != nil {
             // HAS TO BE INSIDE THE IF STATEMENT
-            var ref = Database.database().reference(withPath: "events")
+            let ref = Database.database().reference(withPath: "\(postID)")
             let userID = Auth.auth().currentUser!.uid //(FUIAuth.defaultAuthUI()?.auth?.currentUser?.uid)! // MIGHT HAVE TO CHANGE THIS TO WIEM'S
             
-            guard let key = ref.child("posts").childByAutoId().key else { return }
-
             let newEvent = Event(user: userID, title: titleField.text ?? "", date: dateField.text ?? "", location: locationField.text ?? "", image: nil, description: descriptionField.text ?? "")
             let eventPost = ["userID": newEvent.user,
+                             "postID": self.postID,
                              "title" : newEvent.title,
                              "date" : newEvent.date,
                              "startTime": newEvent.date,
@@ -54,7 +54,7 @@ class NewEventVC: UIViewController {
                              "location" : newEvent.location,
                              "description": newEvent.description] as [String : Any]
             // SAVING TO THE DB
-            ref.child("posts").child(userID).childByAutoId()  // POST IS A KEYWORD (POINT OF ENTRY)
+            ref.child("posts").child("\(postID)").setValue(eventPost)  // POST IS A KEYWORD (POINT OF ENTRY)
             
             ref.updateChildValues(eventPost)
             self.navigationController?.popViewController(animated: true)
