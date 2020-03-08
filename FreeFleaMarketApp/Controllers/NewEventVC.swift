@@ -46,7 +46,6 @@ class NewEventVC: UIViewController {
             
             let newEvent = Event(user: userID, title: titleField.text ?? "", date: dateField.text ?? "", location: locationField.text ?? "", image: nil, description: descriptionField.text ?? "")
             let eventPost = ["userID": newEvent.user,
-                             "postID": self.postID,
                              "title" : newEvent.title,
                              "date" : newEvent.date,
                              "startTime": newEvent.date,
@@ -55,6 +54,7 @@ class NewEventVC: UIViewController {
                              "description": newEvent.description] as [String : Any]
             // SAVING TO THE DB
             ref.child("posts").child("\(postID)").setValue(eventPost)  // POST IS A KEYWORD (POINT OF ENTRY)
+            
             
             ref.updateChildValues(eventPost)
             self.navigationController?.popViewController(animated: true)
