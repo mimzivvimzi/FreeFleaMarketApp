@@ -41,7 +41,7 @@ class NewEventVC: UIViewController {
     @IBAction func saveEvent(_ sender: UIButton) {
         if Auth.auth().currentUser != nil {
             // HAS TO BE INSIDE THE IF STATEMENT
-            let ref = Database.database().reference(withPath: "\(postID)")
+            let ref = Database.database().reference() //(withPath: "events")
             let userID = Auth.auth().currentUser!.uid //(FUIAuth.defaultAuthUI()?.auth?.currentUser?.uid)! // MIGHT HAVE TO CHANGE THIS TO WIEM'S
             
             let newEvent = Event(user: userID, title: titleField.text ?? "", date: dateField.text ?? "", location: locationField.text ?? "", image: nil, description: descriptionField.text ?? "")
@@ -54,9 +54,7 @@ class NewEventVC: UIViewController {
                              "description": newEvent.description] as [String : Any]
             // SAVING TO THE DB
             ref.child("posts").child("\(postID)").setValue(eventPost)  // POST IS A KEYWORD (POINT OF ENTRY)
-            
-            
-            ref.updateChildValues(eventPost)
+//            ref.updateChildValues(eventPost)
             self.navigationController?.popViewController(animated: true)
 //            self.dismiss(animated: true, completion: nil)
         } else {

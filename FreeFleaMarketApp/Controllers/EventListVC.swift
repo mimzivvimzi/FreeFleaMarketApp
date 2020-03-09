@@ -16,6 +16,7 @@ class EventListVC: UITableViewController {
     let db = Firestore.firestore()
     var ref: DatabaseReference!
     var databaseHandle : DatabaseHandle?
+
     
     
     // THIS IS CREATING AN ARRAY OF TYPE "EVENT" AND HARD CODING AN INSTANCE OF A TEST EVENT IN THAT ARRAY.
@@ -86,19 +87,20 @@ class EventListVC: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
         
         ref = Database.database().reference()
-        
+
         
 //        ref.observeSingleEvent(of: .value) { (snapshot) in
 //            if let data = snapshot.value as? [String : Any] {
-//                print(data["postID"])
+//                print(data["posts"])
 //            }
 //        }
-//
 
 
-        databaseHandle = ref?.child("postID").observe(.value, with: { (snapshot) in
+
+
+        databaseHandle = ref?.child("posts").observe(.value, with: { (snapshot) in
             if let dict = snapshot.value as? [String : Any] {
-                print(dict["postID"])
+                print(dict)
             }
                 self.tableView.reloadData()
 
