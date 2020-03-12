@@ -21,7 +21,7 @@ class EventListVC: UITableViewController {
     
     // THIS IS CREATING AN ARRAY OF TYPE "EVENT" AND HARD CODING AN INSTANCE OF A TEST EVENT IN THAT ARRAY.
     
-    var eventList : [Event] = [Event(user: "someone", title: "Clothing Swap at Cafe 123", date: "", location: "Cafe 123", image: UIImage(named: "waterfall"), description: "woow")]
+    var eventList : [Event] = [Event(user: "someone", title: "Clothing Swap at Cafe 123", date: "", location: "Cafe 123", image: UIImage(named: "waterfall"), details: "woow")]
     
     @IBAction func logoutPressed(_ sender: Any) {
         
@@ -88,22 +88,42 @@ class EventListVC: UITableViewController {
         
         ref = Database.database().reference()
 
-        
 //        ref.observeSingleEvent(of: .value) { (snapshot) in
 //            if let data = snapshot.value as? [String : Any] {
 //                print(data["posts"])
 //            }
 //        }
-
-
-
-
+        
+//        let postRef = self.ref.child("postID")
+//        postRef.observe(.value, with: { (snapshot) in
+//            for child in snapshot.children {
+//                let childSnap = child as! DataSnapshot
+//                let dict = childSnap.value as! [String: Any]
+//                let title = dict["title"] as! String
+//                let date = dict["date"] as! String
+//                print(childSnap.key, title, date)
+//            }
+//            DispatchQueue.main.async {
+//            self.tableView.reloadData()
+//            }
+//        })
+        
+        
+        
+        // TODO: APPEND THE EVENTS TO THE EVENTLIST ARRAY
         databaseHandle = ref?.child("posts").observe(.value, with: { (snapshot) in
             if let dict = snapshot.value as? [String : Any] {
                 print(dict)
-            }
-                self.tableView.reloadData()
+                for value in dict.values {
+                    print(value)
+                }
+//                let title = dict["title"] as? String ?? ""
+//                let title = snapshot.childSnapshot(forPath:"post").value as? String
 
+            }
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
         })
 
     }
@@ -150,7 +170,7 @@ class EventListVC: UITableViewController {
         cell.time.text = "\(hour):\(minute)"
         cell.location.text = currentEvent.location
         cell.eventImage.image = currentEvent.image
-        cell.eventDescriptionLabel.text = currentEvent.description
+        cell.eventDescriptionLabel.text = currentEvent.details
 
         return cell
     }

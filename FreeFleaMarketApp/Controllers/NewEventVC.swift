@@ -44,14 +44,14 @@ class NewEventVC: UIViewController {
             let ref = Database.database().reference() //(withPath: "events")
             let userID = Auth.auth().currentUser!.uid //(FUIAuth.defaultAuthUI()?.auth?.currentUser?.uid)! // MIGHT HAVE TO CHANGE THIS TO WIEM'S
             
-            let newEvent = Event(user: userID, title: titleField.text ?? "", date: dateField.text ?? "", location: locationField.text ?? "", image: nil, description: descriptionField.text ?? "")
+            let newEvent = Event(user: userID, title: titleField.text ?? "", date: dateField.text ?? "", location: locationField.text ?? "", image: nil, details : descriptionField.text ?? "")
             let eventPost = ["userID": newEvent.user,
                              "title" : newEvent.title,
                              "date" : newEvent.date,
                              "startTime": newEvent.date,
                              "endTime" : "",
                              "location" : newEvent.location,
-                             "description": newEvent.description] as [String : Any]
+                             "details": newEvent.details] as [String : Any]
             // SAVING TO THE DB
             ref.child("posts").child("\(postID)").setValue(eventPost)  // POST IS A KEYWORD (POINT OF ENTRY)
 //            ref.updateChildValues(eventPost)
