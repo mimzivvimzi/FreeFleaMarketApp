@@ -22,7 +22,6 @@ class EventListVC: UITableViewController {
     // THIS IS CREATING AN ARRAY OF TYPE "EVENT" AND HARD CODING AN INSTANCE OF A TEST EVENT IN THAT ARRAY.
     
     var eventList : [Event] = [Event(user: "someone", title: "Clothing Swap at Cafe 123", date: "", location: "Cafe 123", image: UIImage(named: "waterfall"), details: "woow")]
-    var post : [String : String] = [:]
     
     @IBAction func logoutPressed(_ sender: Any) {
         
@@ -153,27 +152,37 @@ class EventListVC: UITableViewController {
         // CREATING A REUSABLE CELL CALLED "CELL"
         let cell = tableView.dequeueReusableCell(withIdentifier: "eventCell", for: indexPath) as! EventListTableCell
         // TAKING THE 0TH EVENT
-        let currentEvent = eventList[0]
+//        let currentEvent = eventList[0]
         
-        // TAKING THE CURRENT DATE/TIME AS A TIMESTAMP
-        let date = Date()
-        // USING THE GREGORIAN CALENDAR
-        let calendar = Calendar.current
-        // SEPARATE OUT THE DAY FROM THE CALENDAR
-        let day = calendar.component(.day, from: date)
-        // SEPARATE OUT THE HOUR
-        let hour = calendar.component(.hour, from: date)
-        // SEPARATE OUT THE MINUTES
-        let minute = calendar.component(.minute, from: date)
-        
-        // SETTING EACH LABEL ON THE CELL TO THE CORRESPONDING EVENT PROPERTY.
-        cell.eventTitle.text = currentEvent.title
-        cell.date.text = "On the \(day)"
-        cell.time.text = "\(hour):\(minute)"
-        cell.location.text = currentEvent.location
-        cell.eventImage.image = currentEvent.image
-        cell.eventDescriptionLabel.text = currentEvent.details
+        /*
+         // TAKING THE CURRENT DATE/TIME AS A TIMESTAMP
+         let date = Date()
+         // USING THE GREGORIAN CALENDAR
+         let calendar = Calendar.current
+         // SEPARATE OUT THE DAY FROM THE CALENDAR
+         let day = calendar.component(.day, from: date)
+         // SEPARATE OUT THE HOUR
+         let hour = calendar.component(.hour, from: date)
+         // SEPARATE OUT THE MINUTES
+         let minute = calendar.component(.minute, from: date)
+         */
 
+        
+        // SETTING EACH LABEL ON THE CELL TO THE EVENT OBJECT.
+//        for element in 0..<eventList.count {
+//            cell.eventTitle.text = eventList[element].title
+//            cell.date.text = "On the \(eventList[element].date)"
+////            cell.time.text = "\(hour):\(minute)"
+//            cell.location.text = eventList[element].location
+//            cell.eventImage.image = eventList[element].image
+//            cell.eventDescriptionLabel.text = eventList[element].details
+//        }
+        cell.eventTitle.text = eventList[indexPath.row].title
+        cell.date.text = "Date and Time: \(eventList[indexPath.row].date)"
+//            cell.time.text = "\(hour):\(minute)"
+        cell.location.text = eventList[indexPath.row].location
+        cell.eventImage.image = eventList[indexPath.row].image
+        cell.eventDescriptionLabel.text = eventList[indexPath.row].details
         return cell
     }
     
