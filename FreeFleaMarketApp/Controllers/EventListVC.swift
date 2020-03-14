@@ -22,6 +22,7 @@ class EventListVC: UITableViewController {
     // THIS IS CREATING AN ARRAY OF TYPE "EVENT" AND HARD CODING AN INSTANCE OF A TEST EVENT IN THAT ARRAY.
     
     var eventList : [Event] = [Event(user: "someone", title: "Clothing Swap at Cafe 123", date: "", location: "Cafe 123", image: UIImage(named: "waterfall"), details: "woow")]
+    var post : [String : String] = [:]
     
     @IBAction func logoutPressed(_ sender: Any) {
         
@@ -112,20 +113,22 @@ class EventListVC: UITableViewController {
         
         // TODO: APPEND THE EVENTS TO THE EVENTLIST ARRAY
         databaseHandle = ref?.child("posts").observe(.value, with: { (snapshot) in
-            if let dict = snapshot.value as? [String : Any] {
-                print(dict)
-                for value in dict.values {
-                    print(value)
+            if let value = snapshot.value as? [String : [String : String?]] {
+//                for (name, path) in dict {
+//                    print("The path to '\(name)' is '\(path)'.")
+//                }
+                for element in value.keys {
+                    let fetchedEvent = Event(user: value[element]!["userID"]! ?? "", title: value[element]!["title"]! ?? "", date: value[element]!["date"]! ?? "", location: value[element]!["location"]! ?? "", image: nil, details: value[element]!["details"]! ?? "")
+                    self.eventList.append(fetchedEvent)
+                    print(self.eventList[1].title)
                 }
-//                let title = dict["title"] as? String ?? ""
-//                let title = snapshot.childSnapshot(forPath:"post").value as? String
-
             }
             DispatchQueue.main.async {
                 self.tableView.reloadData()
             }
-        })
-
+        }) {(error) in
+        print(error.localizedDescription)
+        }
     }
     
     
@@ -143,7 +146,6 @@ class EventListVC: UITableViewController {
         // #warning Incomplete implementation, return the number of rows
         // CURRENTLY THE NUMBER OF ITEMS IN THE ARRAY
         return eventList.count
-        // TO DO: AMOUNT OF EVENTS IN THE FIREBASE DB
     }
 
     
