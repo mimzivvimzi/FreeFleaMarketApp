@@ -13,9 +13,8 @@ import FirebaseUI
 
 class EventListVC: UITableViewController {
     
-    let db = Firestore.firestore()
-    var ref: DatabaseReference!
-    var databaseHandle : DatabaseHandle?
+//    let db = Firestore.firestore()
+//    var databaseHandle : DatabaseHandle?
 
     
     
@@ -38,6 +37,7 @@ class EventListVC: UITableViewController {
         } catch let signOutError as NSError {
           print ("Error signing out: %@", signOutError)
         }
+    }
         // take to login screen
 
         
@@ -56,63 +56,15 @@ class EventListVC: UITableViewController {
 //            //handle error
 //            print(error)
 //        }
-        //take to login screen
         
-        // THIS KEEPS ADDING VCs ON TOP OF VCs.  NOT THE RIGHT SOLUTION
-//        if let storyboard = self.storyboard {
-//            let vc = storyboard.instantiateViewController(withIdentifier: "loginVC")
-//            // WHY IS IT self.present?  NOT IN A CLOSURE, BUT...
-//            self.present(vc, animated: true, completion: nil)
-//            }
-        
-//        let loginVC = self.storyboard?.instantiateViewController(identifier: "loginVC")
-//
-//        let appDel: AppDelegate = UIApplication.shared.delegate as! AppDelegate
-//
-//        appDel.window?.rootViewController = loginVC
-        
-    }
-    
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        // THIS VC THAT WE'RE IN RIGHT NOW WILL TAKE ON THE TASK OF RECEIVING THE TABLEVIEW 
-        self.tableView.delegate = self
-        
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
-        
-        ref = Database.database().reference()
-
-//        ref.observeSingleEvent(of: .value) { (snapshot) in
-//            if let data = snapshot.value as? [String : Any] {
-//                print(data["posts"])
-//            }
-//        }
-        
-//        let postRef = self.ref.child("postID")
-//        postRef.observe(.value, with: { (snapshot) in
-//            for child in snapshot.children {
-//                let childSnap = child as! DataSnapshot
-//                let dict = childSnap.value as! [String: Any]
-//                let title = dict["title"] as! String
-//                let date = dict["date"] as! String
-//                print(childSnap.key, title, date)
-//            }
-//            DispatchQueue.main.async {
-//            self.tableView.reloadData()
-//            }
-//        })
-        
-        
-        
+    func fetch() {
+        let ref: DatabaseReference! = Database.database().reference()
         // TODO: APPEND THE EVENTS TO THE EVENTLIST ARRAY
-        databaseHandle = ref?.child("posts").observe(.value, with: { (snapshot) in
+//        ref?.child("posts").observe(.value, with: { (snapshot) in
+        ref.child("posts").observeSingleEvent(of: .value, with: { (snapshot) in
             if let value = snapshot.value as? [String : [String : String?]] {
+                print(value)
 //                for (name, path) in dict {
 //                    print("The path to '\(name)' is '\(path)'.")
 //                }
@@ -128,11 +80,22 @@ class EventListVC: UITableViewController {
         }) {(error) in
         print(error.localizedDescription)
         }
+
     }
-    
-    
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
         
-    
+        // THIS VC THAT WE'RE IN RIGHT NOW WILL TAKE ON THE TASK OF RECEIVING THE TABLEVIEW 
+        self.tableView.delegate = self
+        fetch()
+        
+        // Uncomment the following line to preserve selection between presentations
+        // self.clearsSelectionOnViewWillAppear = false
+
+        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
+        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+    }
 
     // MARK: - Table view data source
 
