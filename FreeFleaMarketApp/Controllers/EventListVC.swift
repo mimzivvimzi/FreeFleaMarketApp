@@ -20,7 +20,8 @@ class EventListVC: UITableViewController {
     
     // THIS IS CREATING AN ARRAY OF TYPE "EVENT" AND HARD CODING AN INSTANCE OF A TEST EVENT IN THAT ARRAY.
     
-    var eventList : [Event] = [Event(user: "someone", title: "Clothing Swap at Cafe 123", date: "", location: "Cafe 123", image: UIImage(named: "waterfall"), details: "woow")]
+    var eventList : [Event] = []
+//    [Event(user: "someone", title: "Clothing Swap at Cafe 123", date: "", location: "Cafe 123", image: UIImage(named: "waterfall"), details: "woow")]
     
     @IBAction func logoutPressed(_ sender: Any) {
         
@@ -59,20 +60,25 @@ class EventListVC: UITableViewController {
         
 
     func fetch() {
+        
+        // TROUBLESHOOTING. RIGHT NOW THIS WILL PRINT A NEW EVENT THAT IS CREATED, BUT ANY SUBSEQUENT EVENT CREATIONS ARE NOT DISPLAYED. 
         let ref: DatabaseReference! = Database.database().reference()
-        // TODO: APPEND THE EVENTS TO THE EVENTLIST ARRAY
-//        ref?.child("posts").observe(.value, with: { (snapshot) in
+//        ref.observe(.childAdded , with: { (snapshot) in
         ref.child("posts").observeSingleEvent(of: .value, with: { (snapshot) in
             if let value = snapshot.value as? [String : [String : String?]] {
-                print(value)
+                print("Value of the snapshot: \(value)")
 //                for (name, path) in dict {
 //                    print("The path to '\(name)' is '\(path)'.")
 //                }
                 for element in value.keys {
+                    print("This is the value.keys count: \(value.keys.count)")
                     let fetchedEvent = Event(user: value[element]!["userID"]! ?? "", title: value[element]!["title"]! ?? "", date: value[element]!["date"]! ?? "", location: value[element]!["location"]! ?? "", image: nil, details: value[element]!["details"]! ?? "")
+                    print("fetched event title: \(fetchedEvent.title)")
                     self.eventList.append(fetchedEvent)
-                    print(self.eventList[1].title)
                 }
+                print("This is the eventList.count: \(self.eventList.count)")
+                print("Event 0's title: \(self.eventList[0].title)")
+                print("------------")
             }
             DispatchQueue.main.async {
                 self.tableView.reloadData()
@@ -80,9 +86,33 @@ class EventListVC: UITableViewController {
         }) {(error) in
         print(error.localizedDescription)
         }
-
     }
 
+//    func fetch() {
+//        let ref: DatabaseReference! = Database.database().reference()
+//        // TODO: APPEND THE EVENTS TO THE EVENTLIST ARRAY
+////        ref?.child("posts").observe(.value, with: { (snapshot) in
+//        ref.child("posts").observeSingleEvent(of: .value, with: { (snapshot) in
+//            if let value = snapshot.value as? [String : [String : String?]] {
+//                print(value)
+////                for (name, path) in dict {
+////                    print("The path to '\(name)' is '\(path)'.")
+////                }
+//                for element in value.keys {
+//                    let fetchedEvent = Event(user: value[element]!["userID"]! ?? "", title: value[element]!["title"]! ?? "", date: value[element]!["date"]! ?? "", location: value[element]!["location"]! ?? "", image: nil, details: value[element]!["details"]! ?? "")
+//                    self.eventList.append(fetchedEvent)
+//                    print(self.eventList[1].title)
+//                }
+//            }
+//            DispatchQueue.main.async {
+//                self.tableView.reloadData()
+//            }
+//        }) {(error) in
+//        print(error.localizedDescription)
+//        }
+//
+//    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -96,6 +126,7 @@ class EventListVC: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
+    
 
     // MARK: - Table view data source
 
