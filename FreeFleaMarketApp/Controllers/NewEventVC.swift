@@ -56,10 +56,9 @@ class NewEventVC: UIViewController {
             ref.child("posts").child("\(postID)").setValue(eventPost)  // POST IS A KEYWORD (POINT OF ENTRY)
 //            ref.updateChildValues(eventPost)
             self.navigationController?.popViewController(animated: true)
-            let eventListVC = EventListVC()
-            eventListVC.viewDidLoad()
-            eventListVC.tableView.reloadData()
 //            self.dismiss(animated: true, completion: nil)
+            let eventListVC = EventListVC()
+            eventListVC.viewDidAppear(true)
         } else {
           print("No one is signed in")
         }

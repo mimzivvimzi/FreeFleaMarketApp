@@ -60,11 +60,9 @@ class EventListVC: UITableViewController {
         
 
     func fetch() {
-        
-        // TROUBLESHOOTING. RIGHT NOW THIS WILL PRINT A NEW EVENT THAT IS CREATED, BUT ANY SUBSEQUENT EVENT CREATIONS ARE NOT DISPLAYED. 
         let ref: DatabaseReference! = Database.database().reference()
-//        ref.observe(.childAdded , with: { (snapshot) in
-        ref.child("posts").observeSingleEvent(of: .value, with: { (snapshot) in
+        ref.observe(.childAdded , with: { (snapshot) in
+//        ref.child("posts").observeSingleEvent(of: .value, with: { (snapshot) in
             if let value = snapshot.value as? [String : [String : String?]] {
                 print("Value of the snapshot: \(value)")
 //                for (name, path) in dict {
@@ -112,6 +110,12 @@ class EventListVC: UITableViewController {
 //        }
 //
 //    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
