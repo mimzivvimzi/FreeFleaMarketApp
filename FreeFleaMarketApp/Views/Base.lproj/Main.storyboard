@@ -172,6 +172,34 @@
             </objects>
             <point key="canvasLocation" x="428.98550724637687" y="383.70535714285711"/>
         </scene>
+        <!--Event DetailsVC-->
+        <scene sceneID="uC0-1a-wu8">
+            <objects>
+                <viewController id="Okw-xb-bJ6" customClass="EventDetailsVC" customModule="FreeFleaMarketApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="476-Mp-B6X">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Event Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mTR-mY-ALm">
+                                <rect key="frame" x="94" y="170" width="81" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="FBt-tU-8A9"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="sIj-if-152"/>
+                    <connections>
+                        <outlet property="eventTitle" destination="mTR-mY-ALm" id="6ax-Zf-9b6"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eiR-80-gmQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="728.98550724637687" y="1092.8571428571429"/>
+        </scene>
         <!--RegisterVC-->
         <scene sceneID="EMf-28-dvF">
             <objects>
@@ -302,6 +330,9 @@
                         </barButtonItem>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <segue destination="Okw-xb-bJ6" kind="show" identifier="goToDetails" id="PRM-cU-Svm"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bUt-BS-2yU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

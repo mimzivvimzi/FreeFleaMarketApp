@@ -19,6 +19,7 @@
 		69177FCE23D7AEC6006D1E63 /* EventListTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69177FCD23D7AEC6006D1E63 /* EventListTableCell.swift */; };
 		69A29EC423DF198300B2B704 /* NewEventVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69A29EC323DF198300B2B704 /* NewEventVC.swift */; };
 		69A29EC623DF265600B2B704 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 69A29EC523DF265600B2B704 /* GoogleService-Info.plist */; };
+		69EBB0FD2428E22F00B341C1 /* EventDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69EBB0FC2428E22F00B341C1 /* EventDetailsVC.swift */; };
 		69ED210423DBB33200330173 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69ED210323DBB33200330173 /* Event.swift */; };
 		F2A7B3A99D769BC81B669E58 /* Pods_FreeFleaMarketApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4B703BD4033FE4F22A57703 /* Pods_FreeFleaMarketApp.framework */; };
 /* End PBXBuildFile section */
@@ -38,6 +39,7 @@
 		69177FCD23D7AEC6006D1E63 /* EventListTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventListTableCell.swift; sourceTree = "<group>"; };
 		69A29EC323DF198300B2B704 /* NewEventVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewEventVC.swift; sourceTree = "<group>"; };
 		69A29EC523DF265600B2B704 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		69EBB0FC2428E22F00B341C1 /* EventDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailsVC.swift; sourceTree = "<group>"; };
 		69ED210323DBB33200330173 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		7814D914940B8DCC547276AF /* Pods-FreeFleaMarketApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FreeFleaMarketApp.release.xcconfig"; path = "Target Support Files/Pods-FreeFleaMarketApp/Pods-FreeFleaMarketApp.release.xcconfig"; sourceTree = "<group>"; };
 		9AF407F8FE29B1468A51A7FB /* Pods-FreeFleaMarketApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FreeFleaMarketApp.debug.xcconfig"; path = "Target Support Files/Pods-FreeFleaMarketApp/Pods-FreeFleaMarketApp.debug.xcconfig"; sourceTree = "<group>"; };
@@ -116,6 +118,7 @@
 				69177FCB23D7AAE5006D1E63 /* EventListVC.swift */,
 				69177FCD23D7AEC6006D1E63 /* EventListTableCell.swift */,
 				69A29EC323DF198300B2B704 /* NewEventVC.swift */,
+				69EBB0FC2428E22F00B341C1 /* EventDetailsVC.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -277,6 +280,7 @@
 				69177FCC23D7AAE5006D1E63 /* EventListVC.swift in Sources */,
 				69177FAF23D7A611006D1E63 /* AppDelegate.swift in Sources */,
 				69A29EC423DF198300B2B704 /* NewEventVC.swift in Sources */,
+				69EBB0FD2428E22F00B341C1 /* EventDetailsVC.swift in Sources */,
 				69177FCE23D7AEC6006D1E63 /* EventListTableCell.swift in Sources */,
 				69177FB123D7A611006D1E63 /* SceneDelegate.swift in Sources */,
 				69177FC523D7A79F006D1E63 /* LoginVC.swift in Sources */,

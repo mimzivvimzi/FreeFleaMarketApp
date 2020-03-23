@@ -15,11 +15,7 @@ class EventListVC: UITableViewController {
     
 //    let db = Firestore.firestore()
 //    var databaseHandle : DatabaseHandle?
-
-    
-    
-    // THIS IS CREATING AN ARRAY OF TYPE "EVENT" AND HARD CODING AN INSTANCE OF A TEST EVENT IN THAT ARRAY.
-    
+    var selectedIndexPath: Int?
     var eventList : [Event] = []
 //    [Event(user: "someone", title: "Clothing Swap at Cafe 123", date: "", location: "Cafe 123", image: UIImage(named: "waterfall"), details: "woow")]
     
@@ -175,6 +171,8 @@ class EventListVC: UITableViewController {
 //            cell.eventImage.image = eventList[element].image
 //            cell.eventDescriptionLabel.text = eventList[element].details
 //        }
+        
+        let event = eventList[indexPath.row]
         cell.eventTitle.text = eventList[indexPath.row].title
         cell.date.text = "Date and Time: \(eventList[indexPath.row].date)"
 //            cell.time.text = "\(hour):\(minute)"
@@ -182,6 +180,25 @@ class EventListVC: UITableViewController {
         cell.eventImage.image = eventList[indexPath.row].image
         cell.eventDescriptionLabel.text = eventList[indexPath.row].details
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        selectedIndexPath = indexPath.row
+        tableView.reloadData()
+        
+        let cell = tableView.cellForRow(at: indexPath)
+        performSegue(withIdentifier: "goToDetails", sender: cell)
+
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let cell = sender as! UITableViewCell
+        let indexPath = self.tableView.indexPath(for: cell)
+        let event = eventList[indexPath!.row]
+        if segue.identifier == "goToDetails" {
+            let destinationVC = segue.destination as! EventDetailsVC
+            destinationVC.theTitle = event.title
+        }
     }
     
 
