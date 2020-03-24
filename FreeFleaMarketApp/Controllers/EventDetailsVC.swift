@@ -11,22 +11,30 @@ import UIKit
 class EventDetailsVC: UIViewController {
 
     @IBOutlet weak var eventTitle: UILabel!
+    @IBOutlet weak var date: UILabel!
+    @IBOutlet weak var time: UILabel!
+    @IBOutlet weak var location: UILabel!
+    @IBOutlet weak var eventDescription: UILabel!
+    @IBOutlet weak var eventImage: UIImageView!
+    
     var theTitle = ""
+    var theDate = ""
+    var theTime = ""
+    var theLocation = ""
+    var theDescription = ""
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
         eventTitle.text = theTitle
+        date.text = theDate
+        location.text = theLocation
+        eventDescription.text = theDescription
         // Do any additional setup after loading the view.
     }
     
 
     /*
-             cell.eventTitle.text = eventList[indexPath.row].title
-             cell.date.text = "Date and Time: \(eventList[indexPath.row].date)"
-     //            cell.time.text = "\(hour):\(minute)"
-             cell.location.text = eventList[indexPath.row].location
-             cell.eventImage.image = eventList[indexPath.row].image
-             cell.eventDescriptionLabel.text = eventList[indexPath.row].details
      
     // MARK: - Navigation
 

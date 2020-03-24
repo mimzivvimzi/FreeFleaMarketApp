@@ -198,6 +198,9 @@ class EventListVC: UITableViewController {
         if segue.identifier == "goToDetails" {
             let destinationVC = segue.destination as! EventDetailsVC
             destinationVC.theTitle = event.title
+            destinationVC.theDate = event.date
+            destinationVC.theLocation = event.location
+            destinationVC.theDescription = event.details
         }
     }
     

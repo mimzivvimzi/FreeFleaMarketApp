@@ -180,20 +180,69 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Event Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mTR-mY-ALm">
-                                <rect key="frame" x="94" y="170" width="81" height="29"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="jGC-w6-iul">
+                                <rect key="frame" x="20" y="158" width="291.5" height="207"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5aK-xR-8a1">
+                                        <rect key="frame" x="0.0" y="0.0" width="201" height="175"/>
+                                    </imageView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="21" translatesAutoresizingMaskIntoConstraints="NO" id="JfB-To-FKc">
+                                        <rect key="frame" x="211" y="0.0" width="80.5" height="184"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Event Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mTR-mY-ALm">
+                                                <rect key="frame" x="0.0" y="0.0" width="80.5" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6MK-40-8fi">
+                                                <rect key="frame" x="0.0" y="41.5" width="80.5" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zqf-lT-t0Z">
+                                                <rect key="frame" x="0.0" y="83" width="80.5" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EOg-hu-Csv">
+                                                <rect key="frame" x="0.0" y="124.5" width="80.5" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k9u-ZL-Vu5">
+                                                <rect key="frame" x="0.0" y="166" width="80.5" height="18"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="5aK-xR-8a1" secondAttribute="bottom" constant="32" id="bVb-8p-ada"/>
+                                </constraints>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="jGC-w6-iul" firstAttribute="leading" secondItem="476-Mp-B6X" secondAttribute="leadingMargin" id="VvO-C0-duP"/>
+                            <constraint firstItem="jGC-w6-iul" firstAttribute="top" secondItem="FBt-tU-8A9" secondAttribute="top" constant="102" id="izP-r2-qdb"/>
+                            <constraint firstItem="FBt-tU-8A9" firstAttribute="trailing" secondItem="jGC-w6-iul" secondAttribute="trailing" constant="102.5" id="p4S-5Z-ZAX"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="FBt-tU-8A9"/>
                     </view>
                     <navigationItem key="navigationItem" id="sIj-if-152"/>
                     <connections>
+                        <outlet property="date" destination="6MK-40-8fi" id="Jib-pw-mxx"/>
+                        <outlet property="eventDescription" destination="k9u-ZL-Vu5" id="sCW-dy-Vv0"/>
+                        <outlet property="eventImage" destination="5aK-xR-8a1" id="gJC-eJ-VrR"/>
                         <outlet property="eventTitle" destination="mTR-mY-ALm" id="6ax-Zf-9b6"/>
+                        <outlet property="location" destination="EOg-hu-Csv" id="KY6-OL-dNk"/>
+                        <outlet property="time" destination="Zqf-lT-t0Z" id="7tP-yo-8Ut"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eiR-80-gmQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
