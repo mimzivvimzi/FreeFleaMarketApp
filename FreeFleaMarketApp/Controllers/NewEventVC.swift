@@ -19,19 +19,14 @@ class NewEventVC: UIViewController {
     @IBOutlet weak var descriptionField: UITextField!
     let db = Firestore.firestore()
     let postID = UUID().uuidString
-
-
-//    @IBOutlet weak var eventDate: UITextField!
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-       
     }
     
     @IBAction func dateSelected(_ sender: UIDatePicker) {
-        let dateFormatter = DateFormatter() // CONVERTS BETWEEN DATES AND THEIR TEXTUAL REPRESENTATION
-        dateFormatter.locale = Locale(identifier: "en_US") // jp_JP JAPAN: 2020/03/05
+        let dateFormatter = DateFormatter()
+        dateFormatter.locale = Locale(identifier: "en_US")
         dateFormatter.dateStyle = DateFormatter.Style.medium
         dateFormatter.timeStyle = DateFormatter.Style.short
         let dateToString = dateFormatter.string(from: datePicker.date)
@@ -40,10 +35,8 @@ class NewEventVC: UIViewController {
     
     @IBAction func saveEvent(_ sender: UIButton) {
         if Auth.auth().currentUser != nil {
-            // HAS TO BE INSIDE THE IF STATEMENT
-            let ref = Database.database().reference() //(withPath: "events")
-            let userID = Auth.auth().currentUser!.uid //(FUIAuth.defaultAuthUI()?.auth?.currentUser?.uid)! // MIGHT HAVE TO CHANGE THIS TO WIEM'S
-            
+            let ref = Database.database().reference()
+            let userID = Auth.auth().currentUser!.uid
             let newEvent = Event(user: userID, title: titleField.text ?? "", date: dateField.text ?? "", location: locationField.text ?? "", image: nil, details : descriptionField.text ?? "")
             let eventPost = ["userID": newEvent.user,
                              "title" : newEvent.title,
@@ -52,13 +45,10 @@ class NewEventVC: UIViewController {
                              "endTime" : "",
                              "location" : newEvent.location,
                              "details": newEvent.details] as [String : Any]
-            // SAVING TO THE DB
-            ref.child("posts").child("\(postID)").setValue(eventPost)  // POST IS A KEYWORD (POINT OF ENTRY)
-//            ref.updateChildValues(eventPost)
+            ref.child("posts").child("\(postID)").setValue(eventPost)
             self.presentingViewController?.dismiss(animated: true, completion: nil)
         } else {
           print("No one is signed in")
         }
     }
-
 }

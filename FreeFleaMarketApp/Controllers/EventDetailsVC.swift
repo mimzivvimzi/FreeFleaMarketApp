@@ -30,7 +30,6 @@ class EventDetailsVC: UIViewController {
         date.text = theDate
         location.text = theLocation
         eventDescription.text = theDescription
-        // Do any additional setup after loading the view.
     }
     
 

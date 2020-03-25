@@ -10,9 +10,7 @@ import UIKit
 import Foundation
 
 class EventListTableCell: UITableViewCell {
-    
-    // CONNECT ALL OF THE LABELS IN THE TABLEVIEW CELL IN THE MAIN STORYBOARD
-    
+        
     @IBOutlet weak var eventImage: UIImageView!
     @IBOutlet var eventTitle: UILabel!
     @IBOutlet var date: UILabel!
