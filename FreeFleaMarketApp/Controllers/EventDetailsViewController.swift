@@ -8,7 +8,7 @@
 
 import UIKit
 
-class EventDetailsVC: UIViewController {
+class EventDetailsViewController: UIViewController {
 
     @IBOutlet weak var eventTitle: UILabel!
     @IBOutlet weak var date: UILabel!

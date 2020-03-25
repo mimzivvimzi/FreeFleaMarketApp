@@ -9,7 +9,7 @@
 import UIKit
 import Firebase
 
-class NewEventVC: UIViewController {
+class NewEventViewController: UIViewController {
     
     
     @IBOutlet weak var titleField: UITextField!
@@ -46,7 +46,8 @@ class NewEventVC: UIViewController {
                              "location" : newEvent.location,
                              "details": newEvent.details] as [String : Any]
             ref.child("posts").child("\(postID)").setValue(eventPost)
-            self.presentingViewController?.dismiss(animated: true, completion: nil)
+            self.navigationController?.popViewController(animated: true)
+//            self.presentingViewController?.dismiss(animated: true, completion: nil)
         } else {
           print("No one is signed in")
         }

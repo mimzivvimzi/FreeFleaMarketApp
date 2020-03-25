@@ -11,7 +11,7 @@ import Firebase
 import FirebaseUI
 
 
-class EventListVC: UITableViewController {
+class EventListViewController: UITableViewController {
 
     var selectedIndexPath: Int?
     var eventList : [Event] = []
@@ -104,7 +104,7 @@ class EventListVC: UITableViewController {
             let cell = sender as! UITableViewCell
             let indexPath = self.tableView.indexPath(for: cell)
             let event = eventList[indexPath!.row]
-            let destinationVC = segue.destination as! EventDetailsVC
+            let destinationVC = segue.destination as! EventDetailsViewController
             destinationVC.theTitle = event.title
             destinationVC.theDate = event.date
             destinationVC.theLocation = event.location

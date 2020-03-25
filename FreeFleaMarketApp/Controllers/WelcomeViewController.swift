@@ -9,7 +9,7 @@
 import UIKit
 import FirebaseUI
 
-class WelcomeVC: UIViewController {
+class WelcomeViewController: UIViewController {
     
     @IBOutlet weak var appTitle: UILabel!
     
@@ -42,7 +42,7 @@ class WelcomeVC: UIViewController {
     }
 }
 
-extension WelcomeVC: FUIAuthDelegate {
+extension WelcomeViewController: FUIAuthDelegate {
     func authUI(_ authUI: FUIAuth, didSignInWith authDataResult: AuthDataResult?, error: Error?) {
         
         guard error == nil else {
