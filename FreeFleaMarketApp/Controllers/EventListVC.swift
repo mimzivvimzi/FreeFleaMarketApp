@@ -172,7 +172,6 @@ class EventListVC: UITableViewController {
 //            cell.eventDescriptionLabel.text = eventList[element].details
 //        }
         
-        let event = eventList[indexPath.row]
         cell.eventTitle.text = eventList[indexPath.row].title
         cell.date.text = "Date and Time: \(eventList[indexPath.row].date)"
 //            cell.time.text = "\(hour):\(minute)"
