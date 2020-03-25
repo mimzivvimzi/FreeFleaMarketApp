@@ -56,6 +56,7 @@ class EventListVC: UITableViewController {
         
 
     func fetch() {
+        eventList = []
         let ref: DatabaseReference! = Database.database().reference()
         ref.observe(.childAdded , with: { (snapshot) in
 //        ref.child("posts").observeSingleEvent(of: .value, with: { (snapshot) in
@@ -108,9 +109,9 @@ class EventListVC: UITableViewController {
 //    }
     
     override func viewDidAppear(_ animated: Bool) {
-        DispatchQueue.main.async {
-            self.tableView.reloadData()
-        }
+        fetch()
+        self.tableView.reloadData()
+        
     }
     
     override func viewDidLoad() {
@@ -191,10 +192,10 @@ class EventListVC: UITableViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let cell = sender as! UITableViewCell
-        let indexPath = self.tableView.indexPath(for: cell)
-        let event = eventList[indexPath!.row]
         if segue.identifier == "goToDetails" {
+            let cell = sender as! UITableViewCell
+            let indexPath = self.tableView.indexPath(for: cell)
+            let event = eventList[indexPath!.row]
             let destinationVC = segue.destination as! EventDetailsVC
             destinationVC.theTitle = event.title
             destinationVC.theDate = event.date

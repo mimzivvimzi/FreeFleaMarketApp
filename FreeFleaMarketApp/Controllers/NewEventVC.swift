@@ -55,30 +55,10 @@ class NewEventVC: UIViewController {
             // SAVING TO THE DB
             ref.child("posts").child("\(postID)").setValue(eventPost)  // POST IS A KEYWORD (POINT OF ENTRY)
 //            ref.updateChildValues(eventPost)
-            self.navigationController?.popViewController(animated: true)
-//            self.dismiss(animated: true, completion: nil)
-            let eventListVC = EventListVC()
-            eventListVC.viewDidAppear(true)
+            self.presentingViewController?.dismiss(animated: true, completion: nil)
         } else {
           print("No one is signed in")
         }
-
     }
-    
-    
-    
-    
-
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
