@@ -53,7 +53,7 @@ class EventListViewController: UITableViewController {
         }
     }
     
-    override func viewDidAppear(_ animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         fetch()
         self.tableView.reloadData()
         
@@ -62,7 +62,6 @@ class EventListViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.delegate = self
-        fetch()
     }
     
 
