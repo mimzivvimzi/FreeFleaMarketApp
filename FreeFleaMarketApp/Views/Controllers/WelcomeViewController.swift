@@ -20,6 +20,7 @@ class WelcomeViewController: UIViewController {
         self.view.backgroundColor = UIColor(patternImage: UIImage(named: "background")!)
     }
     
+
     @IBAction func loginPressed(_ sender: UIButton) {
         goToAuthUI()
     }
@@ -30,6 +31,7 @@ class WelcomeViewController: UIViewController {
     
     // USE FIREBASE UI TO LOGIN OR REGISTER
     func goToAuthUI() {
+
         let authUI = FUIAuth.defaultAuthUI()
         
         guard authUI != nil else {
@@ -39,10 +41,12 @@ class WelcomeViewController: UIViewController {
         authUI?.providers = [FUIEmailAuth()]
         let authViewController = authUI!.authViewController()
         present(authViewController, animated: true, completion: nil)
+
     }
 }
 
 extension WelcomeViewController: FUIAuthDelegate {
+
     func authUI(_ authUI: FUIAuth, didSignInWith authDataResult: AuthDataResult?, error: Error?) {
         
         guard error == nil else {

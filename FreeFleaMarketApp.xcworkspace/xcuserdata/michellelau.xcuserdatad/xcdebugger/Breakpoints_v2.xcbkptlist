@@ -45,7 +45,13 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "67"
+<<<<<<< HEAD
             endingLineNumber = "67">
+=======
+            endingLineNumber = "67"
+            landmarkName = "WelcomeVC"
+            landmarkType = "21">
+>>>>>>> 61329b5020689e0fcf1ce5f2278c8e67a0672af1
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -60,7 +66,11 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "23"
             endingLineNumber = "23"
+<<<<<<< HEAD
             landmarkName = "loginPressed(_:)"
+=======
+            landmarkName = "viewDidLoad()"
+>>>>>>> 61329b5020689e0fcf1ce5f2278c8e67a0672af1
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
