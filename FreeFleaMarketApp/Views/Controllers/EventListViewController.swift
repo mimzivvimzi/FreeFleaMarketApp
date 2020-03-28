@@ -80,12 +80,19 @@ class EventListViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "eventCell", for: indexPath) as! EventListTableCell
         
-        cell.eventTitle.text = eventList[indexPath.row].title
-        cell.date.text = "Date and Time: \(eventList[indexPath.row].date)"
-//            cell.time.text = "\(hour):\(minute)"
-        cell.location.text = eventList[indexPath.row].location
-        cell.eventImage.image = eventList[indexPath.row].image
-        cell.eventDescriptionLabel.text = eventList[indexPath.row].details
+        let event = eventList[indexPath.row]
+        
+        cell.eventTitle.text = event.title
+        let dateTime = event.date.split(separator: " ")
+        if dateTime.count != 0 {
+            let date = dateTime[0] + " " + dateTime[1] + " " + dateTime[2]
+            let time = dateTime[4] + " " + dateTime[5]
+            cell.date.text = "Date: \(date)"
+            cell.time.text = "Time: \(time)"
+        }
+        cell.location.text = event.location
+        cell.eventImage.image = event.image
+        cell.eventDescriptionLabel.text = event.details
         return cell
     }
     
