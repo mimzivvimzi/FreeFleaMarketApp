@@ -12,22 +12,29 @@ import FirebaseUI
 
 
 class EventListViewController: UITableViewController {
-
+    
     var selectedIndexPath: Int?
     var eventList : [Event] = []
+
     
     // LOG OUT AND RETURN TO THE WELCOME VIEW CONTROLLER
-    @IBAction func logoutPressed(_ sender: Any) {
-        let authUI: FUIAuth = FUIAuth.defaultAuthUI()!
-        do {
-            try authUI.signOut()
-//            print(authUI.auth?.currentUser)
-            self.presentingViewController?.dismiss(animated: true, completion: nil)
-        } catch let signOutError as NSError {
-          print ("Error signing out: %@", signOutError)
-        }
+    
+    /*
+             let authUI: FUIAuth = FUIAuth.defaultAuthUI()!
+             do {
+                 try authUI.signOut()
+                 print(authUI.auth?.currentUser)
+                 self.performSegue(withIdentifier: "unwindToWelcome", sender: self)
+     //            self.presentingViewController?.dismiss(animated: true, completion: nil)
+             } catch let signOutError as NSError {
+               print ("Error signing out: %@", signOutError)
+             }
+     */
+    
+    @IBAction func logoutPressed(_ sender: UIBarButtonItem) {
+        performSegue(withIdentifier: "unwindToWelcome", sender: self)
     }
-        
+    
     // FETCH ALL EVENTS IN THE FIREBASE REALTIME DATABASE
     func fetch() {
         eventList = []

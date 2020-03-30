@@ -13,6 +13,11 @@ class WelcomeViewController: UIViewController {
     
     @IBOutlet weak var appTitle: UILabel!
     
+    @IBAction func unwindToWelcome(_ unwindSegue: UIStoryboardSegue) {
+        let sourceViewController = unwindSegue.source
+        // Use data from the view controller which initiated the unwind segue
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         appTitle.clipsToBounds = true
@@ -41,9 +46,15 @@ class WelcomeViewController: UIViewController {
         authUI?.providers = [FUIEmailAuth()]
         let authViewController = authUI!.authViewController()
         present(authViewController, animated: true, completion: nil)
-
+        let vc = self.storyboard!.instantiateViewController(withIdentifier: "EventListViewController") as! EventListViewController
+        self.navigationController?.setViewControllers([vc], animated: true)
     }
+    
+
+    
+    
 }
+
 
 extension WelcomeViewController: FUIAuthDelegate {
 

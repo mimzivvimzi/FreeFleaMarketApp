@@ -1,0 +1,8 @@
+/Users/michellelau/Library/Developer/Xcode/DerivedData/FreeFleaMarketApp-gqgjawbinpqhnnclpdcfrximbsge/Build/Products/Debug-iphonesimulator/FirebaseUI/FirebaseAnonymousAuthUI.bundle
+/Users/michellelau/Library/Developer/Xcode/DerivedData/FreeFleaMarketApp-gqgjawbinpqhnnclpdcfrximbsge/Build/Products/Debug-iphonesimulator/FirebaseUI/FirebaseAuthUI.bundle
+/Users/michellelau/Library/Developer/Xcode/DerivedData/FreeFleaMarketApp-gqgjawbinpqhnnclpdcfrximbsge/Build/Products/Debug-iphonesimulator/FirebaseUI/FirebaseEmailAuthUI.bundle
+/Users/michellelau/Library/Developer/Xcode/DerivedData/FreeFleaMarketApp-gqgjawbinpqhnnclpdcfrximbsge/Build/Products/Debug-iphonesimulator/FirebaseUI/FirebaseFacebookAuthUI.bundle
+/Users/michellelau/Library/Developer/Xcode/DerivedData/FreeFleaMarketApp-gqgjawbinpqhnnclpdcfrximbsge/Build/Products/Debug-iphonesimulator/FirebaseUI/FirebaseGoogleAuthUI.bundle
+/Users/michellelau/Library/Developer/Xcode/DerivedData/FreeFleaMarketApp-gqgjawbinpqhnnclpdcfrximbsge/Build/Products/Debug-iphonesimulator/FirebaseUI/FirebaseOAuthUI.bundle
+/Users/michellelau/Library/Developer/Xcode/DerivedData/FreeFleaMarketApp-gqgjawbinpqhnnclpdcfrximbsge/Build/Products/Debug-iphonesimulator/FirebaseUI/FirebasePhoneAuthUI.bundle
+/Users/michellelau/Developer/CodeTechniq/FreeFleaMarketApp/Pods/GoogleSignIn/Resources/GoogleSignIn.bundle
