@@ -17,19 +17,16 @@ class EventDetailsViewController: UIViewController {
     @IBOutlet weak var eventDescription: UILabel!
     @IBOutlet weak var eventImage: UIImageView!
     
-    var theTitle = ""
-    var theDate = ""
-    var theTime = ""
-    var theLocation = ""
-    var theDescription = ""
+    var selectedEvent : Event?
+    
 
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        eventTitle.text = theTitle
-        date.text = theDate
-        location.text = theLocation
-        eventDescription.text = theDescription
+        eventTitle.text = selectedEvent?.title
+        date.text = selectedEvent?.date
+        location.text = selectedEvent?.location
+        eventDescription.text = selectedEvent?.details
     }
     
 

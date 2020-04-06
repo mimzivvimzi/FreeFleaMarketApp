@@ -43,6 +43,9 @@ class WelcomeViewController: UIViewController {
         present(authViewController, animated: true, completion: nil)
 
     }
+    
+
+    
 }
 
 extension WelcomeViewController: FUIAuthDelegate {
@@ -54,7 +57,8 @@ extension WelcomeViewController: FUIAuthDelegate {
         }
         
         if authUI.auth?.currentUser != nil {
-            performSegue(withIdentifier: "EventList", sender: self)
+            let vc = self.storyboard!.instantiateViewController(withIdentifier: "EventListViewController") as! EventListViewController
+            self.navigationController?.setViewControllers([vc], animated: true)
         } else {
             print("not working")
         }

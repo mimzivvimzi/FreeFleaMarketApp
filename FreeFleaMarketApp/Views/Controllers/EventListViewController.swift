@@ -21,8 +21,10 @@ class EventListViewController: UITableViewController {
         let authUI: FUIAuth = FUIAuth.defaultAuthUI()!
         do {
             try authUI.signOut()
-//            print(authUI.auth?.currentUser)
-            self.presentingViewController?.dismiss(animated: true, completion: nil)
+            print(authUI.auth?.currentUser)
+            let loginViewController = self.storyboard?.instantiateViewController(withIdentifier: "WelcomeViewController") as! UINavigationController
+            self.view.window?.rootViewController = loginViewController
+//            self.presentingViewController?.dismiss(animated: true, completion: nil)
         } catch let signOutError as NSError {
           print ("Error signing out: %@", signOutError)
         }
@@ -111,10 +113,9 @@ class EventListViewController: UITableViewController {
             let indexPath = self.tableView.indexPath(for: cell)
             let event = eventList[indexPath!.row]
             let destinationVC = segue.destination as! EventDetailsViewController
-            destinationVC.theTitle = event.title
-            destinationVC.theDate = event.date
-            destinationVC.theLocation = event.location
-            destinationVC.theDescription = event.details
+            
+            // PASS OVER THE EVENT OBJECT
+            destinationVC.selectedEvent = event
         }
     }
     

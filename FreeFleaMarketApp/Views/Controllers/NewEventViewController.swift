@@ -19,7 +19,7 @@ class NewEventViewController: UITableViewController {
     @IBOutlet weak var locationField: UITextField!
     @IBOutlet weak var descriptionField: UITextField!
     
-    let db = Firestore.firestore()
+//    let db = Firestore.firestore()
     let postID = UUID().uuidString
     
     override func viewDidLoad() {
