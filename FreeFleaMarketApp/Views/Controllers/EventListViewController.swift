@@ -24,7 +24,6 @@ class EventListViewController: UITableViewController {
             print(authUI.auth?.currentUser)
             let loginViewController = self.storyboard?.instantiateViewController(withIdentifier: "WelcomeViewController") as! UINavigationController
             self.view.window?.rootViewController = loginViewController
-//            self.presentingViewController?.dismiss(animated: true, completion: nil)
         } catch let signOutError as NSError {
           print ("Error signing out: %@", signOutError)
         }

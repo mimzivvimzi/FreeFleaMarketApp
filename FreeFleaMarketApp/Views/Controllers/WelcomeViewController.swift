@@ -13,6 +13,13 @@ class WelcomeViewController: UIViewController {
     
     @IBOutlet weak var appTitle: UILabel!
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        if Auth.auth().currentUser != nil {
+            self.performSegue(withIdentifier: "userLoggedIn", sender: nil)
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         appTitle.clipsToBounds = true

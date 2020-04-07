@@ -15,27 +15,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     
     var window: UIWindow?
-    var storyboard : UIStoryboard?
-    
 
    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         FirebaseApp.configure()
-        
-        let authUI = FUIAuth.defaultAuthUI()
-        storyboard = UIStoryboard(name: "Main", bundle: nil)
-        var vc : UIViewController
-
-        if authUI?.auth?.currentUser != nil {
-            vc = self.storyboard!.instantiateViewController(withIdentifier: "EventListViewController") as! EventListViewController
-//            self.navigationController?.setViewControllers([vc], animated: true)
-        } else {
-            vc = self.storyboard!.instantiateViewController(withIdentifier: "WelcomeViewController2") as! WelcomeViewController
-//            self.navigationController?.setViewControllers([vc], animated: true)
-        }
-        window?.rootViewController = vc
-        window?.makeKeyAndVisible()
 
         return true
     }
