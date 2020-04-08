@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		690A9AC5243DD8AC00025353 /* StorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 690A9AC4243DD8AC00025353 /* StorageService.swift */; };
+		690A9AC7243DD97C00025353 /* PostService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 690A9AC6243DD97C00025353 /* PostService.swift */; };
 		69177FAF23D7A611006D1E63 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69177FAE23D7A611006D1E63 /* AppDelegate.swift */; };
 		69177FB123D7A611006D1E63 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69177FB023D7A611006D1E63 /* SceneDelegate.swift */; };
 		69177FB323D7A611006D1E63 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69177FB223D7A611006D1E63 /* WelcomeViewController.swift */; };
@@ -25,6 +27,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		690A9AC4243DD8AC00025353 /* StorageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = StorageService.swift; path = FreeFleaMarketApp/Models/StorageService.swift; sourceTree = SOURCE_ROOT; };
+		690A9AC6243DD97C00025353 /* PostService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostService.swift; sourceTree = "<group>"; };
 		69177FAB23D7A611006D1E63 /* FreeFleaMarketApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FreeFleaMarketApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		69177FAE23D7A611006D1E63 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		69177FB023D7A611006D1E63 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -105,6 +109,8 @@
 			isa = PBXGroup;
 			children = (
 				69ED210323DBB33200330173 /* Event.swift */,
+				690A9AC4243DD8AC00025353 /* StorageService.swift */,
+				690A9AC6243DD97C00025353 /* PostService.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -282,8 +288,10 @@
 				69177FCC23D7AAE5006D1E63 /* EventListViewController.swift in Sources */,
 				69177FAF23D7A611006D1E63 /* AppDelegate.swift in Sources */,
 				69EBB0FD2428E22F00B341C1 /* EventDetailsViewController.swift in Sources */,
+				690A9AC7243DD97C00025353 /* PostService.swift in Sources */,
 				69177FCE23D7AEC6006D1E63 /* EventListTableCell.swift in Sources */,
 				69177FB123D7A611006D1E63 /* SceneDelegate.swift in Sources */,
+				690A9AC5243DD8AC00025353 /* StorageService.swift in Sources */,
 				69177FC523D7A79F006D1E63 /* LoginVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

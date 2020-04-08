@@ -226,6 +226,14 @@
                                                         </imageView>
                                                     </subviews>
                                                 </stackView>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pPa-2O-1vb">
+                                                    <rect key="frame" x="279" y="69" width="111" height="30"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <state key="normal" title="Save Photo Test"/>
+                                                    <connections>
+                                                        <action selector="savePhotoPressed:" destination="ndo-fS-mYF" eventType="touchUpInside" id="Rxe-Bn-YnT"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="trailing" secondItem="hTx-Fg-mca" secondAttribute="trailing" constant="184" id="2Ol-44-WDx"/>

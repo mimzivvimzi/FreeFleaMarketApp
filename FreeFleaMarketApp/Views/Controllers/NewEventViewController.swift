@@ -70,9 +70,27 @@ class NewEventViewController: UITableViewController {
         })
     }
     
-    
-    
+        //uncomment the import statement then uncomment the function
+    func saveImageToFirebase(){
+        let image = UIImage(named: "AppIcon")!
+        let imageRef = Storage.storage().reference().child("test_image.jpg")
+        StorageService.uploadImage(image, at: imageRef) { (downloadURL) in
+            guard let downloadURL = downloadURL else {
+                return
+            }
 
+            let urlString = downloadURL.absoluteString
+            print("image url: \(urlString)")
+        }
+
+    }
+    
+    
+    
+    @IBAction func savePhotoPressed(_ sender: UIButton) {
+        saveImageToFirebase()
+    }
+    
 
     @IBAction func saveEvent(_ sender: UIButton) {
         if Auth.auth().currentUser != nil {
@@ -93,6 +111,7 @@ class NewEventViewController: UITableViewController {
           print("No one is signed in")
         }
     }
+    
 }
 
 
