@@ -13,6 +13,13 @@ class WelcomeViewController: UIViewController {
     
     @IBOutlet weak var appTitle: UILabel!
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        if Auth.auth().currentUser != nil {
+            self.performSegue(withIdentifier: "userLoggedIn", sender: nil)
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         appTitle.clipsToBounds = true
@@ -43,6 +50,9 @@ class WelcomeViewController: UIViewController {
         present(authViewController, animated: true, completion: nil)
 
     }
+    
+
+    
 }
 
 extension WelcomeViewController: FUIAuthDelegate {
@@ -54,7 +64,8 @@ extension WelcomeViewController: FUIAuthDelegate {
         }
         
         if authUI.auth?.currentUser != nil {
-            performSegue(withIdentifier: "EventList", sender: self)
+            let vc = self.storyboard!.instantiateViewController(withIdentifier: "EventListViewController") as! EventListViewController
+            self.navigationController?.setViewControllers([vc], animated: true)
         } else {
             print("not working")
         }
