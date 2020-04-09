@@ -325,12 +325,14 @@ PODS:
   - SDWebImage (5.5.2):
     - SDWebImage/Core (= 5.5.2)
   - SDWebImage/Core (5.5.2)
+  - SwiftyJSON (4.3.0)
 
 DEPENDENCIES:
   - Firebase/Database
   - Firebase/Storage
   - FirebaseUI
   - FirebaseUI/Auth
+  - SwiftyJSON (~> 4.0)
 
 SPEC REPOS:
   trunk:
@@ -360,6 +362,7 @@ SPEC REPOS:
     - leveldb-library
     - nanopb
     - SDWebImage
+    - SwiftyJSON
 
 SPEC CHECKSUMS:
   abseil: 18063d773f5366ff8736a050fe035a28f635fd27
@@ -388,7 +391,8 @@ SPEC CHECKSUMS:
   leveldb-library: 55d93ee664b4007aac644a782d11da33fba316f7
   nanopb: 18003b5e52dab79db540fe93fe9579f399bd1ccd
   SDWebImage: 4d5c027c935438f341ed33dbac53ff9f479922ca
+  SwiftyJSON: 6faa0040f8b59dead0ee07436cbf76b73c08fd08
 
-PODFILE CHECKSUM: 6e591487f85a093ed74fc2a4a6e8cd583189269a
+PODFILE CHECKSUM: 70ec16c19aacf535ab98be79a0ff214045cb2953
 
 COCOAPODS: 1.8.4

@@ -15,10 +15,10 @@ class Event {
     var title: String
     var date:  String
     var location: String 
-    var image: UIImage?
+    var image: String
     var details: String
 
-    init(user: String, title: String, date: String, location: String, image: UIImage?, details: String) {
+    init(user: String, title: String, date: String, location: String, image: String, details: String) {
         self.user = user
         self.title = title
         self.date = date

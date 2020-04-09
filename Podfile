@@ -9,6 +9,7 @@ target 'FreeFleaMarketApp' do
   pod 'FirebaseUI/Auth'
   pod 'Firebase/Database'
   pod 'Firebase/Storage'
+  pod 'SwiftyJSON', '~> 4.0'
 
 
 end

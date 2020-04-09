@@ -202,7 +202,7 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection headerTitle="Test Image" id="Qe3-Pp-MCK">
+                            <tableViewSection headerTitle="Upload an image" id="Qe3-Pp-MCK">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="167" id="Mow-WU-QPW">
                                         <rect key="frame" x="0.0" y="657.5" width="414" height="167"/>
@@ -214,26 +214,18 @@
                                                 <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="hTx-Fg-mca">
                                                     <rect key="frame" x="20" y="32.5" width="210" height="102"/>
                                                     <subviews>
-                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L8c-od-nJR">
-                                                            <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
-                                                            <state key="normal" title="Test"/>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L8c-od-nJR">
+                                                            <rect key="frame" x="0.0" y="0.0" width="59" height="22"/>
+                                                            <state key="normal" image="camera.fill" catalog="system"/>
                                                             <connections>
-                                                                <action selector="testButton:" destination="ndo-fS-mYF" eventType="touchUpInside" id="3aW-eL-GXf"/>
+                                                                <action selector="uploadPhoto:" destination="ndo-fS-mYF" eventType="touchUpInside" id="3aW-eL-GXf"/>
                                                             </connections>
                                                         </button>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ak0-Q5-1H6">
-                                                            <rect key="frame" x="60" y="0.0" width="150" height="102"/>
+                                                            <rect key="frame" x="89" y="0.0" width="121" height="102"/>
                                                         </imageView>
                                                     </subviews>
                                                 </stackView>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pPa-2O-1vb">
-                                                    <rect key="frame" x="279" y="69" width="111" height="30"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <state key="normal" title="Save Photo Test"/>
-                                                    <connections>
-                                                        <action selector="savePhotoPressed:" destination="ndo-fS-mYF" eventType="touchUpInside" id="Rxe-Bn-YnT"/>
-                                                    </connections>
-                                                </button>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="trailing" secondItem="hTx-Fg-mca" secondAttribute="trailing" constant="184" id="2Ol-44-WDx"/>
@@ -257,7 +249,7 @@
                         <outlet property="datePicker" destination="EZ2-Aa-Gtc" id="3Ip-sp-NAZ"/>
                         <outlet property="descriptionField" destination="RlS-OZ-TKW" id="1KE-7P-w85"/>
                         <outlet property="locationField" destination="YhP-FU-LIf" id="HJW-J0-T0Z"/>
-                        <outlet property="testImage" destination="ak0-Q5-1H6" id="pT0-bZ-FaV"/>
+                        <outlet property="selectedImage" destination="ak0-Q5-1H6" id="pT0-bZ-FaV"/>
                         <outlet property="titleField" destination="bj5-rb-zvy" id="SOW-a9-5M5"/>
                     </connections>
                 </tableViewController>
@@ -536,4 +528,7 @@
         </scene>
     </scenes>
     <color key="tintColor" red="0.027450980390000001" green="0.27058823529999998" blue="0.43529411759999997" alpha="1" colorSpace="calibratedRGB"/>
+    <resources>
+        <image name="camera.fill" catalog="system" width="128" height="96"/>
+    </resources>
 </document>

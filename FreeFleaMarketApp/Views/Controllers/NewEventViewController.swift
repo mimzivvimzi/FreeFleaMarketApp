@@ -12,7 +12,7 @@ import Firebase
 
 class NewEventViewController: UITableViewController {
     
-    @IBOutlet weak var testImage: UIImageView!
+    @IBOutlet weak var selectedImage: UIImageView!
     
     @IBOutlet weak var titleField: UITextField!
     @IBOutlet weak var datePicker: UIDatePicker!
@@ -37,7 +37,7 @@ class NewEventViewController: UITableViewController {
     }
     
     
-    @IBAction func testButton(_ sender: UIButton) {
+    @IBAction func uploadPhoto(_ sender: UIButton) {
         let alert = UIAlertController(title: "Upload a photo", message: nil, preferredStyle: .actionSheet)
         alert.addAction(UIAlertAction(title: "Camera", style: .default, handler: { (_) in
             print("User clicked the camera button")
@@ -71,40 +71,43 @@ class NewEventViewController: UITableViewController {
     }
     
         //uncomment the import statement then uncomment the function
-    func saveImageToFirebase(){
-        let image = UIImage(named: "AppIcon")!
-        let imageRef = Storage.storage().reference().child("test_image.jpg")
+    func saveImageToFirebase(postID: String) -> String {
+        var urlString: String = ""
+        let image = selectedImage.image!
+        let imageRef = Storage.storage().reference().child("Images/\(postID).jpg")
         StorageService.uploadImage(image, at: imageRef) { (downloadURL) in
             guard let downloadURL = downloadURL else {
                 return
             }
 
-            let urlString = downloadURL.absoluteString
-            print("image url: \(urlString)")
+            urlString = downloadURL.absoluteString
+            print("Here is the image url: \(urlString)")
         }
-
-    }
-    
-    
-    
-    @IBAction func savePhotoPressed(_ sender: UIButton) {
-        saveImageToFirebase()
+        print("*******************************")
+        print("This is the imageRef \(imageRef)")
+        print("*******************************")
+        return urlString
     }
     
 
+    
     @IBAction func saveEvent(_ sender: UIButton) {
         if Auth.auth().currentUser != nil {
             let ref = Database.database().reference()
             let userID = Auth.auth().currentUser!.uid
-            let newEvent = Event(user: userID, title: titleField.text ?? "", date: dateField.text ?? "", location: locationField.text ?? "", image: nil, details : descriptionField.text ?? "")
+            let imageURL = saveImageToFirebase(postID: postID)
+            let newEvent = Event(user: userID, title: titleField.text ?? "", date: dateField.text ?? "", location: locationField.text ?? "", image: imageURL, details : descriptionField.text ?? "")
             let eventPost = ["userID": newEvent.user,
                              "title" : newEvent.title,
                              "date" : newEvent.date,
                              "startTime": newEvent.date,
                              "endTime" : "",
                              "location" : newEvent.location,
+                             "imageURL" : newEvent.image,
                              "details": newEvent.details] as [String : Any]
             ref.child("posts").child("\(postID)").setValue(eventPost)
+            print("This is the imageURL: \(imageURL)")
+            print("This is the newEvent.image: \(newEvent.image)")
             self.navigationController?.popViewController(animated: true)
     //            self.presentingViewController?.dismiss(animated: true, completion: nil)
         } else {
@@ -119,7 +122,7 @@ extension NewEventViewController: UIImagePickerControllerDelegate,UINavigationCo
     internal func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
         if let pickedImage = info[UIImagePickerController.InfoKey(rawValue: UIImagePickerController.InfoKey.originalImage.rawValue)] as? UIImage {
     // imageViewPic.contentMode = .scaleToFill
-            testImage.image = pickedImage
+            selectedImage.image = pickedImage
             }
             picker.dismiss(animated: true, completion: nil)
     }

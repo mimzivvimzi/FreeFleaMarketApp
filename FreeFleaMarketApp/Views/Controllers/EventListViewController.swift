@@ -9,12 +9,18 @@
 import UIKit
 import Firebase
 import FirebaseUI
+import FirebaseStorage
+import SwiftyJSON
 
 
 class EventListViewController: UITableViewController {
 
     var selectedIndexPath: Int?
-    var eventList : [Event] = []
+    var eventList : [FetchedEvent] = []
+    var myImageView = UIImageView()
+    let storageRef = Storage.storage().reference()
+
+
     
     // LOG OUT AND RETURN TO THE WELCOME VIEW CONTROLLER
     @IBAction func logoutPressed(_ sender: Any) {
@@ -36,9 +42,24 @@ class EventListViewController: UITableViewController {
         ref.observe(.childAdded , with: { (snapshot) in
             if let value = snapshot.value as? [String : [String : String?]] {
                 print("Value of the snapshot: \(value)")
+                let json = JSON(value)
+                
                 for element in value.keys {
                     print("This is the value.keys count: \(value.keys.count)")
-                    let fetchedEvent = Event(user: value[element]!["userID"]! ?? "", title: value[element]!["title"]! ?? "", date: value[element]!["date"]! ?? "", location: value[element]!["location"]! ?? "", image: nil, details: value[element]!["details"]! ?? "")
+
+                    
+                    //let imageURL =
+                    
+                    // url ->
+                
+
+                    
+                    
+                    let fetchedEvent = FetchedEvent(json: json[element])
+                    print("*******This is the fetchedEvent.imageURL \(fetchedEvent.imageURL)")
+                    let imageURL = fetchedEvent.imageURL
+                    
+//                    let fetchedEvent = Event(user: value[element]!["userID"]! ?? "", title: value[element]!["title"]! ?? "", date: value[element]!["date"]! ?? "", location: value[element]!["location"]! ?? "", image: nil, details: value[element]!["details"]! ?? "")
                     print("fetched event title: \(fetchedEvent.title)")
                     self.eventList.append(fetchedEvent)
                 }
@@ -53,6 +74,17 @@ class EventListViewController: UITableViewController {
         print(error.localizedDescription)
         }
     }
+    
+    
+    func fetchImage(postID: String) {
+        // Reference to an image file in Firebase Storage
+        let reference = storageRef.child("Images/\(postID).jpg")
+        // Placeholder image
+        let placeholderImage = UIImage(named: "waterfall.jpg")
+        // Load the image using SDWebImage
+        myImageView.sd_setImage(with: reference, placeholderImage: placeholderImage)
+    }
+    
     
     override func viewWillAppear(_ animated: Bool) {
         fetch()
@@ -92,7 +124,9 @@ class EventListViewController: UITableViewController {
             cell.time.text = "Time: \(time)"
         }
         cell.location.text = event.location
-        cell.eventImage.image = event.image
+        
+        // FIX THIS
+//        cell.eventImage.image = event.image
         cell.eventDescriptionLabel.text = event.details
         return cell
     }

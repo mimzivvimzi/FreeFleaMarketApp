@@ -17,7 +17,7 @@ class EventDetailsViewController: UIViewController {
     @IBOutlet weak var eventDescription: UILabel!
     @IBOutlet weak var eventImage: UIImageView!
     
-    var selectedEvent : Event?
+    var selectedEvent : FetchedEvent?
     
 
     
