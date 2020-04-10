@@ -20,7 +20,8 @@ class EventListViewController: UITableViewController {
     var myImageView = UIImageView()
     let storageRef = Storage.storage().reference()
 
-
+    @IBOutlet weak var testImage: UIImageView!
+    
     
     // LOG OUT AND RETURN TO THE WELCOME VIEW CONTROLLER
     @IBAction func logoutPressed(_ sender: Any) {
@@ -57,8 +58,12 @@ class EventListViewController: UITableViewController {
                     
                     let fetchedEvent = FetchedEvent(json: json[element])
                     print("*******This is the fetchedEvent.imageURL \(fetchedEvent.imageURL)")
+                    let test = value.keys
+                    let postID = test.joined(separator: "")
+                    print("value.keys \(test)")
+
                     let imageURL = fetchedEvent.imageURL
-                    
+                    let fetchedImage = self.fetchImage(postID: postID)
 //                    let fetchedEvent = Event(user: value[element]!["userID"]! ?? "", title: value[element]!["title"]! ?? "", date: value[element]!["date"]! ?? "", location: value[element]!["location"]! ?? "", image: nil, details: value[element]!["details"]! ?? "")
                     print("fetched event title: \(fetchedEvent.title)")
                     self.eventList.append(fetchedEvent)
@@ -82,7 +87,7 @@ class EventListViewController: UITableViewController {
         // Placeholder image
         let placeholderImage = UIImage(named: "waterfall.jpg")
         // Load the image using SDWebImage
-        myImageView.sd_setImage(with: reference, placeholderImage: placeholderImage)
+        testImage.sd_setImage(with: reference, placeholderImage: placeholderImage)
     }
     
     

@@ -356,6 +356,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <imageView key="tableFooterView" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="k4Z-a4-cc6">
+                            <rect key="frame" x="0.0" y="334.5" width="414" height="44"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        </imageView>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="uDg-eQ-zTh">
                                 <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
@@ -464,6 +468,7 @@
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="testImage" destination="k4Z-a4-cc6" id="ndb-Z3-ttI"/>
                         <segue destination="Okw-xb-bJ6" kind="show" identifier="goToDetails" id="PRM-cU-Svm"/>
                     </connections>
                 </tableViewController>

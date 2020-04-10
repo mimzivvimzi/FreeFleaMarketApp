@@ -70,32 +70,28 @@ class NewEventViewController: UITableViewController {
         })
     }
     
-        //uncomment the import statement then uncomment the function
-    func saveImageToFirebase(postID: String) -> String {
-        var urlString: String = ""
-        let image = selectedImage.image!
-        let imageRef = Storage.storage().reference().child("Images/\(postID).jpg")
-        StorageService.uploadImage(image, at: imageRef) { (downloadURL) in
-            guard let downloadURL = downloadURL else {
-                return
-            }
-
-            urlString = downloadURL.absoluteString
-            print("Here is the image url: \(urlString)")
-        }
-        print("*******************************")
-        print("This is the imageRef \(imageRef)")
-        print("*******************************")
-        return urlString
-    }
+//    func saveImageToFirebase(postID: String) -> String {
+//        var urlString: String = ""
+//        let image = selectedImage.image!
+//        let imageRef = Storage.storage().reference().child("Images/\(postID).jpg")
+//        StorageService.uploadImage(image, at: imageRef) { (downloadURL) in
+//            guard let downloadURL = downloadURL else {
+//                return
+//            }
+//
+//            urlString = downloadURL.absoluteString
+//            print("Here is the image url: \(urlString)")
+//            self.saveEvent(imageURL: urlString)
+//        }
+//        return urlString
+//    }
     
-
     
-    @IBAction func saveEvent(_ sender: UIButton) {
+    func saveEvent(imageURL: String) {
         if Auth.auth().currentUser != nil {
             let ref = Database.database().reference()
             let userID = Auth.auth().currentUser!.uid
-            let imageURL = saveImageToFirebase(postID: postID)
+//            let imageURL = saveImageToFirebase(postID: postID)
             let newEvent = Event(user: userID, title: titleField.text ?? "", date: dateField.text ?? "", location: locationField.text ?? "", image: imageURL, details : descriptionField.text ?? "")
             let eventPost = ["userID": newEvent.user,
                              "title" : newEvent.title,
@@ -106,15 +102,28 @@ class NewEventViewController: UITableViewController {
                              "imageURL" : newEvent.image,
                              "details": newEvent.details] as [String : Any]
             ref.child("posts").child("\(postID)").setValue(eventPost)
-            print("This is the imageURL: \(imageURL)")
-            print("This is the newEvent.image: \(newEvent.image)")
+            print("This is the imageURL in the saveEvent function: \(imageURL)")
+            print("This is the newEvent.image in the saveEvent function: \(newEvent.image)")
             self.navigationController?.popViewController(animated: true)
     //            self.presentingViewController?.dismiss(animated: true, completion: nil)
         } else {
           print("No one is signed in")
         }
     }
+
     
+    @IBAction func saveEvent(_ sender: UIButton) {
+        let image = selectedImage.image!
+        let imageRef = Storage.storage().reference().child("Images/\(postID).jpg")
+        StorageService.uploadImage(image, at: imageRef) { (downloadURL) in
+            guard let downloadURL = downloadURL else {
+                return
+            }
+            let urlString = downloadURL.absoluteString
+            print("image url: \(urlString)")
+            self.saveEvent(imageURL: urlString)
+        }
+    }
 }
 
 
