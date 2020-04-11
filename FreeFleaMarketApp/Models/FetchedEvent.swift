@@ -16,6 +16,7 @@ class FetchedEvent {
     var location: String
     var details: String
     var imageURL: String
+    var postID: String
 
     init(json: JSON) {
         self.user = json["userID"].stringValue
@@ -24,6 +25,7 @@ class FetchedEvent {
         self.location = json["location"].stringValue
         self.details = json["details"].stringValue
         self.imageURL = json["imageURL"].stringValue
+        self.postID = ""
     }
 }
 

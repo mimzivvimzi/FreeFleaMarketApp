@@ -19,9 +19,6 @@ class EventListViewController: UITableViewController {
     var eventList : [FetchedEvent] = []
     var myImageView = UIImageView()
     let storageRef = Storage.storage().reference()
-
-    @IBOutlet weak var testImage: UIImageView!
-    
     
     // LOG OUT AND RETURN TO THE WELCOME VIEW CONTROLLER
     @IBAction func logoutPressed(_ sender: Any) {
@@ -47,25 +44,25 @@ class EventListViewController: UITableViewController {
                 
                 for element in value.keys {
                     print("This is the value.keys count: \(value.keys.count)")
-
                     
                     //let imageURL =
                     
                     // url ->
-                
-
-                    
-                    
-                    let fetchedEvent = FetchedEvent(json: json[element])
+    
+                    var fetchedEvent = FetchedEvent(json: json[element])
                     print("*******This is the fetchedEvent.imageURL \(fetchedEvent.imageURL)")
-                    let test = value.keys
-                    let postID = test.joined(separator: "")
-                    print("value.keys \(test)")
+                    let key = value.keys
+                    let postID = key.joined(separator: "")
+                    print("value.keys \(key)")
 
-                    let imageURL = fetchedEvent.imageURL
-                    let fetchedImage = self.fetchImage(postID: postID)
+//                    let imageURL = fetchedEvent.imageURL
+//                    let fetchedImage = self.fetchImage(postID: postID)
+//                    let reference = self.storageRef.child("Images/\(postID).jpg")
+                    fetchedEvent.postID = postID
+                    print("This is the fetchedEvent.postID: \(fetchedEvent.postID)")
+                    
 //                    let fetchedEvent = Event(user: value[element]!["userID"]! ?? "", title: value[element]!["title"]! ?? "", date: value[element]!["date"]! ?? "", location: value[element]!["location"]! ?? "", image: nil, details: value[element]!["details"]! ?? "")
-                    print("fetched event title: \(fetchedEvent.title)")
+                    print("fetched event imageURL: \(fetchedEvent.imageURL)")
                     self.eventList.append(fetchedEvent)
                 }
                 print("This is the eventList.count: \(self.eventList.count)")
@@ -81,14 +78,15 @@ class EventListViewController: UITableViewController {
     }
     
     
-    func fetchImage(postID: String) {
-        // Reference to an image file in Firebase Storage
-        let reference = storageRef.child("Images/\(postID).jpg")
-        // Placeholder image
-        let placeholderImage = UIImage(named: "waterfall.jpg")
-        // Load the image using SDWebImage
-        testImage.sd_setImage(with: reference, placeholderImage: placeholderImage)
-    }
+//    func fetchImage(postID: String)  {
+//        // Reference to an image file in Firebase Storage
+//        let reference = storageRef.child("Images/\(postID).jpg")
+//        // Placeholder image
+////        let placeholderImage = UIImage(named: "waterfall.jpg")
+//        // Load the image using SDWebImage
+//        testImage.sd_setImage(with: reference)
+////        return reference
+//    }
     
     
     override func viewWillAppear(_ animated: Bool) {
@@ -130,10 +128,20 @@ class EventListViewController: UITableViewController {
         }
         cell.location.text = event.location
         
+        
         // FIX THIS
+        let reference = storageRef.child("Images/\(event.postID).jpg")
+        cell.eventImage.sd_setImage(with: reference)
+
 //        cell.eventImage.image = event.image
         cell.eventDescriptionLabel.text = event.details
+        
+        
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return CGFloat(220)
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
