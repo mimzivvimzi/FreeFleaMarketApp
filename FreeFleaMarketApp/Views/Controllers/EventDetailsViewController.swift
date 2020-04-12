@@ -43,7 +43,6 @@ class EventDetailsViewController: UIViewController {
         
         if Auth.auth().currentUser?.uid  == selectedEvent?.user {
             editButton.isHidden = false
-            deleteButton.isHidden = false
         }
         
         if let postID = selectedEvent?.postID {
@@ -64,12 +63,12 @@ class EventDetailsViewController: UIViewController {
     
     @IBAction func editTapped(_ sender: UIButton) {
         testTitle.isUserInteractionEnabled = true
+        deleteButton.isHidden = false
     }
     
     @IBAction func deleteTapped(_ sender: UIButton) {
         if let postID = selectedEvent?.postID {
             remove(postID: postID)
-            print("Hopefully it deleted")
         }
     }
     
