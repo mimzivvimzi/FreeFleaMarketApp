@@ -19,30 +19,19 @@ class EventDetailsViewController: UIViewController {
     
     var selectedEvent : FetchedEvent?
     
-
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         eventTitle.text = selectedEvent?.title
-        date.text = selectedEvent?.date
         location.text = selectedEvent?.location
         eventDescription.text = selectedEvent?.details
         navigationItem.title = "Event Details"
-
+        if let dateTime = selectedEvent?.date.split(separator: " ") {
+            if dateTime.count != 0 {
+                let separatedDate = dateTime[0] + " " + dateTime[1] + " " + dateTime[2]
+                let separatedTime = dateTime[4] + " " + dateTime[5]
+                date.text = "Date: \(separatedDate)"
+                time.text = "Time: \(separatedTime)"
+            }
+        }
     }
-    
-
-    /*
-     
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
-    
-    
 }

@@ -41,27 +41,15 @@ class EventListViewController: UITableViewController {
             if let value = snapshot.value as? [String : [String : String?]] {
                 print("Value of the snapshot: \(value)")
                 let json = JSON(value)
-                
                 for element in value.keys {
                     print("This is the value.keys count: \(value.keys.count)")
-                    
-                    //let imageURL =
-                    
-                    // url ->
-    
-                    var fetchedEvent = FetchedEvent(json: json[element])
+                    let fetchedEvent = FetchedEvent(json: json[element])
                     print("*******This is the fetchedEvent.imageURL \(fetchedEvent.imageURL)")
                     let key = value.keys
                     let postID = key.joined(separator: "")
                     print("value.keys \(key)")
-
-//                    let imageURL = fetchedEvent.imageURL
-//                    let fetchedImage = self.fetchImage(postID: postID)
-//                    let reference = self.storageRef.child("Images/\(postID).jpg")
                     fetchedEvent.postID = postID
                     print("This is the fetchedEvent.postID: \(fetchedEvent.postID)")
-                    
-//                    let fetchedEvent = Event(user: value[element]!["userID"]! ?? "", title: value[element]!["title"]! ?? "", date: value[element]!["date"]! ?? "", location: value[element]!["location"]! ?? "", image: nil, details: value[element]!["details"]! ?? "")
                     print("fetched event imageURL: \(fetchedEvent.imageURL)")
                     self.eventList.append(fetchedEvent)
                 }
@@ -77,22 +65,9 @@ class EventListViewController: UITableViewController {
         }
     }
     
-    
-//    func fetchImage(postID: String)  {
-//        // Reference to an image file in Firebase Storage
-//        let reference = storageRef.child("Images/\(postID).jpg")
-//        // Placeholder image
-////        let placeholderImage = UIImage(named: "waterfall.jpg")
-//        // Load the image using SDWebImage
-//        testImage.sd_setImage(with: reference)
-////        return reference
-//    }
-    
-    
     override func viewWillAppear(_ animated: Bool) {
         fetch()
         self.tableView.reloadData()
-        
     }
     
     override func viewDidLoad() {
@@ -102,11 +77,7 @@ class EventListViewController: UITableViewController {
         tableView.rowHeight = 300
     }
     
-
-    // MARK: - Table view data source
-
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return 1
     }
 
@@ -117,9 +88,7 @@ class EventListViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "eventCell", for: indexPath) as! EventListTableCell
-        
         let event = eventList[indexPath.row]
-        
         cell.eventTitle.text = event.title
         let dateTime = event.date.split(separator: " ")
         if dateTime.count != 0 {
@@ -129,22 +98,11 @@ class EventListViewController: UITableViewController {
             cell.time.text = "Time: \(time)"
         }
         cell.location.text = event.location
-        
-        
-        // FIX THIS
         let reference = storageRef.child("Images/\(event.postID).jpg")
         cell.eventImage.sd_setImage(with: reference)
-
-//        cell.eventImage.image = event.image
         cell.eventDescriptionLabel.text = event.details
-        
-        
         return cell
     }
-    
-//    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-//        return CGFloat(220)
-//    }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         selectedIndexPath = indexPath.row
@@ -161,56 +119,7 @@ class EventListViewController: UITableViewController {
             let indexPath = self.tableView.indexPath(for: cell)
             let event = eventList[indexPath!.row]
             let destinationVC = segue.destination as! EventDetailsViewController
-            
-            // PASS OVER THE EVENT OBJECT
             destinationVC.selectedEvent = event
         }
     }
-    
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

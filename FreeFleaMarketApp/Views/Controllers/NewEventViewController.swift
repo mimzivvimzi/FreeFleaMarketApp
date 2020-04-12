@@ -20,13 +20,11 @@ class NewEventViewController: UITableViewController {
     @IBOutlet weak var locationField: UITextField!
     @IBOutlet weak var descriptionField: UITextField!
     
-//    let db = Firestore.firestore()
     let postID = UUID().uuidString
     
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.title = "Create a New Event"
-
     }
     
     @IBAction func dateSelected(_ sender: UIDatePicker) {
@@ -72,28 +70,10 @@ class NewEventViewController: UITableViewController {
         })
     }
     
-//    func saveImageToFirebase(postID: String) -> String {
-//        var urlString: String = ""
-//        let image = selectedImage.image!
-//        let imageRef = Storage.storage().reference().child("Images/\(postID).jpg")
-//        StorageService.uploadImage(image, at: imageRef) { (downloadURL) in
-//            guard let downloadURL = downloadURL else {
-//                return
-//            }
-//
-//            urlString = downloadURL.absoluteString
-//            print("Here is the image url: \(urlString)")
-//            self.saveEvent(imageURL: urlString)
-//        }
-//        return urlString
-//    }
-    
-    
     func saveEvent(imageURL: String) {
         if Auth.auth().currentUser != nil {
             let ref = Database.database().reference()
             let userID = Auth.auth().currentUser!.uid
-//            let imageURL = saveImageToFirebase(postID: postID)
             let newEvent = Event(user: userID, title: titleField.text ?? "", date: dateField.text ?? "", location: locationField.text ?? "", image: imageURL, details : descriptionField.text ?? "")
             let eventPost = ["userID": newEvent.user,
                              "title" : newEvent.title,
@@ -107,7 +87,6 @@ class NewEventViewController: UITableViewController {
             print("This is the imageURL in the saveEvent function: \(imageURL)")
             print("This is the newEvent.image in the saveEvent function: \(newEvent.image)")
             self.navigationController?.popViewController(animated: true)
-    //            self.presentingViewController?.dismiss(animated: true, completion: nil)
         } else {
           print("No one is signed in")
         }
@@ -132,7 +111,6 @@ class NewEventViewController: UITableViewController {
 extension NewEventViewController: UIImagePickerControllerDelegate,UINavigationControllerDelegate {
     internal func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
         if let pickedImage = info[UIImagePickerController.InfoKey(rawValue: UIImagePickerController.InfoKey.originalImage.rawValue)] as? UIImage {
-    // imageViewPic.contentMode = .scaleToFill
             selectedImage.image = pickedImage
             }
             picker.dismiss(animated: true, completion: nil)
