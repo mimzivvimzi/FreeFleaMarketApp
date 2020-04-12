@@ -323,8 +323,25 @@
                                     </stackView>
                                 </subviews>
                             </stackView>
+                            <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="title" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HZp-1o-R3u">
+                                <rect key="frame" x="49" y="491" width="292" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WBj-jf-ax1">
+                                <rect key="frame" x="0.0" y="727" width="414" height="41"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="24"/>
+                                <state key="normal" title="Delete">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="deleteTapped:" destination="Okw-xb-bJ6" eventType="touchUpInside" id="aja-sf-iFr"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="COG-xx-aku">
-                                <rect key="frame" x="0.0" y="737" width="414" height="41"/>
+                                <rect key="frame" x="0.0" y="664" width="414" height="41"/>
                                 <color key="backgroundColor" red="0.027450980390000001" green="0.27058823529999998" blue="0.43529411759999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="24"/>
                                 <state key="normal" title="Edit">
@@ -334,21 +351,18 @@
                                     <action selector="editTapped:" destination="Okw-xb-bJ6" eventType="touchUpInside" id="T80-X7-poz"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="title" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HZp-1o-R3u">
-                                <rect key="frame" x="49" y="491" width="292" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="FBt-tU-8A9" firstAttribute="trailing" secondItem="hN9-gB-r11" secondAttribute="trailing" constant="143" id="0QX-xu-lZ5"/>
-                            <constraint firstItem="COG-xx-aku" firstAttribute="leading" secondItem="FBt-tU-8A9" secondAttribute="leading" id="6nj-yP-xk3"/>
+                            <constraint firstItem="COG-xx-aku" firstAttribute="trailing" secondItem="WBj-jf-ax1" secondAttribute="trailing" id="AAH-CC-JGB"/>
+                            <constraint firstItem="COG-xx-aku" firstAttribute="leading" secondItem="FBt-tU-8A9" secondAttribute="leading" id="Id6-LZ-xzx"/>
+                            <constraint firstItem="COG-xx-aku" firstAttribute="leading" secondItem="WBj-jf-ax1" secondAttribute="leading" id="JFe-cf-lRg"/>
                             <constraint firstAttribute="bottom" secondItem="hN9-gB-r11" secondAttribute="bottom" constant="459" id="WR9-NT-lI1"/>
                             <constraint firstItem="hN9-gB-r11" firstAttribute="leading" secondItem="FBt-tU-8A9" secondAttribute="leading" constant="143" id="enI-Ps-lfx"/>
-                            <constraint firstItem="COG-xx-aku" firstAttribute="centerX" secondItem="hN9-gB-r11" secondAttribute="centerX" id="kC4-fh-SGx"/>
-                            <constraint firstItem="FBt-tU-8A9" firstAttribute="bottom" secondItem="COG-xx-aku" secondAttribute="bottom" constant="35" id="mmO-ue-tIy"/>
+                            <constraint firstItem="COG-xx-aku" firstAttribute="centerX" secondItem="hN9-gB-r11" secondAttribute="centerX" id="hhs-nN-G0h"/>
+                            <constraint firstItem="WBj-jf-ax1" firstAttribute="top" secondItem="COG-xx-aku" secondAttribute="bottom" constant="22" id="qhX-6y-Zol"/>
+                            <constraint firstAttribute="bottom" secondItem="COG-xx-aku" secondAttribute="bottom" constant="191" id="zTa-MN-tqv"/>
                             <constraint firstItem="hN9-gB-r11" firstAttribute="top" secondItem="FBt-tU-8A9" secondAttribute="top" constant="20" id="zss-ao-0qK"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="FBt-tU-8A9"/>
@@ -356,7 +370,8 @@
                     <navigationItem key="navigationItem" id="sIj-if-152"/>
                     <connections>
                         <outlet property="date" destination="6MK-40-8fi" id="Jib-pw-mxx"/>
-                        <outlet property="editButton" destination="COG-xx-aku" id="nLn-A7-eGk"/>
+                        <outlet property="deleteButton" destination="WBj-jf-ax1" id="9D3-9Y-pdI"/>
+                        <outlet property="editButton" destination="COG-xx-aku" id="mhq-g1-NNi"/>
                         <outlet property="eventDescription" destination="k9u-ZL-Vu5" id="sCW-dy-Vv0"/>
                         <outlet property="eventImage" destination="5aK-xR-8a1" id="gJC-eJ-VrR"/>
                         <outlet property="eventTitle" destination="mTR-mY-ALm" id="6ax-Zf-9b6"/>

@@ -22,15 +22,19 @@ class EventDetailsViewController: UIViewController {
     
     @IBOutlet weak var testTitle: UITextField!
     @IBOutlet weak var editButton: UIButton!
+    @IBOutlet weak var deleteButton: UIButton!
+    
     
     var selectedEvent : FetchedEvent?
     let storageRef = Storage.storage().reference()
-
+    let reference = Database.database().reference()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.title = "Event Details"
         editButton.isHidden = true
+        deleteButton.isHidden = true
+
         testTitle.isUserInteractionEnabled = false
 
         testTitle.text = selectedEvent?.title
@@ -39,6 +43,7 @@ class EventDetailsViewController: UIViewController {
         
         if Auth.auth().currentUser?.uid  == selectedEvent?.user {
             editButton.isHidden = false
+            deleteButton.isHidden = false
         }
         
         if let postID = selectedEvent?.postID {
@@ -60,4 +65,35 @@ class EventDetailsViewController: UIViewController {
     @IBAction func editTapped(_ sender: UIButton) {
         testTitle.isUserInteractionEnabled = true
     }
+    
+    @IBAction func deleteTapped(_ sender: UIButton) {
+        if let postID = selectedEvent?.postID {
+            remove(postID: postID)
+            print("Hopefully it deleted")
+        }
+    }
+    
+    func remove(postID: String) {
+        let reference = self.reference.child("posts").child("\(postID)")
+        reference.removeValue { error, _ in
+            print(error)
+        }
+    }
 }
+
+/*
+ class FirebaseManager {
+    static let shared = FirebaseManager()
+    private let reference = Database.database().reference()
+ }
+ // MARK: - Removing functions
+ extension FirebaseManager {
+    public func removePost(withID: String) {
+      
+          let reference = self.reference.child("Posts").child(withID)
+          reference.removeValue { error, _ in
+             print(error.localizedDescription)
+          }
+    }
+ }
+ */
