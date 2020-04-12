@@ -20,6 +20,9 @@ class EventDetailsViewController: UIViewController {
     @IBOutlet weak var eventDescription: UILabel!
     @IBOutlet weak var eventImage: UIImageView!
     
+    @IBOutlet weak var testTitle: UITextField!
+    @IBOutlet weak var editButton: UIButton!
+    
     var selectedEvent : FetchedEvent?
     let storageRef = Storage.storage().reference()
 
@@ -27,10 +30,16 @@ class EventDetailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.title = "Event Details"
+        editButton.isHidden = true
+        testTitle.isUserInteractionEnabled = false
 
-        eventTitle.text = selectedEvent?.title
+        testTitle.text = selectedEvent?.title
         location.text = selectedEvent?.location
         eventDescription.text = selectedEvent?.details
+        
+        if Auth.auth().currentUser?.uid  == selectedEvent?.user {
+            editButton.isHidden = false
+        }
         
         if let postID = selectedEvent?.postID {
             let reference = storageRef.child("Images/\(postID).jpg")
@@ -46,5 +55,9 @@ class EventDetailsViewController: UIViewController {
                 time.text = "Time: \(separatedTime)"
             }
         }
+    }
+    
+    @IBAction func editTapped(_ sender: UIButton) {
+        testTitle.isUserInteractionEnabled = true
     }
 }
