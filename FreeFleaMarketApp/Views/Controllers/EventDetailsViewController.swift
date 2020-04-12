@@ -7,6 +7,9 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseUI
+import FirebaseStorage
 
 class EventDetailsViewController: UIViewController {
 
@@ -18,13 +21,23 @@ class EventDetailsViewController: UIViewController {
     @IBOutlet weak var eventImage: UIImageView!
     
     var selectedEvent : FetchedEvent?
+    let storageRef = Storage.storage().reference()
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationItem.title = "Event Details"
+
         eventTitle.text = selectedEvent?.title
         location.text = selectedEvent?.location
         eventDescription.text = selectedEvent?.details
-        navigationItem.title = "Event Details"
+        
+        if let postID = selectedEvent?.postID {
+            let reference = storageRef.child("Images/\(postID).jpg")
+            print(reference)
+            eventImage.sd_setImage(with: reference)
+        }
+        
         if let dateTime = selectedEvent?.date.split(separator: " ") {
             if dateTime.count != 0 {
                 let separatedDate = dateTime[0] + " " + dateTime[1] + " " + dateTime[2]

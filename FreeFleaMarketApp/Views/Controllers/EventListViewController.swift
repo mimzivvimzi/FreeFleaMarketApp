@@ -20,6 +20,18 @@ class EventListViewController: UITableViewController {
     var myImageView = UIImageView()
     let storageRef = Storage.storage().reference()
     
+    override func viewWillAppear(_ animated: Bool) {
+        fetch()
+        self.tableView.reloadData()
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.tableView.delegate = self
+        navigationItem.title = "Events"
+        tableView.rowHeight = 300
+    }
+    
     // LOG OUT AND RETURN TO THE WELCOME VIEW CONTROLLER
     @IBAction func logoutPressed(_ sender: Any) {
         let authUI: FUIAuth = FUIAuth.defaultAuthUI()!
@@ -63,18 +75,6 @@ class EventListViewController: UITableViewController {
         }) {(error) in
         print(error.localizedDescription)
         }
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        fetch()
-        self.tableView.reloadData()
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        self.tableView.delegate = self
-        navigationItem.title = "Events"
-        tableView.rowHeight = 300
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
