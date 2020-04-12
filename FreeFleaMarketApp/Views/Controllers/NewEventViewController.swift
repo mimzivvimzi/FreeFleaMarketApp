@@ -25,6 +25,8 @@ class NewEventViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationItem.title = "Create a New Event"
+
     }
     
     @IBAction func dateSelected(_ sender: UIDatePicker) {

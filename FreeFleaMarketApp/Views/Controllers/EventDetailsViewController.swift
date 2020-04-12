@@ -27,6 +27,8 @@ class EventDetailsViewController: UIViewController {
         date.text = selectedEvent?.date
         location.text = selectedEvent?.location
         eventDescription.text = selectedEvent?.details
+        navigationItem.title = "Event Details"
+
     }
     
 
