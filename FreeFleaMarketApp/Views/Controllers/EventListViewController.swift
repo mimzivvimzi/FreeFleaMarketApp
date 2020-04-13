@@ -99,6 +99,7 @@ class EventListViewController: UITableViewController {
         }
         cell.location.text = event.location
         let reference = storageRef.child("Images/\(event.postID).jpg")
+        print("event.postID: \(event.postID)")
         cell.eventImage.sd_setImage(with: reference)
         cell.eventDescriptionLabel.text = event.details
         return cell
@@ -106,20 +107,16 @@ class EventListViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         selectedIndexPath = indexPath.row
-        tableView.reloadData()
-        
-        let cell = tableView.cellForRow(at: indexPath)
-        performSegue(withIdentifier: "goToDetails", sender: cell)
-
+        performSegue(withIdentifier: "goToDetails", sender: selectedIndexPath)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "goToDetails" {
-            let cell = sender as! UITableViewCell
-            let indexPath = self.tableView.indexPath(for: cell)
-            let event = eventList[indexPath!.row]
-            let destinationVC = segue.destination as! EventDetailsViewController
-            destinationVC.selectedEvent = event
+            if let indexPath = tableView.indexPathForSelectedRow{
+                let event = eventList[indexPath.row]
+                let destinationVC = segue.destination as! EventDetailsViewController
+                destinationVC.selectedEvent = event
+            }
         }
     }
 }
