@@ -18,14 +18,14 @@ class FetchedEvent {
     var imageURL: String
     var postID: String?
 
-    init(json: JSON) {
+    init(json: JSON, postID: String) {
         self.user = json["userID"].stringValue
         self.title = json["title"].stringValue
         self.date = json["date"].stringValue
         self.location = json["location"].stringValue
         self.details = json["details"].stringValue
         self.imageURL = json["imageURL"].stringValue
-//        self.postID = postID
+        self.postID = postID
     }
     
     init(user: String, title: String, date: String, location: String, image: String, details: String) {

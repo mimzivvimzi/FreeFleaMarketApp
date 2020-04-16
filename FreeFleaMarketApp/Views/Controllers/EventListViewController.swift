@@ -57,20 +57,21 @@ class EventListViewController: UITableViewController {
                     print("This is the value.keys count: \(value.keys.count)")
                     let key = value.keys
                     print("value.keys \(key) \n")
+                    var postID = ""
                     for i in key {
                         if element == i {
-                            let postID = i
+                            postID = i
                             print("Taking out the postID: \(postID) \n")
                         }
                     }
-                    let fetchedEvent = FetchedEvent(json: json[element])
+                    let fetchedEvent = FetchedEvent(json: json[element], postID: postID)
                     print("This is the fetchedEvent.imageURL \(fetchedEvent.imageURL)")
                     print("element: \(element) \n")
-                    let postID = key.split(separator: " ")
-                    print("postID \(postID) \n")
+//                    let postID = key.split(separator: " ")
+//                    print("postID \(postID) \n")
 //                    let postID = postIDs.split(separator: ",")
 //                    fetchedEvent.postID = postID
-                    print("This is the fetchedEvent.postID: \(fetchedEvent.postID)")
+                    print("This is the fetchedEvent.postID: \(fetchedEvent.postID!)")
                     print("fetched event imageURL: \(fetchedEvent.imageURL)")
                     self.eventList.append(fetchedEvent)
                 }
@@ -107,8 +108,8 @@ class EventListViewController: UITableViewController {
             cell.time.text = "Time: \(time)"
         }
         cell.location.text = event.location
-        let reference = storageRef.child("Images/\(event.postID).jpg")
-        print("event.postID: \(event.postID)")
+        let reference = storageRef.child("Images/\(event.postID!).jpg")
+        print("event.postID: \(event.postID!)")
         cell.eventImage.sd_setImage(with: reference)
         cell.eventDescriptionLabel.text = event.details
         return cell
