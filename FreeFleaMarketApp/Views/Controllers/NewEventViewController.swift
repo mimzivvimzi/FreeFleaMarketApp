@@ -74,18 +74,18 @@ class NewEventViewController: UITableViewController {
         if Auth.auth().currentUser != nil {
             let ref = Database.database().reference()
             let userID = Auth.auth().currentUser!.uid
-            let newEvent = Event(user: userID, title: titleField.text ?? "", date: dateField.text ?? "", location: locationField.text ?? "", image: imageURL, details : descriptionField.text ?? "")
+            let newEvent = FetchedEvent(user: userID, title: titleField.text ?? "", date: dateField.text ?? "", location: locationField.text ?? "", image: imageURL, details: descriptionField.text ?? "")
             let eventPost = ["userID": newEvent.user,
                              "title" : newEvent.title,
                              "date" : newEvent.date,
                              "startTime": newEvent.date,
                              "endTime" : "",
                              "location" : newEvent.location,
-                             "imageURL" : newEvent.image,
+                             "imageURL" : newEvent.imageURL,
                              "details": newEvent.details] as [String : Any]
             ref.child("posts").child("\(postID)").setValue(eventPost)
             print("This is the imageURL in the saveEvent function: \(imageURL)")
-            print("This is the newEvent.image in the saveEvent function: \(newEvent.image)")
+            print("This is the newEvent.image in the saveEvent function: \(newEvent.imageURL)")
             self.navigationController?.popViewController(animated: true)
         } else {
           print("No one is signed in")

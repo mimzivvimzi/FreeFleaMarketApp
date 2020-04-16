@@ -55,12 +55,21 @@ class EventListViewController: UITableViewController {
                 let json = JSON(value)
                 for element in value.keys {
                     print("This is the value.keys count: \(value.keys.count)")
-                    let fetchedEvent = FetchedEvent(json: json[element])
-                    print("*******This is the fetchedEvent.imageURL \(fetchedEvent.imageURL)")
                     let key = value.keys
-                    let postID = key.joined(separator: "")
-                    print("value.keys \(key)")
-                    fetchedEvent.postID = postID
+                    print("value.keys \(key) \n")
+                    for i in key {
+                        if element == i {
+                            let postID = i
+                            print("Taking out the postID: \(postID) \n")
+                        }
+                    }
+                    let fetchedEvent = FetchedEvent(json: json[element])
+                    print("This is the fetchedEvent.imageURL \(fetchedEvent.imageURL)")
+                    print("element: \(element) \n")
+                    let postID = key.split(separator: " ")
+                    print("postID \(postID) \n")
+//                    let postID = postIDs.split(separator: ",")
+//                    fetchedEvent.postID = postID
                     print("This is the fetchedEvent.postID: \(fetchedEvent.postID)")
                     print("fetched event imageURL: \(fetchedEvent.imageURL)")
                     self.eventList.append(fetchedEvent)
