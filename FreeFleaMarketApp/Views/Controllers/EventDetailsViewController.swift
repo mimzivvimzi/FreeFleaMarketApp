@@ -24,7 +24,7 @@ class EventDetailsViewController: UIViewController {
     
     @IBOutlet weak var editButton: UIButton!
     @IBOutlet weak var deleteButton: UIButton!
-    
+    @IBOutlet weak var saveButton: UIButton!
     
     var selectedEvent : FetchedEvent?
     let storageRef = Storage.storage().reference()
@@ -36,7 +36,8 @@ class EventDetailsViewController: UIViewController {
         navigationItem.title = "Event Details"
         editButton.isHidden = true
         deleteButton.isHidden = true
-        
+        saveButton.isHidden = true
+
 
         eventTitle.isUserInteractionEnabled = false
 
@@ -72,25 +73,30 @@ class EventDetailsViewController: UIViewController {
         eventDescription.isUserInteractionEnabled = true
         
         deleteButton.isHidden = false
+        saveButton.isHidden = false
         
         eventTitle.borderStyle = .roundedRect
         date.borderStyle = .roundedRect
         time.borderStyle = .roundedRect
         location.borderStyle = .roundedRect
         eventDescription.borderStyle = .roundedRect
-//        if location.text == nil {
-//            location.placeholder = "Location"
-//        }
-//        if eventDescription.text == nil {
-//            eventDescription.placeholder = "Event Details"
-//        }
-            
+    }
+    
+    @IBAction func saveTapped(_ sender: UIButton) {
+        
     }
     
     @IBAction func deleteTapped(_ sender: UIButton) {
-        if let postID = selectedEvent?.postID {
-            remove(postID: postID)
-        }
+        let alert = UIAlertController(title: "Delete Event", message: "Are you sure you want to permanently delete this event?", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { action in
+            if let postID = self.selectedEvent?.postID {
+                self.remove(postID: postID)
+            }
+            let ViewController = self.storyboard?.instantiateViewController(withIdentifier: "EventList") as! UINavigationController
+            self.view.window?.rootViewController = ViewController
+        }))
+        alert.addAction(UIAlertAction(title: "No", style: .cancel, handler: nil))
+        self.present(alert, animated: true)
     }
     
     func remove(postID: String) {
@@ -100,6 +106,8 @@ class EventDetailsViewController: UIViewController {
         }
     }
 }
+
+
 
 /*
  class FirebaseManager {
