@@ -13,14 +13,15 @@ import FirebaseStorage
 
 class EventDetailsViewController: UIViewController {
 
-    @IBOutlet weak var eventTitle: UILabel!
-    @IBOutlet weak var date: UILabel!
-    @IBOutlet weak var time: UILabel!
-    @IBOutlet weak var location: UILabel!
-    @IBOutlet weak var eventDescription: UILabel!
+
+    
+    @IBOutlet weak var eventTitle: UITextField!
+    @IBOutlet weak var date: UITextField!
+    @IBOutlet weak var time: UITextField!
+    @IBOutlet weak var location: UITextField!
+    @IBOutlet weak var eventDescription: UITextField!
     @IBOutlet weak var eventImage: UIImageView!
     
-    @IBOutlet weak var testTitle: UITextField!
     @IBOutlet weak var editButton: UIButton!
     @IBOutlet weak var deleteButton: UIButton!
     
@@ -31,13 +32,15 @@ class EventDetailsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         navigationItem.title = "Event Details"
         editButton.isHidden = true
         deleteButton.isHidden = true
+        
 
-        testTitle.isUserInteractionEnabled = false
+        eventTitle.isUserInteractionEnabled = false
 
-        testTitle.text = selectedEvent?.title
+        eventTitle.text = selectedEvent?.title
         location.text = selectedEvent?.location
         eventDescription.text = selectedEvent?.details
         
@@ -62,8 +65,26 @@ class EventDetailsViewController: UIViewController {
     }
     
     @IBAction func editTapped(_ sender: UIButton) {
-        testTitle.isUserInteractionEnabled = true
+        eventTitle.isUserInteractionEnabled = true
+        date.isUserInteractionEnabled = true
+        time.isUserInteractionEnabled = true
+        location.isUserInteractionEnabled = true
+        eventDescription.isUserInteractionEnabled = true
+        
         deleteButton.isHidden = false
+        
+        eventTitle.borderStyle = .roundedRect
+        date.borderStyle = .roundedRect
+        time.borderStyle = .roundedRect
+        location.borderStyle = .roundedRect
+        eventDescription.borderStyle = .roundedRect
+//        if location.text == nil {
+//            location.placeholder = "Location"
+//        }
+//        if eventDescription.text == nil {
+//            eventDescription.placeholder = "Event Details"
+//        }
+            
     }
     
     @IBAction func deleteTapped(_ sender: UIButton) {
