@@ -22,7 +22,7 @@ class EventListViewController: UITableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         fetch()
-//        self.tableView.reloadData()
+        self.tableView.reloadData()
     }
     
     override func viewDidLoad() {

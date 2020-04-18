@@ -1,32 +1,46 @@
 //
-//  NewEvent.swift
+//  EditEventViewController.swift
 //  FreeFleaMarketApp
 //
-//  Created by Michelle Lau on 2020/03/25.
+//  Created by Michelle Lau on 2020/04/18.
 //  Copyright © 2020 Michelle Lau. All rights reserved.
 //
-
 
 import UIKit
 import Firebase
 
-class NewEventViewController: UITableViewController {
-    
-    @IBOutlet weak var selectedImage: UIImageView!
-    
+class EditEventViewController: UITableViewController, UIImagePickerControllerDelegate & UINavigationControllerDelegate {
+
     @IBOutlet weak var titleField: UITextField!
-    @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var dateField: UITextField!
+    @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var locationField: UITextField!
     @IBOutlet weak var descriptionField: UITextField!
     
-    let postID = UUID().uuidString
+    @IBOutlet weak var selectedImage: UIImageView!
+
+    var selectedEvent : FetchedEvent?
+    let storageRef = Storage.storage().reference()
+    let reference = Database.database().reference()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.title = "Create a New Event"
+            navigationItem.title = "Edit Event"
+        
+        titleField.text = selectedEvent?.title
+        dateField.text = selectedEvent?.date
+        locationField.text = selectedEvent?.location
+        descriptionField.text = selectedEvent?.details
+        
+        if let postID = selectedEvent?.postID {
+            let reference = storageRef.child("Images/\(postID).jpg")
+            print(reference)
+            selectedImage.sd_setImage(with: reference)
+        }
+        
     }
-    
+
     @IBAction func dateSelected(_ sender: UIDatePicker) {
         let dateFormatter = DateFormatter()
         dateFormatter.locale = Locale(identifier: "en_US")
@@ -35,7 +49,6 @@ class NewEventViewController: UITableViewController {
         let dateToString = dateFormatter.string(from: datePicker.date)
         dateField.text = dateToString
     }
-    
     
     @IBAction func uploadPhoto(_ sender: UIButton) {
         let alert = UIAlertController(title: "Upload a photo", message: nil, preferredStyle: .actionSheet)
@@ -70,30 +83,8 @@ class NewEventViewController: UITableViewController {
         })
     }
     
-    func saveEvent(imageURL: String) {
-        if Auth.auth().currentUser != nil {
-            let ref = Database.database().reference()
-            let userID = Auth.auth().currentUser!.uid
-            let newEvent = FetchedEvent(user: userID, title: titleField.text ?? "", date: dateField.text ?? "", location: locationField.text ?? "", image: imageURL, details: descriptionField.text ?? "")
-            let eventPost = ["userID": newEvent.user,
-                             "title" : newEvent.title,
-                             "date" : newEvent.date,
-                             "startTime": newEvent.date,
-                             "endTime" : "",
-                             "location" : newEvent.location,
-                             "imageURL" : newEvent.imageURL,
-                             "details": newEvent.details] as [String : Any]
-            ref.child("posts").child("\(postID)").setValue(eventPost)
-            print("This is the imageURL in the saveEvent function: \(imageURL)")
-            print("This is the newEvent.image in the saveEvent function: \(newEvent.imageURL)")
-            self.navigationController?.popViewController(animated: true)
-        } else {
-          print("No one is signed in")
-        }
-    }
-
-    
     @IBAction func saveEvent(_ sender: UIButton) {
+        let postID = selectedEvent?.postID
         let image = selectedImage.image!
         let imageRef = Storage.storage().reference().child("Images/\(postID).jpg")
         StorageService.uploadImage(image, at: imageRef) { (downloadURL) in
@@ -105,14 +96,36 @@ class NewEventViewController: UITableViewController {
             self.saveEvent(imageURL: urlString)
         }
     }
-}
-
-
-extension NewEventViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-    internal func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
-        if let pickedImage = info[UIImagePickerController.InfoKey(rawValue: UIImagePickerController.InfoKey.originalImage.rawValue)] as? UIImage {
-            selectedImage.image = pickedImage
+    
+    func saveEvent(imageURL: String) {
+        if Auth.auth().currentUser != nil {
+            let ref = Database.database().reference()
+            let userID = Auth.auth().currentUser!.uid
+            if let postID = selectedEvent?.postID {
+                let eventPost = ["userID": userID,
+                                "title" : titleField.text ?? "",
+                                "date" : dateField.text ?? "",
+                                "startTime": dateField.text ?? "",
+                                "endTime" : "",
+                                "location" : locationField.text ?? "",
+                                "imageURL" : selectedEvent?.imageURL,
+                                "details": descriptionField.text ?? ""] as [String : Any]
+                ref.child("posts").child("\(postID)").updateChildValues(eventPost)
             }
-            picker.dismiss(animated: true, completion: nil)
+            let ViewController = self.storyboard?.instantiateViewController(withIdentifier: "EventList") as! UINavigationController
+            self.view.window?.rootViewController = ViewController
+        } else {
+          print("No one is signed in")
+        }
     }
+   
 }
+        
+//extension EditEventViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+//    internal func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
+//        if let pickedImage = info[UIImagePickerController.InfoKey(rawValue: UIImagePickerController.InfoKey.originalImage.rawValue)] as? UIImage {
+//            selectedImage.image = pickedImage
+//            }
+//            picker.dismiss(animated: true, completion: nil)
+//    }
+//}

@@ -29,6 +29,7 @@ class EventDetailsViewController: UIViewController {
     var selectedEvent : FetchedEvent?
     let storageRef = Storage.storage().reference()
     let reference = Database.database().reference()
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -73,7 +74,6 @@ class EventDetailsViewController: UIViewController {
         eventDescription.isUserInteractionEnabled = true
         
         deleteButton.isHidden = false
-        saveButton.isHidden = false
         
         eventTitle.borderStyle = .roundedRect
         date.borderStyle = .roundedRect
@@ -82,8 +82,26 @@ class EventDetailsViewController: UIViewController {
         eventDescription.borderStyle = .roundedRect
     }
     
+    
     @IBAction func saveTapped(_ sender: UIButton) {
-        
+        if Auth.auth().currentUser != nil {
+            let ref = Database.database().reference()
+            let userID = Auth.auth().currentUser!.uid
+            if let postID = selectedEvent?.postID {
+                let eventPost = ["userID": userID,
+                                 "title" : eventTitle.text ?? "",
+                                 "date" : date.text ?? "",
+                                 "startTime": time.text ?? "",
+                                 "endTime" : "",
+                                 "location" : location.text ?? "",
+                                 "imageURL" : selectedEvent?.imageURL ?? "",
+                                 "details": eventDescription.text ?? ""] as [String : Any]
+                ref.child("posts").child("\(postID)").updateChildValues(eventPost)
+            }
+            self.navigationController?.popViewController(animated: true)
+        } else {
+          print("No one is signed in")
+        }
     }
     
     @IBAction func deleteTapped(_ sender: UIButton) {
@@ -105,23 +123,15 @@ class EventDetailsViewController: UIViewController {
             print(error)
         }
     }
-}
-
-
-
-/*
- class FirebaseManager {
-    static let shared = FirebaseManager()
-    private let reference = Database.database().reference()
- }
- // MARK: - Removing functions
- extension FirebaseManager {
-    public func removePost(withID: String) {
-      
-          let reference = self.reference.child("Posts").child(withID)
-          reference.removeValue { error, _ in
-             print(error.localizedDescription)
-          }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "goToEdit" {
+            let destinationVC = segue.destination as! EditEventViewController
+            destinationVC.selectedEvent = selectedEvent
+        }
     }
- }
- */
+    
+    
+    
+    
+}
