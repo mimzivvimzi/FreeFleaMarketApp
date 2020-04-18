@@ -22,7 +22,7 @@ class EventListViewController: UITableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         fetch()
-        self.tableView.reloadData()
+//        self.tableView.reloadData()
     }
     
     override func viewDidLoad() {
@@ -53,24 +53,20 @@ class EventListViewController: UITableViewController {
             if let value = snapshot.value as? [String : [String : String?]] {
                 print("Value of the snapshot: \(value)")
                 let json = JSON(value)
-                for element in value.keys {
+                let keys = value.keys
+                for element in keys {
                     print("This is the value.keys count: \(value.keys.count)")
-                    let key = value.keys
-                    print("value.keys \(key) \n")
+                    print("value.keys \(keys) \n")
                     var postID = ""
-                    for i in key {
-                        if element == i {
-                            postID = i
+                    for key in keys {
+                        if element == key {
+                            postID = key
                             print("Taking out the postID: \(postID) \n")
                         }
                     }
                     let fetchedEvent = FetchedEvent(json: json[element], postID: postID)
                     print("This is the fetchedEvent.imageURL \(fetchedEvent.imageURL)")
                     print("element: \(element) \n")
-//                    let postID = key.split(separator: " ")
-//                    print("postID \(postID) \n")
-//                    let postID = postIDs.split(separator: ",")
-//                    fetchedEvent.postID = postID
                     print("This is the fetchedEvent.postID: \(fetchedEvent.postID!)")
                     print("fetched event imageURL: \(fetchedEvent.imageURL)")
                     self.eventList.append(fetchedEvent)
