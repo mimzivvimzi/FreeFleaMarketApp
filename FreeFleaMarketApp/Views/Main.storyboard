@@ -270,18 +270,6 @@
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="17"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WBj-jf-ax1">
-                                <rect key="frame" x="0.0" y="739" width="414" height="41"/>
-                                <color key="backgroundColor" red="0.99152928590774536" green="0.97240370512008667" blue="0.98346394300460815" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="24"/>
-                                <state key="normal" title="Delete">
-                                    <color key="titleColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="deleteTapped:" destination="Okw-xb-bJ6" eventType="touchUpInside" id="aja-sf-iFr"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="COG-xx-aku">
                                 <rect key="frame" x="0.0" y="617" width="414" height="41"/>
                                 <color key="backgroundColor" red="0.058823529409999999" green="0.039215686270000001" blue="0.23529411759999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -332,13 +320,11 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="COG-xx-aku" firstAttribute="trailing" secondItem="WBj-jf-ax1" secondAttribute="trailing" id="AAH-CC-JGB"/>
                             <constraint firstItem="HZp-1o-R3u" firstAttribute="leading" secondItem="8Qj-1W-kZW" secondAttribute="leading" id="BkM-YU-Xes"/>
                             <constraint firstItem="55C-KQ-wnF" firstAttribute="top" secondItem="HZp-1o-R3u" secondAttribute="bottom" constant="8" id="D9z-Od-GHH"/>
                             <constraint firstItem="HZp-1o-R3u" firstAttribute="trailing" secondItem="waY-Io-xop" secondAttribute="trailing" id="Geh-km-ldH"/>
                             <constraint firstItem="HZp-1o-R3u" firstAttribute="leading" secondItem="waY-Io-xop" secondAttribute="leading" id="IR3-Qw-TyX"/>
                             <constraint firstItem="COG-xx-aku" firstAttribute="leading" secondItem="FBt-tU-8A9" secondAttribute="leading" id="Id6-LZ-xzx"/>
-                            <constraint firstItem="COG-xx-aku" firstAttribute="leading" secondItem="WBj-jf-ax1" secondAttribute="leading" id="JFe-cf-lRg"/>
                             <constraint firstItem="HZp-1o-R3u" firstAttribute="trailing" secondItem="J1Z-h7-oIu" secondAttribute="trailing" id="K4Y-A1-ca6"/>
                             <constraint firstItem="HZp-1o-R3u" firstAttribute="leading" secondItem="476-Mp-B6X" secondAttribute="leadingMargin" id="R5O-1j-0cN"/>
                             <constraint firstItem="5aK-xR-8a1" firstAttribute="centerX" secondItem="HZp-1o-R3u" secondAttribute="centerX" id="RT1-OP-I8g"/>
@@ -351,7 +337,6 @@
                             <constraint firstItem="5aK-xR-8a1" firstAttribute="leading" secondItem="FBt-tU-8A9" secondAttribute="leading" constant="143" id="hwv-Ia-kkg"/>
                             <constraint firstItem="HZp-1o-R3u" firstAttribute="trailing" secondItem="8Qj-1W-kZW" secondAttribute="trailing" id="jKY-HZ-IB4"/>
                             <constraint firstItem="CyT-9E-fV5" firstAttribute="top" secondItem="COG-xx-aku" secondAttribute="bottom" constant="20" id="orQ-gU-gVv"/>
-                            <constraint firstItem="WBj-jf-ax1" firstAttribute="top" secondItem="COG-xx-aku" secondAttribute="bottom" constant="81" id="qhX-6y-Zol"/>
                             <constraint firstItem="J1Z-h7-oIu" firstAttribute="top" secondItem="waY-Io-xop" secondAttribute="bottom" constant="8" id="rcf-RY-2YV"/>
                             <constraint firstItem="CyT-9E-fV5" firstAttribute="leading" secondItem="COG-xx-aku" secondAttribute="leading" id="s4f-wh-MAB"/>
                             <constraint firstItem="CyT-9E-fV5" firstAttribute="trailing" secondItem="COG-xx-aku" secondAttribute="trailing" id="st3-O0-rLo"/>
@@ -366,7 +351,6 @@
                     <navigationItem key="navigationItem" id="sIj-if-152"/>
                     <connections>
                         <outlet property="date" destination="55C-KQ-wnF" id="BiN-4A-Pd1"/>
-                        <outlet property="deleteButton" destination="WBj-jf-ax1" id="9D3-9Y-pdI"/>
                         <outlet property="editButton" destination="COG-xx-aku" id="mhq-g1-NNi"/>
                         <outlet property="eventDescription" destination="J1Z-h7-oIu" id="rb9-ZR-JTP"/>
                         <outlet property="eventImage" destination="5aK-xR-8a1" id="Qrj-nB-PB8"/>
@@ -578,18 +562,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <button key="tableFooterView" opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="LIK-GK-We9">
-                            <rect key="frame" x="0.0" y="842.5" width="414" height="45"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <color key="backgroundColor" red="0.027450980390000001" green="0.27058823529999998" blue="0.43529411759999997" alpha="1" colorSpace="calibratedRGB"/>
-                            <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="24"/>
-                            <state key="normal" title="Save">
-                                <color key="titleColor" red="0.80392156859999997" green="1" blue="0.92156862750000001" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
-                            </state>
-                            <connections>
-                                <action selector="saveEvent:" destination="2XM-4w-FfN" eventType="touchUpInside" id="fW2-KU-qVO"/>
-                            </connections>
-                        </button>
                         <sections>
                             <tableViewSection headerTitle="Title of Event" id="Peo-57-xZE">
                                 <cells>
@@ -713,15 +685,15 @@
                             </tableViewSection>
                             <tableViewSection headerTitle="Upload an image" id="KsH-Ow-UT7">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="167" id="abY-Sg-2Sm">
-                                        <rect key="frame" x="0.0" y="657.5" width="414" height="167"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="231" id="abY-Sg-2Sm">
+                                        <rect key="frame" x="0.0" y="657.5" width="414" height="231"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="abY-Sg-2Sm" id="0Wj-yo-9DM">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="167"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="231"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="vXB-EX-buX">
-                                                    <rect key="frame" x="20" y="32.5" width="210" height="102"/>
+                                                    <rect key="frame" x="20" y="32.5" width="210" height="166"/>
                                                     <subviews>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RHU-3C-xpP">
                                                             <rect key="frame" x="0.0" y="0.0" width="59" height="22"/>
@@ -746,6 +718,43 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
+                            <tableViewSection headerTitle="" id="Y2d-6i-aDW">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="231" id="Nxa-f9-jYK">
+                                        <rect key="frame" x="0.0" y="928.5" width="414" height="231"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Nxa-f9-jYK" id="naU-zx-yld">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="231"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="LIK-GK-We9">
+                                                    <rect key="frame" x="0.0" y="24" width="414" height="45"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <color key="backgroundColor" red="0.027450980390000001" green="0.27058823529999998" blue="0.43529411759999997" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="24"/>
+                                                    <state key="normal" title="Save">
+                                                        <color key="titleColor" red="0.80392156859999997" green="1" blue="0.92156862750000001" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                                    </state>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleAspectFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fn5-PB-Aya">
+                                                    <rect key="frame" x="0.0" y="117" width="414" height="41"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <color key="backgroundColor" red="0.9915292859" green="0.97240370509999996" blue="0.98346394299999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="24"/>
+                                                    <state key="normal" title="Delete">
+                                                        <color key="titleColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="deleteTapped:" destination="2XM-4w-FfN" eventType="touchUpInside" id="P0k-aO-Cdk"/>
+                                                        <action selector="deleteTapped:" destination="Okw-xb-bJ6" eventType="touchUpInside" id="oGA-37-sVY"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
                         </sections>
                         <connections>
                             <outlet property="dataSource" destination="2XM-4w-FfN" id="XNw-tL-cbN"/>
@@ -764,7 +773,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="80p-6Z-fgV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2329" y="1169"/>
+            <point key="canvasLocation" x="2328.985507246377" y="1167.8571428571429"/>
         </scene>
     </scenes>
     <color key="tintColor" red="0.027450980390000001" green="0.27058823529999998" blue="0.43529411759999997" alpha="1" colorSpace="calibratedRGB"/>

@@ -9,7 +9,7 @@
 import UIKit
 import Firebase
 
-class EditEventViewController: UITableViewController, UIImagePickerControllerDelegate & UINavigationControllerDelegate {
+class EditEventViewController: UITableViewController {
 
     @IBOutlet weak var titleField: UITextField!
     @IBOutlet weak var dateField: UITextField!
@@ -118,14 +118,36 @@ class EditEventViewController: UITableViewController, UIImagePickerControllerDel
           print("No one is signed in")
         }
     }
+    
+    
+    @IBAction func deleteTapped(_ sender: UIButton) {
+        let alert = UIAlertController(title: "Delete Event", message: "Are you sure you want to permanently delete this event?", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { action in
+            if let postID = self.selectedEvent?.postID {
+                self.remove(postID: postID)
+            }
+            let ViewController = self.storyboard?.instantiateViewController(withIdentifier: "EventList") as! UINavigationController
+            self.view.window?.rootViewController = ViewController
+        }))
+        alert.addAction(UIAlertAction(title: "No", style: .cancel, handler: nil))
+        self.present(alert, animated: true)
+    }
+    
+    func remove(postID: String) {
+        let reference = self.reference.child("posts").child("\(postID)")
+        reference.removeValue { error, _ in
+            print(error)
+        }
+    }
+    
    
 }
         
-//extension EditEventViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-//    internal func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
-//        if let pickedImage = info[UIImagePickerController.InfoKey(rawValue: UIImagePickerController.InfoKey.originalImage.rawValue)] as? UIImage {
-//            selectedImage.image = pickedImage
-//            }
-//            picker.dismiss(animated: true, completion: nil)
-//    }
-//}
+extension EditEventViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    internal func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
+        if let pickedImage = info[UIImagePickerController.InfoKey(rawValue: UIImagePickerController.InfoKey.originalImage.rawValue)] as? UIImage {
+            selectedImage.image = pickedImage
+            }
+            picker.dismiss(animated: true, completion: nil)
+    }
+}
