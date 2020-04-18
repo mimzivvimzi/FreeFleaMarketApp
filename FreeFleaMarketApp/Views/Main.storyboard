@@ -735,6 +735,9 @@
                                                     <state key="normal" title="Save">
                                                         <color key="titleColor" red="0.80392156859999997" green="1" blue="0.92156862750000001" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                                     </state>
+                                                    <connections>
+                                                        <action selector="saveEvent:" destination="2XM-4w-FfN" eventType="touchUpInside" id="Mtf-xI-sUr"/>
+                                                    </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleAspectFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fn5-PB-Aya">
                                                     <rect key="frame" x="0.0" y="117" width="414" height="41"/>

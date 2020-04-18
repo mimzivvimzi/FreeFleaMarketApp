@@ -84,20 +84,6 @@ class EditEventViewController: UITableViewController {
     }
     
     @IBAction func saveEvent(_ sender: UIButton) {
-        let postID = selectedEvent?.postID
-        let image = selectedImage.image!
-        let imageRef = Storage.storage().reference().child("Images/\(postID).jpg")
-        StorageService.uploadImage(image, at: imageRef) { (downloadURL) in
-            guard let downloadURL = downloadURL else {
-                return
-            }
-            let urlString = downloadURL.absoluteString
-            print("image url: \(urlString)")
-            self.saveEvent(imageURL: urlString)
-        }
-    }
-    
-    func saveEvent(imageURL: String) {
         if Auth.auth().currentUser != nil {
             let ref = Database.database().reference()
             let userID = Auth.auth().currentUser!.uid
@@ -117,7 +103,22 @@ class EditEventViewController: UITableViewController {
         } else {
           print("No one is signed in")
         }
+        //        let postID = selectedEvent?.postID
+        //        let image = selectedImage.image!
+        //        let imageRef = Storage.storage().reference().child("Images/\(postID).jpg")
+        //        StorageService.uploadImage(image, at: imageRef) { (downloadURL) in
+        //            guard let downloadURL = downloadURL else {
+        //                return
+        //            }
+        //            let urlString = downloadURL.absoluteString
+        //            print("image url: \(urlString)")
+        //            self.saveEvent(imageURL: urlString)
+        //        }
     }
+    
+//    func saveEvent(imageURL: String) {
+//
+//    }
     
     
     @IBAction func deleteTapped(_ sender: UIButton) {
