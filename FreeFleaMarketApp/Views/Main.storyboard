@@ -769,7 +769,7 @@
                         <outlet property="dateField" destination="dJM-7W-0WW" id="ldq-fT-c63"/>
                         <outlet property="datePicker" destination="RFR-o5-Syz" id="WC5-ia-e8L"/>
                         <outlet property="descriptionField" destination="w2R-LA-ZMZ" id="06N-tv-XoF"/>
-                        <outlet property="locationField" destination="w2R-LA-ZMZ" id="q7A-qk-mcz"/>
+                        <outlet property="locationField" destination="QBj-pk-7EU" id="qoT-JG-lGb"/>
                         <outlet property="selectedImage" destination="c8a-lR-z1B" id="oOW-1h-3Xc"/>
                         <outlet property="titleField" destination="DeU-QX-OGd" id="e4h-SC-rON"/>
                     </connections>

@@ -80,24 +80,24 @@ class EventDetailsViewController: UIViewController {
     
     
     @IBAction func saveTapped(_ sender: UIButton) {
-        if Auth.auth().currentUser != nil {
-            let ref = Database.database().reference()
-            let userID = Auth.auth().currentUser!.uid
-            if let postID = selectedEvent?.postID {
-                let eventPost = ["userID": userID,
-                                 "title" : eventTitle.text ?? "",
-                                 "date" : date.text ?? "",
-                                 "startTime": time.text ?? "",
-                                 "endTime" : "",
-                                 "location" : location.text ?? "",
-                                 "imageURL" : selectedEvent?.imageURL ?? "",
-                                 "details": eventDescription.text ?? ""] as [String : Any]
-                ref.child("posts").child("\(postID)").updateChildValues(eventPost)
-            }
-            self.navigationController?.popViewController(animated: true)
-        } else {
-          print("No one is signed in")
-        }
+//        if Auth.auth().currentUser != nil {
+//            let ref = Database.database().reference()
+//            let userID = Auth.auth().currentUser!.uid
+//            if let postID = selectedEvent?.postID {
+//                let eventPost = ["userID": userID,
+//                                 "title" : eventTitle.text ?? "",
+//                                 "date" : date.text ?? "",
+//                                 "startTime": time.text ?? "",
+//                                 "endTime" : "",
+//                                 "location" : location.text ?? "",
+//                                 "imageURL" : selectedEvent?.imageURL ?? "",
+//                                 "details": eventDescription.text ?? ""] as [String : Any]
+//                ref.child("posts").child("\(postID)").updateChildValues(eventPost)
+//            }
+//            self.navigationController?.popViewController(animated: true)
+//        } else {
+//          print("No one is signed in")
+//        }
     }
     
     

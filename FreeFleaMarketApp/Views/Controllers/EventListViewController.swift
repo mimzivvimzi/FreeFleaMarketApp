@@ -68,7 +68,10 @@ class EventListViewController: UITableViewController {
                     print("This is the fetchedEvent.imageURL \(fetchedEvent.imageURL)")
                     print("element: \(element) \n")
                     print("This is the fetchedEvent.postID: \(fetchedEvent.postID!)")
-                    print("fetched event imageURL: \(fetchedEvent.imageURL)")
+                    print("---------------------------------------------- \n")
+                    print("FETCHED EVENT imageURL: \(fetchedEvent.imageURL) \n")
+                    print("---------------------------------------------- \n")
+
                     self.eventList.append(fetchedEvent)
                 }
                 print("This is the eventList.count: \(self.eventList.count)")

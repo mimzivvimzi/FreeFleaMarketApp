@@ -84,18 +84,40 @@ class EditEventViewController: UITableViewController {
     }
     
     @IBAction func saveEvent(_ sender: UIButton) {
+        if selectedImage.image != nil {
+            let image = selectedImage.image!
+            if let postID = selectedEvent?.postID {
+                let imageRef = Storage.storage().reference().child("Images/\(postID).jpg")
+                StorageService.uploadImage(image, at: imageRef) { (downloadURL) in
+                    guard let downloadURL = downloadURL else {
+                        return
+                    }
+                    let urlString = downloadURL.absoluteString
+                    print("image url: \(urlString)")
+                    self.saveEvent(imageURL: urlString)
+                }
+            }
+        } else {
+            let alert = UIAlertController(title: "Image not selected", message: "Please select an image.", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+            self.present(alert, animated: true)
+        }
+    }
+    
+    func saveEvent(imageURL: String) {
         if Auth.auth().currentUser != nil {
             let ref = Database.database().reference()
             let userID = Auth.auth().currentUser!.uid
             if let postID = selectedEvent?.postID {
+                let updatedEvent = FetchedEvent(user: userID, title: titleField.text ?? "", date: dateField.text ?? "", location: locationField.text ?? "", image: imageURL, details: descriptionField.text ?? "")
                 let eventPost = ["userID": userID,
-                                "title" : titleField.text ?? "",
-                                "date" : dateField.text ?? "",
-                                "startTime": dateField.text ?? "",
+                                "title" : updatedEvent.title,
+                                "date" : updatedEvent.date,
+                                "startTime": updatedEvent.date,
                                 "endTime" : "",
-                                "location" : locationField.text ?? "",
-                                "imageURL" : selectedEvent?.imageURL,
-                                "details": descriptionField.text ?? ""] as [String : Any]
+                                "location" : updatedEvent.location,
+                                "imageURL" : updatedEvent.imageURL,
+                                "details": updatedEvent.details] as [String : Any]
                 ref.child("posts").child("\(postID)").updateChildValues(eventPost)
             }
             let ViewController = self.storyboard?.instantiateViewController(withIdentifier: "EventList") as! UINavigationController
@@ -104,6 +126,8 @@ class EditEventViewController: UITableViewController {
           print("No one is signed in")
         }
     }
+        
+    
     
     @IBAction func deleteTapped(_ sender: UIButton) {
         let alert = UIAlertController(title: "Delete Event", message: "Are you sure you want to permanently delete this event?", preferredStyle: .alert)
