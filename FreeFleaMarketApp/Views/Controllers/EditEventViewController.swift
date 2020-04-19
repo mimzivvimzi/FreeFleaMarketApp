@@ -103,23 +103,7 @@ class EditEventViewController: UITableViewController {
         } else {
           print("No one is signed in")
         }
-        //        let postID = selectedEvent?.postID
-        //        let image = selectedImage.image!
-        //        let imageRef = Storage.storage().reference().child("Images/\(postID).jpg")
-        //        StorageService.uploadImage(image, at: imageRef) { (downloadURL) in
-        //            guard let downloadURL = downloadURL else {
-        //                return
-        //            }
-        //            let urlString = downloadURL.absoluteString
-        //            print("image url: \(urlString)")
-        //            self.saveEvent(imageURL: urlString)
-        //        }
     }
-    
-//    func saveEvent(imageURL: String) {
-//
-//    }
-    
     
     @IBAction func deleteTapped(_ sender: UIButton) {
         let alert = UIAlertController(title: "Delete Event", message: "Are you sure you want to permanently delete this event?", preferredStyle: .alert)

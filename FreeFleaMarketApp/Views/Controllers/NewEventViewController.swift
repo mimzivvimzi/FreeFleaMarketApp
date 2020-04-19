@@ -94,15 +94,21 @@ class NewEventViewController: UITableViewController {
 
     
     @IBAction func saveEvent(_ sender: UIButton) {
-        let image = selectedImage.image!
-        let imageRef = Storage.storage().reference().child("Images/\(postID).jpg")
-        StorageService.uploadImage(image, at: imageRef) { (downloadURL) in
-            guard let downloadURL = downloadURL else {
-                return
+        if selectedImage.image != nil {
+            let image = selectedImage.image!
+            let imageRef = Storage.storage().reference().child("Images/\(postID).jpg")
+            StorageService.uploadImage(image, at: imageRef) { (downloadURL) in
+                guard let downloadURL = downloadURL else {
+                    return
+                }
+                let urlString = downloadURL.absoluteString
+                print("image url: \(urlString)")
+                self.saveEvent(imageURL: urlString)
             }
-            let urlString = downloadURL.absoluteString
-            print("image url: \(urlString)")
-            self.saveEvent(imageURL: urlString)
+        } else {
+            let alert = UIAlertController(title: "Image not selected", message: "Please select an image.", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+            self.present(alert, animated: true)
         }
     }
 }
