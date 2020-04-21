@@ -25,6 +25,7 @@ class NewEventViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.title = "Create a New Event"
+        selectedImage.image = UIImage(named: "imageplaceholder")
     }
     
     @IBAction func dateSelected(_ sender: UIDatePicker) {
@@ -105,11 +106,13 @@ class NewEventViewController: UITableViewController {
                 print("image url: \(urlString)")
                 self.saveEvent(imageURL: urlString)
             }
-        } else {
-            let alert = UIAlertController(title: "Image not selected", message: "Please select an image.", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
-            self.present(alert, animated: true)
         }
+        // VALIDATION FOR IMAGE SELECTION NO LONGER NEEDED 
+//        else {
+//            let alert = UIAlertController(title: "Image not selected", message: "Please select an image.", preferredStyle: .alert)
+//            alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+//            self.present(alert, animated: true)
+//        }
     }
 }
 

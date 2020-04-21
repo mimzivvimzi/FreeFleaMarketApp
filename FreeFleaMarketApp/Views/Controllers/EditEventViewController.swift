@@ -86,20 +86,6 @@ class EditEventViewController: UITableViewController {
     }
     
     
-    @IBAction func deletePhoto(_ sender: UIButton) {
-        if let postID = selectedEvent?.postID {
-            let imageRef = Storage.storage().reference().child("Images/\(postID).jpg")
-            imageRef.delete { error in
-              if let error = error {
-                // Uh-oh, an error occurred!
-              } else {
-                // File deleted successfully
-              }
-            let ViewController = self.storyboard?.instantiateViewController(withIdentifier: "EventList") as! UINavigationController
-            self.view.window?.rootViewController = ViewController
-            }
-        }
-    }
     
     @IBAction func saveEvent(_ sender: UIButton) {
         
@@ -230,7 +216,18 @@ class EditEventViewController: UITableViewController {
         alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { action in
             if let postID = self.selectedEvent?.postID {
                 self.remove(postID: postID)
+                let imageRef = Storage.storage().reference().child("Images/\(postID).jpg")
+                imageRef.delete { error in
+                  if let error = error {
+                    // Uh-oh, an error occurred!
+                  } else {
+                    // File deleted successfully
+                  }
+                }
             }
+//            if let postID = self.selectedEvent?.postID {
+//                self.remove(postID: postID)
+//            }
             let ViewController = self.storyboard?.instantiateViewController(withIdentifier: "EventList") as! UINavigationController
             self.view.window?.rootViewController = ViewController
         }))
