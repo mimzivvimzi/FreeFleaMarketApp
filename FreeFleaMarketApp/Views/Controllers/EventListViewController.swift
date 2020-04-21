@@ -109,7 +109,9 @@ class EventListViewController: UITableViewController {
         cell.location.text = event.location
         let reference = storageRef.child("Images/\(event.postID!).jpg")
         print("event.postID: \(event.postID!)")
+        
         cell.eventImage.sd_setImage(with: reference)
+        
         cell.eventDescriptionLabel.text = event.details
         return cell
     }

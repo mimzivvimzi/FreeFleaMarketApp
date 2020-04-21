@@ -707,6 +707,14 @@
                                                         </imageView>
                                                     </subviews>
                                                 </stackView>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gx9-ID-EDn">
+                                                    <rect key="frame" x="264" y="36" width="36" height="22"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <state key="normal" title="Button" image="delete.left.fill" catalog="system"/>
+                                                    <connections>
+                                                        <action selector="deletePhoto:" destination="2XM-4w-FfN" eventType="touchUpInside" id="qnH-Nv-pV6"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="vXB-EX-buX" firstAttribute="top" secondItem="0Wj-yo-9DM" secondAttribute="topMargin" constant="21.5" id="8lg-DN-Gjv"/>
@@ -782,5 +790,6 @@
     <color key="tintColor" red="0.027450980390000001" green="0.27058823529999998" blue="0.43529411759999997" alpha="1" colorSpace="calibratedRGB"/>
     <resources>
         <image name="camera.fill" catalog="system" width="128" height="96"/>
+        <image name="delete.left.fill" catalog="system" width="128" height="104"/>
     </resources>
 </document>

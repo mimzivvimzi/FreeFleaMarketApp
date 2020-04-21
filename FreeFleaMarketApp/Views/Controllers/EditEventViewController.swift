@@ -23,6 +23,8 @@ class EditEventViewController: UITableViewController {
     let storageRef = Storage.storage().reference()
     let reference = Database.database().reference()
     
+    // CREATE A NEW postID
+    let newPostID = UUID().uuidString
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -83,19 +85,49 @@ class EditEventViewController: UITableViewController {
         })
     }
     
+    
+    @IBAction func deletePhoto(_ sender: UIButton) {
+        if let postID = selectedEvent?.postID {
+            let imageRef = Storage.storage().reference().child("Images/\(postID).jpg")
+            imageRef.delete { error in
+              if let error = error {
+                // Uh-oh, an error occurred!
+              } else {
+                // File deleted successfully
+              }
+            let ViewController = self.storyboard?.instantiateViewController(withIdentifier: "EventList") as! UINavigationController
+            self.view.window?.rootViewController = ViewController
+            }
+        }
+    }
+    
     @IBAction func saveEvent(_ sender: UIButton) {
+        
+        // DELETE THE OLD IMAGE
+        
+        if let postID = selectedEvent?.postID {
+            let imageRef = Storage.storage().reference().child("Images/\(postID).jpg")
+            imageRef.delete { error in
+              if let error = error {
+                // Uh-oh, an error occurred!
+              } else {
+                // File deleted successfully
+              }
+            }
+        }
+        
+        // ADD THE NEW IMAGE
+                
         if selectedImage.image != nil {
             let image = selectedImage.image!
-            if let postID = selectedEvent?.postID {
-                let imageRef = Storage.storage().reference().child("Images/\(postID).jpg")
-                StorageService.uploadImage(image, at: imageRef) { (downloadURL) in
-                    guard let downloadURL = downloadURL else {
-                        return
-                    }
-                    let urlString = downloadURL.absoluteString
-                    print("image url: \(urlString)")
-                    self.saveEvent(imageURL: urlString)
+            let imageRef = Storage.storage().reference().child("Images/\(newPostID).jpg")
+            StorageService.uploadImage(image, at: imageRef) { (downloadURL) in
+                guard let downloadURL = downloadURL else {
+                    return
                 }
+                let urlString = downloadURL.absoluteString
+                print("image url: \(urlString)")
+                self.saveEvent(imageURL: urlString)
             }
         } else {
             let alert = UIAlertController(title: "Image not selected", message: "Please select an image.", preferredStyle: .alert)
@@ -103,28 +135,92 @@ class EditEventViewController: UITableViewController {
             self.present(alert, animated: true)
         }
     }
+
+        // UPDATING THE PHOTO
+//        if selectedImage.image != nil {
+//            let image = selectedImage.image!
+//            if let postID = selectedEvent?.postID {
+//                let imageRef = Storage.storage().reference().child("Images/\(postID).jpg")
+//
+//                // TRYING TO DELETE THE IMAGE AND REUPLOAD A NEW ONE
+////                imageRef.delete { error in
+////                  if let error = error {
+////                    // Uh-oh, an error occurred!
+////                  } else {
+////                    // File deleted successfully
+////                  }
+////                }
+//                let newImageRef = Storage.storage().reference().child("Images/\(postID).jpg")
+//                StorageService.uploadImage(image, at: newImageRef) { (downloadURL) in
+//                    guard let downloadURL = downloadURL else {
+//                        return
+//                    }
+//                    let urlString = downloadURL.absoluteString
+//                    print("image url: \(urlString)")
+//                    self.saveEvent(imageURL: urlString)
+//                }
+//            }
+//        } else {
+//            let alert = UIAlertController(title: "Image not selected", message: "Please select an image.", preferredStyle: .alert)
+//            alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+//            self.present(alert, animated: true)
+//        }
+//    }
     
     func saveEvent(imageURL: String) {
+        
+        // TESTING OUT IF WE DELETE THE EVENT AND CREATING A NEW ONE.  THAT WAY, THE IMAGE WILL HAVE A NEW ID.
+        
+        // DELETE THE EVENT
+        if let postID = self.selectedEvent?.postID {
+            self.remove(postID: postID)
+        }
+        
+        
+        // ADD A NEW EVENT WITH A NEW postID
         if Auth.auth().currentUser != nil {
             let ref = Database.database().reference()
             let userID = Auth.auth().currentUser!.uid
-            if let postID = selectedEvent?.postID {
-                let updatedEvent = FetchedEvent(user: userID, title: titleField.text ?? "", date: dateField.text ?? "", location: locationField.text ?? "", image: imageURL, details: descriptionField.text ?? "")
-                let eventPost = ["userID": userID,
-                                "title" : updatedEvent.title,
-                                "date" : updatedEvent.date,
-                                "startTime": updatedEvent.date,
-                                "endTime" : "",
-                                "location" : updatedEvent.location,
-                                "imageURL" : updatedEvent.imageURL,
-                                "details": updatedEvent.details] as [String : Any]
-                ref.child("posts").child("\(postID)").updateChildValues(eventPost)
-            }
+            let newEvent = FetchedEvent(user: userID, title: titleField.text ?? "", date: dateField.text ?? "", location: locationField.text ?? "", image: imageURL, details: descriptionField.text ?? "")
+            let eventPost = ["userID": newEvent.user,
+                             "title" : newEvent.title,
+                             "date" : newEvent.date,
+                             "startTime": newEvent.date,
+                             "endTime" : "",
+                             "location" : newEvent.location,
+                             "imageURL" : newEvent.imageURL,
+                             "details": newEvent.details] as [String : Any]
+            ref.child("posts").child("\(newPostID)").setValue(eventPost)
+            print("This is the imageURL in the saveEvent function: \(imageURL)")
+            print("This is the newEvent.image in the saveEvent function: \(newEvent.imageURL)")
             let ViewController = self.storyboard?.instantiateViewController(withIdentifier: "EventList") as! UINavigationController
             self.view.window?.rootViewController = ViewController
         } else {
           print("No one is signed in")
         }
+        
+        
+        // SAVE CHANGES
+//        if Auth.auth().currentUser != nil {
+//            let ref = Database.database().reference()
+//            let userID = Auth.auth().currentUser!.uid
+//            if let postID = selectedEvent?.postID {
+//                let updatedEvent = FetchedEvent(user: userID, title: titleField.text ?? "", date: dateField.text ?? "", location: locationField.text ?? "", image: imageURL, details: descriptionField.text ?? "")
+//                let eventPost = ["userID": userID,
+//                                "title" : updatedEvent.title,
+//                                "date" : updatedEvent.date,
+//                                "startTime": updatedEvent.date,
+//                                "endTime" : "",
+//                                "location" : updatedEvent.location,
+//                                "imageURL" : updatedEvent.imageURL,
+//                                "details": updatedEvent.details] as [String : Any]
+//                ref.child("posts").child("\(postID)").updateChildValues(eventPost)
+//            }
+//            let ViewController = self.storyboard?.instantiateViewController(withIdentifier: "EventList") as! UINavigationController
+//            self.view.window?.rootViewController = ViewController
+//        } else {
+//          print("No one is signed in")
+//        }
     }
         
     
