@@ -22,9 +22,7 @@ class EventListViewController: UITableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         fetch()
-        DispatchQueue.main.async {
-            self.tableView.reloadData()
-        }
+        self.tableView.reloadData()
     }
     
     override func viewDidLoad() {
@@ -39,7 +37,7 @@ class EventListViewController: UITableViewController {
         let authUI: FUIAuth = FUIAuth.defaultAuthUI()!
         do {
             try authUI.signOut()
-            print(authUI.auth?.currentUser)
+//            print(authUI.auth?.currentUser)
             let loginViewController = self.storyboard?.instantiateViewController(withIdentifier: "WelcomeViewController") as! UINavigationController
             self.view.window?.rootViewController = loginViewController
         } catch let signOutError as NSError {
@@ -53,32 +51,18 @@ class EventListViewController: UITableViewController {
         let ref: DatabaseReference! = Database.database().reference()
         ref.observe(.childAdded , with: { (snapshot) in
             if let value = snapshot.value as? [String : [String : String?]] {
-                print("Value of the snapshot: \(value)")
                 let json = JSON(value)
                 let keys = value.keys
                 for element in keys {
-                    print("This is the value.keys count: \(value.keys.count)")
-                    print("value.keys \(keys) \n")
                     var postID = ""
                     for key in keys {
                         if element == key {
                             postID = key
-                            print("Taking out the postID: \(postID) \n")
                         }
                     }
                     let fetchedEvent = FetchedEvent(json: json[element], postID: postID)
-                    print("This is the fetchedEvent.imageURL \(fetchedEvent.imageURL)")
-                    print("element: \(element) \n")
-                    print("This is the fetchedEvent.postID: \(fetchedEvent.postID!)")
-                    print("---------------------------------------------- \n")
-                    print("FETCHED EVENT imageURL: \(fetchedEvent.imageURL) \n")
-                    print("---------------------------------------------- \n")
-
                     self.eventList.append(fetchedEvent)
                 }
-                print("This is the eventList.count: \(self.eventList.count)")
-                print("Event 0's title: \(self.eventList[0].title)")
-                print("------------")
             }
             DispatchQueue.main.async {
                 self.tableView.reloadData()
@@ -110,10 +94,7 @@ class EventListViewController: UITableViewController {
         }
         cell.location.text = event.location
         let reference = storageRef.child("Images/\(event.postID!).jpg")
-        print("event.postID: \(event.postID!)")
-        
         cell.eventImage.sd_setImage(with: reference)
-        
         cell.eventDescriptionLabel.text = event.details
         return cell
     }

@@ -41,7 +41,6 @@ class NewEventViewController: UITableViewController {
     @IBAction func uploadPhoto(_ sender: UIButton) {
         let alert = UIAlertController(title: "Upload a photo", message: nil, preferredStyle: .actionSheet)
         alert.addAction(UIAlertAction(title: "Camera", style: .default, handler: { (_) in
-            print("User clicked the camera button")
             if UIImagePickerController.isSourceTypeAvailable(UIImagePickerController.SourceType.camera) {
                 let imagePicker = UIImagePickerController()
                 imagePicker.delegate = self
@@ -52,7 +51,6 @@ class NewEventViewController: UITableViewController {
         }))
 
         alert.addAction(UIAlertAction(title: "Photo album", style: .default, handler: { (_) in
-            print("User clicked the photo album button")
             if UIImagePickerController.isSourceTypeAvailable(UIImagePickerController.SourceType.photoLibrary){
                 let imagePicker = UIImagePickerController()
                 imagePicker.delegate = self
@@ -63,11 +61,9 @@ class NewEventViewController: UITableViewController {
         }))
 
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (_) in
-            print("User clicked the dismiss button")
         }))
 
         self.present(alert, animated: true, completion: {
-            print("completion block")
         })
     }
     
@@ -85,8 +81,6 @@ class NewEventViewController: UITableViewController {
                              "imageURL" : newEvent.imageURL,
                              "details": newEvent.details] as [String : Any]
             ref.child("posts").child("\(postID)").setValue(eventPost)
-            print("This is the imageURL in the saveEvent function: \(imageURL)")
-            print("This is the newEvent.image in the saveEvent function: \(newEvent.imageURL)")
             self.navigationController?.popViewController(animated: true)
         } else {
           print("No one is signed in")
@@ -103,7 +97,7 @@ class NewEventViewController: UITableViewController {
                     return
                 }
                 let urlString = downloadURL.absoluteString
-                print("image url: \(urlString)")
+//                print("image url: \(urlString)")
                 self.saveEvent(imageURL: urlString)
             }
         }

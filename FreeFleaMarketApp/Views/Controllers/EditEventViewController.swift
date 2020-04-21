@@ -55,7 +55,6 @@ class EditEventViewController: UITableViewController {
     @IBAction func uploadPhoto(_ sender: UIButton) {
         let alert = UIAlertController(title: "Upload a photo", message: nil, preferredStyle: .actionSheet)
         alert.addAction(UIAlertAction(title: "Camera", style: .default, handler: { (_) in
-            print("User clicked the camera button")
             if UIImagePickerController.isSourceTypeAvailable(UIImagePickerController.SourceType.camera) {
                 let imagePicker = UIImagePickerController()
                 imagePicker.delegate = self
@@ -66,7 +65,6 @@ class EditEventViewController: UITableViewController {
         }))
 
         alert.addAction(UIAlertAction(title: "Photo album", style: .default, handler: { (_) in
-            print("User clicked the photo album button")
             if UIImagePickerController.isSourceTypeAvailable(UIImagePickerController.SourceType.photoLibrary){
                 let imagePicker = UIImagePickerController()
                 imagePicker.delegate = self
@@ -77,11 +75,9 @@ class EditEventViewController: UITableViewController {
         }))
 
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (_) in
-            print("User clicked the dismiss button")
         }))
 
         self.present(alert, animated: true, completion: {
-            print("completion block")
         })
     }
     
@@ -112,7 +108,7 @@ class EditEventViewController: UITableViewController {
                     return
                 }
                 let urlString = downloadURL.absoluteString
-                print("image url: \(urlString)")
+//                print("image url: \(urlString)")
                 self.saveEvent(imageURL: urlString)
             }
         } else {
@@ -177,8 +173,6 @@ class EditEventViewController: UITableViewController {
                              "imageURL" : newEvent.imageURL,
                              "details": newEvent.details] as [String : Any]
             ref.child("posts").child("\(newPostID)").setValue(eventPost)
-            print("This is the imageURL in the saveEvent function: \(imageURL)")
-            print("This is the newEvent.image in the saveEvent function: \(newEvent.imageURL)")
             let ViewController = self.storyboard?.instantiateViewController(withIdentifier: "EventList") as! UINavigationController
             self.view.window?.rootViewController = ViewController
         } else {

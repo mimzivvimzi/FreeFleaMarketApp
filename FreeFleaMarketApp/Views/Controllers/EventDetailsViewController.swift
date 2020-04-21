@@ -50,7 +50,6 @@ class EventDetailsViewController: UIViewController {
         
         if let postID = selectedEvent?.postID {
             let reference = storageRef.child("Images/\(postID).jpg")
-            print(reference)
             eventImage.sd_setImage(with: reference)
         }
         
