@@ -19,10 +19,13 @@ class EventListViewController: UITableViewController {
     var eventList : [FetchedEvent] = []
     var myImageView = UIImageView()
     let storageRef = Storage.storage().reference()
+    var eventListCount: Int?
     
     override func viewWillAppear(_ animated: Bool) {
         fetch()
-        self.tableView.reloadData()
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
     }
     
     override func viewDidLoad() {
@@ -52,16 +55,23 @@ class EventListViewController: UITableViewController {
         ref.observe(.childAdded , with: { (snapshot) in
             if let value = snapshot.value as? [String : [String : String?]] {
                 let json = JSON(value)
+                print("json: \(json) \n")
                 let keys = value.keys
+                print("keys: \(keys) \n")
                 for element in keys {
                     var postID = ""
                     for key in keys {
                         if element == key {
                             postID = key
+                            print("postID: \(postID) \n")
                         }
                     }
                     let fetchedEvent = FetchedEvent(json: json[element], postID: postID)
                     self.eventList.append(fetchedEvent)
+                    guard keys.count != 1 else {
+                        print("return \n")
+                        return
+                    }
                 }
             }
             DispatchQueue.main.async {
@@ -71,6 +81,7 @@ class EventListViewController: UITableViewController {
         print(error.localizedDescription)
         }
     }
+    
     
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1

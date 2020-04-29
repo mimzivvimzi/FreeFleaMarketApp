@@ -486,7 +486,7 @@
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="X65-3W-Zox">
                             <color key="tintColor" red="0.027450980390000001" green="0.27058823529999998" blue="0.43529411759999997" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
-                                <segue destination="ndo-fS-mYF" kind="show" id="ceQ-NZ-LyM"/>
+                                <segue destination="ndo-fS-mYF" kind="show" identifier="goToNewEvent" id="ceQ-NZ-LyM"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

@@ -32,11 +32,10 @@ class EventDetailsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+                
         navigationItem.title = "Event Details"
         editButton.isHidden = true
         saveButton.isHidden = true
-
 
         eventTitle.isUserInteractionEnabled = false
 
