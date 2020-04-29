@@ -60,11 +60,17 @@ class EventListViewController: UITableViewController {
                 print("keys: \(keys) \n")
                 for element in keys {
                     var postID = ""
+                    var previousPostID = "test"
                     for key in keys {
                         if element == key {
                             postID = key
                             print("postID: \(postID) \n")
+                            guard previousPostID != postID else {
+                                print("return because \(previousPostID) == \(postID)")
+                                return
+                            }
                         }
+                        previousPostID = postID
                     }
                     let fetchedEvent = FetchedEvent(json: json[element], postID: postID)
                     self.eventList.append(fetchedEvent)
