@@ -55,29 +55,26 @@ class EventListViewController: UITableViewController {
         ref.observe(.childAdded , with: { (snapshot) in
             if let value = snapshot.value as? [String : [String : String?]] {
                 let json = JSON(value)
-                print("json: \(json) \n")
                 let keys = value.keys
-                print("keys: \(keys) \n")
                 for element in keys {
                     var postID = ""
-                    var previousPostID = "test"
+//                    var previousPostID = "test"
                     for key in keys {
                         if element == key {
                             postID = key
-                            print("postID: \(postID) \n")
-                            guard previousPostID != postID else {
-                                print("return because \(previousPostID) == \(postID)")
-                                return
-                            }
+//                            guard previousPostID != postID else {
+//                                print("return because \(previousPostID) == \(postID)")
+//                                return
+//                            }
                         }
-                        previousPostID = postID
+//                        previousPostID = postID
                     }
                     let fetchedEvent = FetchedEvent(json: json[element], postID: postID)
                     self.eventList.append(fetchedEvent)
-                    guard keys.count != 1 else {
-                        print("return \n")
-                        return
-                    }
+//                    guard keys.count != 1 else {
+//                        print("return \n")
+//                        return
+//                    }
                 }
             }
             DispatchQueue.main.async {
