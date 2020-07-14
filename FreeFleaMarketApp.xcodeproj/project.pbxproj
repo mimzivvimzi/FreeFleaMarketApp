@@ -41,6 +41,7 @@
 		696D934C243EE8B800AAD128 /* FetchedEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchedEvent.swift; sourceTree = "<group>"; };
 		698AE9AF244B48EB003F030F /* EditEventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditEventViewController.swift; sourceTree = "<group>"; };
 		699E2EDC24BDDFD30069B110 /* CreditsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditsViewController.swift; sourceTree = "<group>"; };
+		699E2EE024BDF4260069B110 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		69A29EC523DF265600B2B704 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		69C9387F242B8E8D002A3A14 /* NewEventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewEventViewController.swift; sourceTree = "<group>"; };
 		69EBB0FC2428E22F00B341C1 /* EventDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailsViewController.swift; sourceTree = "<group>"; };
@@ -73,6 +74,7 @@
 		69177FA223D7A611006D1E63 = {
 			isa = PBXGroup;
 			children = (
+				699E2EE024BDF4260069B110 /* README.md */,
 				69177FAD23D7A611006D1E63 /* FreeFleaMarketApp */,
 				BC0912AA6A2EDA367C2C3C94 /* Pods */,
 				438E8F81FCBF95188917FB69 /* Frameworks */,
