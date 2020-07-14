@@ -19,6 +19,9 @@
 		696D934D243EE8B800AAD128 /* FetchedEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 696D934C243EE8B800AAD128 /* FetchedEvent.swift */; };
 		698AE9B0244B48EB003F030F /* EditEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 698AE9AF244B48EB003F030F /* EditEventViewController.swift */; };
 		699E2EDD24BDDFD30069B110 /* CreditsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 699E2EDC24BDDFD30069B110 /* CreditsViewController.swift */; };
+		699E2EE224BDFB0F0069B110 /* Login.gif in Resources */ = {isa = PBXBuildFile; fileRef = 699E2EE124BDFB0F0069B110 /* Login.gif */; };
+		699E2EE524BDFB180069B110 /* AddEvent1.gif in Resources */ = {isa = PBXBuildFile; fileRef = 699E2EE324BDFB180069B110 /* AddEvent1.gif */; };
+		699E2EE624BDFB180069B110 /* AddEvent2.gif in Resources */ = {isa = PBXBuildFile; fileRef = 699E2EE424BDFB180069B110 /* AddEvent2.gif */; };
 		69A29EC623DF265600B2B704 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 69A29EC523DF265600B2B704 /* GoogleService-Info.plist */; };
 		69C93880242B8E8D002A3A14 /* NewEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69C9387F242B8E8D002A3A14 /* NewEventViewController.swift */; };
 		69EBB0FD2428E22F00B341C1 /* EventDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69EBB0FC2428E22F00B341C1 /* EventDetailsViewController.swift */; };
@@ -42,6 +45,9 @@
 		698AE9AF244B48EB003F030F /* EditEventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditEventViewController.swift; sourceTree = "<group>"; };
 		699E2EDC24BDDFD30069B110 /* CreditsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditsViewController.swift; sourceTree = "<group>"; };
 		699E2EE024BDF4260069B110 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		699E2EE124BDFB0F0069B110 /* Login.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = Login.gif; sourceTree = "<group>"; };
+		699E2EE324BDFB180069B110 /* AddEvent1.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = AddEvent1.gif; sourceTree = "<group>"; };
+		699E2EE424BDFB180069B110 /* AddEvent2.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = AddEvent2.gif; sourceTree = "<group>"; };
 		69A29EC523DF265600B2B704 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		69C9387F242B8E8D002A3A14 /* NewEventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewEventViewController.swift; sourceTree = "<group>"; };
 		69EBB0FC2428E22F00B341C1 /* EventDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailsViewController.swift; sourceTree = "<group>"; };
@@ -75,6 +81,9 @@
 			isa = PBXGroup;
 			children = (
 				699E2EE024BDF4260069B110 /* README.md */,
+				699E2EE124BDFB0F0069B110 /* Login.gif */,
+				699E2EE324BDFB180069B110 /* AddEvent1.gif */,
+				699E2EE424BDFB180069B110 /* AddEvent2.gif */,
 				69177FAD23D7A611006D1E63 /* FreeFleaMarketApp */,
 				BC0912AA6A2EDA367C2C3C94 /* Pods */,
 				438E8F81FCBF95188917FB69 /* Frameworks */,
@@ -212,7 +221,10 @@
 			files = (
 				69177FBB23D7A614006D1E63 /* LaunchScreen.storyboard in Resources */,
 				69A29EC623DF265600B2B704 /* GoogleService-Info.plist in Resources */,
+				699E2EE224BDFB0F0069B110 /* Login.gif in Resources */,
+				699E2EE524BDFB180069B110 /* AddEvent1.gif in Resources */,
 				69177FB823D7A614006D1E63 /* Assets.xcassets in Resources */,
+				699E2EE624BDFB180069B110 /* AddEvent2.gif in Resources */,
 				6958A600242F0DC90060B0B9 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
