@@ -7,7 +7,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Welcome View Controller-->
+        <!--Sign In-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController storyboardIdentifier="WelcomeViewController2" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BYZ-38-t0r" customClass="WelcomeViewController" customModule="FreeFleaMarketApp" sceneMemberID="viewController">
@@ -16,7 +16,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o3P-gW-ZHP">
-                                <rect key="frame" x="0.0" y="713" width="414" height="60"/>
+                                <rect key="frame" x="0.0" y="666" width="414" height="60"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.027450980390000001" green="0.27058823529999998" blue="0.43529411759999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="40"/>
@@ -28,7 +28,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ldF-mq-b85">
-                                <rect key="frame" x="0.0" y="781" width="414" height="60"/>
+                                <rect key="frame" x="0.0" y="734" width="414" height="60"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.058823529409999999" green="0.039215686270000001" blue="0.23529411759999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="40"/>
@@ -51,6 +51,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Sign In" id="E41-kD-hBf"/>
                     <navigationItem key="navigationItem" id="4Yq-uF-IUH"/>
                     <connections>
                         <outlet property="appTitle" destination="FKF-hf-m4O" id="cV3-lf-q38"/>
@@ -59,7 +60,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-433" y="384"/>
+            <point key="canvasLocation" x="476.81159420289856" y="383.70535714285711"/>
         </scene>
         <!--New Event View Controller-->
         <scene sceneID="ulZ-Wx-de6">
@@ -255,7 +256,55 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iHW-TY-X1B" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2328.985507246377" y="383.70535714285711"/>
+            <point key="canvasLocation" x="3239.130434782609" y="383.70535714285711"/>
+        </scene>
+        <!--Credits-->
+        <scene sceneID="RDR-c6-LTU">
+            <objects>
+                <viewController id="mrt-uJ-lFR" customClass="CreditsViewController" customModule="FreeFleaMarketApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="z7j-mH-Lxr">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="I created my free logo at LogoMakr.com" translatesAutoresizingMaskIntoConstraints="NO" id="Nbs-ou-u23">
+                                <rect key="frame" x="20" y="412" width="374" height="58"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="22"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gDj-hi-BW3">
+                                <rect key="frame" x="20" y="478" width="374" height="107"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <string key="text">I customized the background on my login screen at SVGBackgrounds.com.
+</string>
+                                <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="22"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="gDj-hi-BW3" firstAttribute="top" secondItem="Nbs-ou-u23" secondAttribute="bottom" constant="8" id="4y2-YA-5vJ"/>
+                            <constraint firstItem="7l7-Y9-9ZJ" firstAttribute="trailing" secondItem="Nbs-ou-u23" secondAttribute="trailing" constant="20" id="5Uh-Dr-lUc"/>
+                            <constraint firstItem="7l7-Y9-9ZJ" firstAttribute="bottom" secondItem="Nbs-ou-u23" secondAttribute="bottom" constant="343" id="EnP-Fq-BrJ"/>
+                            <constraint firstItem="Nbs-ou-u23" firstAttribute="top" secondItem="7l7-Y9-9ZJ" secondAttribute="top" constant="324" id="Jn7-EP-1dA"/>
+                            <constraint firstItem="7l7-Y9-9ZJ" firstAttribute="trailing" secondItem="gDj-hi-BW3" secondAttribute="trailing" constant="20" id="bzR-xJ-DDn"/>
+                            <constraint firstItem="7l7-Y9-9ZJ" firstAttribute="bottom" secondItem="gDj-hi-BW3" secondAttribute="bottom" constant="228" id="p1P-6a-11X"/>
+                            <constraint firstItem="gDj-hi-BW3" firstAttribute="leading" secondItem="7l7-Y9-9ZJ" secondAttribute="leading" constant="20" id="thr-1s-Mhw"/>
+                            <constraint firstItem="Nbs-ou-u23" firstAttribute="leading" secondItem="7l7-Y9-9ZJ" secondAttribute="leading" constant="20" id="ukq-i0-QTX"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="7l7-Y9-9ZJ"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Credits" id="P9d-Bc-SE7"/>
+                    <connections>
+                        <outlet property="backgroundTextView" destination="gDj-hi-BW3" id="yt9-Le-b7G"/>
+                        <outlet property="logoTextView" destination="Nbs-ou-u23" id="YLw-Qi-CIJ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mcH-q0-lVx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="7.2463768115942031" y="1097.5446428571429"/>
         </scene>
         <!--Event Details View Controller-->
         <scene sceneID="uC0-1a-wu8">
@@ -498,7 +547,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bUt-BS-2yU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="77N-qQ-T91" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1465.217391304348" y="383.70535714285711"/>
+            <point key="canvasLocation" x="2375.36231884058" y="383.70535714285711"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="jkJ-oN-3UZ">
@@ -527,7 +576,7 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="vgO-3h-cZ3"/>
+                        <segue destination="NpD-mp-YaT" kind="relationship" relationship="rootViewController" id="vgO-3h-cZ3"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DBv-Ct-nDq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -552,7 +601,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="w4t-kg-c8g" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="555.07246376811599" y="383.70535714285711"/>
+            <point key="canvasLocation" x="1465.217391304348" y="383.70535714285711"/>
         </scene>
         <!--Edit Event View Controller-->
         <scene sceneID="swU-Of-h8n">
@@ -777,6 +826,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="80p-6Z-fgV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2328.985507246377" y="1167.8571428571429"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="jNk-AP-NaK">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="NpD-mp-YaT" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="7c0-4z-kmh"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="aFL-Vo-L7M">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="qNF-qh-XLE"/>
+                        <segue destination="mrt-uJ-lFR" kind="relationship" relationship="viewControllers" id="83J-E7-mrm"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ncS-e3-n5G" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-433.33333333333337" y="383.70535714285711"/>
         </scene>
     </scenes>
     <color key="tintColor" red="0.027450980390000001" green="0.27058823529999998" blue="0.43529411759999997" alpha="1" colorSpace="calibratedRGB"/>
